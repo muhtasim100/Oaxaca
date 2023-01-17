@@ -30,6 +30,6 @@ CREATE TABLE IF NOT EXISTS Reviews(
     reviewID INT PRIMARY KEY,
     timeReview Date,
     starReview INT,
-  	Fk_User_id INT,
-  	FOREIGN KEY (Fk_User_ID) REFERENCES Person(User_ID)
+    Fk_User_id INT,
+    FOREIGN KEY (Fk_User_ID) REFERENCES Person(User_ID)
 );
