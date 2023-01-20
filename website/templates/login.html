@@ -2,13 +2,13 @@
 <html>
 <title>Oaxaca - Login</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-<link rel="stylesheet" href="styles.css"> 
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"> 
 
 <div class="logo-container">
-    <img src="Logo.svg" alt="logo">
+    <img src="{{ url_for('static', filename='images/Logo.svg') }}" alt="logo">
 </div>
 
-<br></br>
+<br>
 
 <body>
 <div class="login-form">
