@@ -1,24 +1,51 @@
 <!DOCTYPE html>
 <html>
+<title>Oaxaca - Login</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<link rel="stylesheet" href="styles.css"> 
 
-<head>
-</head>
-    
-<body>
-    <h1>LOG IN</h1>
-
-    <label for="fname">Your Name:</label>
-    <input type="text" id="fname" name="fname"><br><br>
-
-    <label for="email">Your Email:</label>
-    <input type="text" id="email" name="email"><br><br>
-
-    <label for="pwd">Your Password:</label>
-    <input type="password" id="pwd" name="pwd" minlength="8"><br><br>
-    <input type="submit" value="Log in">
-
-    <img src="Vector Log.svg" alt="restaurant image">
+<div class="logo-container">
     <img src="Logo.svg" alt="logo">
-</body>
+</div>
 
+<br></br>
+
+<body>
+<div class="login-form">
+  <form>
+    <h1>Log In</h1>
+    <div class="content">
+
+        <div class="input-field">
+            <input id="name" type="name" class="icon" value placeholder="Your Name" autocomplete="given-name">
+        </div>
+
+      <div class="input-field">
+        <input id="email" type="email" class="icon2" value placeholder="Your Email" autocomplete="nope">
+      </div>
+
+      <div class="input-field">
+        <input id="password" type="password" class="icon3" value placeholder="Your Password" autocomplete="nope">
+      </div>
+      <input type="checkbox" onclick="myFunction()">Show Password</input>
+      <script>
+        function myFunction() {
+            var x = document.getElementById("password");
+            if (x.type === "password") {
+              x.type = "text";
+            } else {
+              x.type = "password";
+            }
+          }
+    </script>
+    </div>
+
+    <div class="action">
+      <button>Register</button>
+      <button>Sign in</button>
+    </div>
+  </form>
+</div>
+</body>
 </html>
+
