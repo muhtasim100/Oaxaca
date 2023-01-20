@@ -133,19 +133,19 @@ body {
        url('../fonts/Poppins-Bold.ttf') format('truetype');
 }
 
-.login-form .input-field .icon {
+.login-form .input-field#nameField {
   padding-left: 25px;
   background: url("https://img.icons8.com/ios-glyphs/512/user--v1.png") no-repeat left;
   background-size: 20px;
 }
 
-.login-form .input-field .icon2 {
+.login-form .input-field#emailField {
   padding-left: 25px;
   background: url("https://img.icons8.com/ios-glyphs/512/secured-letter.png") no-repeat left;
   background-size: 20px;
 }
 
-.login-form .input-field .icon3 {
+.login-form .input-field#passwordField {
   padding-left: 25px;
   background: url("https://img.icons8.com/ios-glyphs/512/keyhole-shield.png") no-repeat left;
   background-size: 20px;

@@ -2,34 +2,38 @@
 <html>
 <title>Oaxaca - Login</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"> 
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 
 <div class="logo-container">
-    <img src="{{ url_for('static', filename='images/Logo.svg') }}" alt="logo">
+  <img src="{{ url_for('static', filename='images/Logo.svg') }}" alt="logo">
 </div>
 
 <br>
 
 <body>
-<div class="login-form">
-  <form>
-    <h1>Log In</h1>
-    <div class="content">
+  <div class="login-form">
+    <form>
+      <h1>Log In</h1>
+      <div class="content">
 
-        <div class="input-field">
-            <input id="name" type="name" class="icon" value placeholder="Your Name" autocomplete="given-name">
+        <div id="nameField" class="input-field">
+          <i></i>
+          <input id="name" type="name" value placeholder="Your Name" autocomplete="given-name">
         </div>
 
-      <div class="input-field">
-        <input id="email" type="email" class="icon2" value placeholder="Your Email" autocomplete="nope">
-      </div>
+        <div id="emailField" class="input-field">
+          <i></i>
+          <input id="email" type="email" value placeholder="Your Email" autocomplete="nope">
+        </div>
 
-      <div class="input-field">
-        <input id="password" type="password" class="icon3" value placeholder="Your Password" autocomplete="nope">
-      </div>
-      <input type="checkbox" onclick="myFunction()">Show Password</input>
-      <script>
-        function myFunction() {
+        <div id="passwordField" class="input-field">
+          <i></i>
+          <input id="password" type="password" value placeholder="Your Password" autocomplete="nope">
+        </div>
+
+        <input type="checkbox" onclick="myFunction()">Show Password</input>
+        <script>
+          function myFunction() {
             var x = document.getElementById("password");
             if (x.type === "password") {
               x.type = "text";
@@ -37,15 +41,14 @@
               x.type = "password";
             }
           }
-    </script>
-    </div>
+        </script>
+      </div>
 
-    <div class="action">
-      <button>Register</button>
-      <button>Sign in</button>
-    </div>
-  </form>
-</div>
+      <div class="action">
+        <button>Register</button>
+        <button>Sign in</button>
+      </div>
+    </form>
+  </div>
 </body>
 </html>
-
