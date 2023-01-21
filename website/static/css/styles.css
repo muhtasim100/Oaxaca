@@ -25,10 +25,21 @@ body {
 
 /* Login Page CSS */
 
+.login-content {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 90px auto;
+}
+
+.login-content #peopleImage {
+  margin-top: 0px;
+  margin-right: 80px;
+}
+
 .login-form {
   background: #fff;
   width: 500px;
-  margin: 65px auto;
   display: -webkit-box;
   display: flex;
   -webkit-box-orient: vertical;
@@ -150,3 +161,23 @@ body {
        url('../fonts/Poppins-Bold.ttf') format('truetype');
 }
 
+/* Responsive layout - makes a one column layout instead of a two-column layout */
+@media screen and (max-width: 800px) {
+  .login-content {
+    flex-direction: column-reverse;
+    margin: 90px auto;
+    align-items: center; 
+  }
+
+  .login-content #peopleImage {
+    margin-top: 80px;
+    margin-right: 0px;
+    max-width: 50%;
+    height: auto;
+  }
+
+  .login-form {
+    width: auto;
+    min-width: 300px;
+  }
+}
