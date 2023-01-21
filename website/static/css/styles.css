@@ -7,7 +7,7 @@
     margin-bottom: 100px;
 }
 
-img{
+.logo-container img{
     width:150px;
     height:auto;
 }
@@ -23,6 +23,7 @@ body {
   font-family: 'Poppins-Regular', sans-serif;
 }
 
+/* Login Page CSS */
 
 .login-form {
   background: #fff;
@@ -45,20 +46,31 @@ body {
   text-align: center;
 }
 .login-form .input-field {
+  border-bottom: 1px solid #747474;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   padding: 12px 5px;
 }
 .login-form .input-field input {
-  font-size: 16px;
+  border: 0;
   display: block;
   font-family: 'Rubik', sans-serif;
+  font-size: 16px;
   width: 100%;
-  padding: 10px 1px;
-  border: 0;
-  border-bottom: 1px solid #747474;
   outline: none;
-  -webkit-transition: all .2s;
+  padding: 10px 1px;
   transition: all .2s;
+  text-indent: 10px;
+  -webkit-transition: all .2s;
 }
+
+.login-form .input-field img {
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
 .login-form .input-field input::-webkit-input-placeholder {
   text-transform: uppercase;
 }
@@ -133,20 +145,3 @@ body {
        url('../fonts/Poppins-Bold.ttf') format('truetype');
 }
 
-.login-form .input-field#nameField {
-  padding-left: 25px;
-  background: url("https://img.icons8.com/ios-glyphs/512/user--v1.png") no-repeat left;
-  background-size: 20px;
-}
-
-.login-form .input-field#emailField {
-  padding-left: 25px;
-  background: url("https://img.icons8.com/ios-glyphs/512/secured-letter.png") no-repeat left;
-  background-size: 20px;
-}
-
-.login-form .input-field#passwordField {
-  padding-left: 25px;
-  background: url("https://img.icons8.com/ios-glyphs/512/keyhole-shield.png") no-repeat left;
-  background-size: 20px;
-}
