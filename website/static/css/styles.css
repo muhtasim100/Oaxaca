@@ -71,6 +71,11 @@ body {
   margin-bottom: auto;
 }
 
+.login-form .input-field img#eyeIcon:hover {
+  filter: invert(50%);
+  cursor: pointer;
+}
+
 .login-form .input-field input::-webkit-input-placeholder {
   text-transform: uppercase;
 }

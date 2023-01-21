@@ -29,19 +29,10 @@
         <div id="passwordField" class="input-field">
           <img src="https://img.icons8.com/ios-glyphs/512/keyhole-shield.png" width="20" height="20" alt="Padlock Icon">
           <input id="password" type="password" value placeholder="Your Password" autocomplete="nope">
+          <img id="eyeIcon" src="{{ url_for('static', filename='images/show.svg') }}" alt="Eye Icon"
+            onclick="togglePassword()">
         </div>
 
-        <input type="checkbox" onclick="myFunction()">Show Password</input>
-        <script>
-          function myFunction() {
-            var x = document.getElementById("password");
-            if (x.type === "password") {
-              x.type = "text";
-            } else {
-              x.type = "password";
-            }
-          }
-        </script>
       </div>
 
       <div class="action">
@@ -50,5 +41,7 @@
       </div>
     </form>
   </div>
+  <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </body>
+
 </html>
