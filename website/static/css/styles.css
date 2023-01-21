@@ -87,21 +87,8 @@ body {
   cursor: pointer;
 }
 
-.login-form .input-field input::-webkit-input-placeholder {
-  text-transform: uppercase;
-}
-.login-form .input-field input::-moz-placeholder {
-  text-transform: uppercase;
-}
-.login-form .input-field input:-ms-input-placeholder {
-  text-transform: uppercase;
-}
-.login-form .input-field input::-ms-input-placeholder {
-  text-transform: uppercase;
-}
 .login-form .input-field input::placeholder {
   font-family: 'Poppins-Regular', sans-serif;
-  text-transform: uppercase;
 }
 .login-form .input-field input:focus {
   border-color: #222;
@@ -162,7 +149,7 @@ body {
        url('../fonts/Poppins-Bold.ttf') format('truetype');
 }
 
-/* Responsive layout - makes a one column layout instead of a two-column layout */
+/* Login Page CSS - Responsive layout - makes a one column layout instead of a two-column layout */
 @media screen and (max-width: 800px) {
   .login-content {
     flex-direction: column-reverse;
