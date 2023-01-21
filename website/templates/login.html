@@ -1,28 +1,57 @@
-{% extends "base.html" %} {% block title %}Login{% endblock %} {% block content
-  %}
-  <form method="POST">
-    <h3 align="center">Login</h3>
-    <div class="form-group">
-      <label for="email">Email Address</label>
-      <input
-        type="email"
-        class="form-control"
-        id="email"
-        name="email"
-        placeholder="Enter email"
-      />
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <title>Oaxaca - Login</title>
+</head>
+
+<div class="logo-container">
+  <img src="{{ url_for('static', filename='images/Logo.svg') }}" alt="logo">
+</div>
+
+<br>
+
+<body>
+  <div class="login-content">
+    <img id="peopleImage" src="{{ url_for('static', filename='images/Vector Log.svg') }}" alt="People at a table" width="392" height="480">
+    <div class="login-form">
+      <form>
+        <h1>Log In</h1>
+        <div class="content">
+
+          <div id="nameField" class="input-field">
+            <img src="https://img.icons8.com/ios-glyphs/512/user--v1.png" width="20" height="20" alt="Person Icon">
+            <input id="name" type="name" value placeholder="Your Name" autocomplete="given-name">
+          </div>
+
+          <div id="emailField" class="input-field">
+            <img src="https://img.icons8.com/ios-glyphs/512/secured-letter.png" width="20" height="20"
+              alt="Letter Icon">
+            <input id="email" type="email" value placeholder="Your Email" autocomplete="nope">
+          </div>
+
+          <div id="passwordField" class="input-field">
+            <img src="https://img.icons8.com/ios-glyphs/512/keyhole-shield.png" width="20" height="20"
+              alt="Padlock Icon">
+            <input id="password" type="password" value placeholder="Your Password" autocomplete="nope">
+            <img id="eyeIcon" src="{{ url_for('static', filename='images/show.svg') }}" alt="Eye Icon"
+              onclick="togglePassword()">
+          </div>
+
+        </div>
+
+        <div class="action">
+          <button>Register</button>
+          <button>Sign in</button>
+        </div>
+      </form>
     </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input
-        type="password"
-        class="form-control"
-        id="password"
-        name="password"
-        placeholder="Enter password"
-      />
-    </div>
-    <br />
-    <button type="submit" class="btn btn-primary">Login</button>
-  </form>
-  {% endblock %}
+  </div>
+
+  <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+
+</html>
