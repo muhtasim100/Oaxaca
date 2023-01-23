@@ -137,6 +137,12 @@ body {
   border-radius: 15px;
 }
 
+.login-form .flashMessage {
+  padding: 35px 35px 0 35px;
+  color: red;
+
+}
+
 @font-face {
   font-family: 'Poppins-Regular';
   src: url('../fonts/Poppins-Bold.otf') format('opentype'),
