@@ -7,3 +7,6 @@ class Person(db.Model, UserMixin):
     email = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(100))
     permission = db.Column(db.String(100))
+
+    def get_id(self):
+        return self.User_ID

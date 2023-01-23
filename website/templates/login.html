@@ -20,28 +20,34 @@
       width="392" height="480">
     <div class="login-form">
       <h1>Log In</h1>
-      <div id="flashedMessages">
-        <div class="flashMessage">
-          This account already exists. Try to log in!
-        </div>
-      </div>
-      <form>
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              <div id="flashedMessages">
+                {% for category, message in messages %}
+                  <div class="flashMessage {{ category }}">
+                    {{ message }}
+                  </div>
+                {% endfor %}
+              </div>
+          {% endif %}
+        {% endwith %}
+      <form action="{{ url_for('auth.login') }}" method="post">
         <div class="content">
           <div id="nameField" class="input-field">
             <img src="https://img.icons8.com/ios-glyphs/512/user--v1.png" width="20" height="20" alt="Person Icon">
-            <input id="name" type="name" value placeholder="Your Name" autocomplete="given-name">
+            <input id="name" name="name" type="text" placeholder="Your Name" autocomplete="given-name">
           </div>
 
           <div id="emailField" class="input-field">
             <img src="https://img.icons8.com/ios-glyphs/512/secured-letter.png" width="20" height="20"
               alt="Letter Icon">
-            <input id="email" type="email" value placeholder="Your Email" autocomplete="nope">
+            <input id="email" name="email" type="text" placeholder="Your Email" autocomplete="nope">
           </div>
 
           <div id="passwordField" class="input-field">
             <img src="https://img.icons8.com/ios-glyphs/512/keyhole-shield.png" width="20" height="20"
               alt="Padlock Icon">
-            <input id="password" type="password" value placeholder="Your Password" autocomplete="nope">
+            <input id="password" name="password" type="password" placeholder="Your Password" autocomplete="nope">
             <img id="eyeIcon" src="{{ url_for('static', filename='images/show.svg') }}" alt="Eye Icon"
               onclick="togglePassword()">
           </div>
@@ -49,8 +55,8 @@
         </div>
 
         <div class="action">
-          <button>Register</button>
-          <button>Sign in</button>
+          <button type="submit" formaction="{{ url_for('auth.signup') }}">Register</button>
+          <button type="submit" formaction="{{ url_for('auth.login') }}">Sign In</button>
         </div>
       </form>
     </div>

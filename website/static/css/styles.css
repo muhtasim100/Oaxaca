@@ -137,10 +137,16 @@ body {
   border-radius: 15px;
 }
 
-.login-form .flashMessage {
+.login-form .flashMessage.error {
   padding: 35px 35px 0 35px;
   color: red;
+  font-family: 'Poppins-Regular', 'sans-serif';
+}
 
+.login-form .flashMessage.success {
+  padding: 35px 35px 0 35px;
+  color: green;
+  font-family: 'Poppins-Regular', 'sans-serif';
 }
 
 @font-face {
