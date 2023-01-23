@@ -9,14 +9,16 @@
 </head>
 
 <div class="logo-container">
+  <a href="{{ url_for('views.home') }}">
   <img src="{{ url_for('static', filename='images/Logo.svg') }}" alt="logo">
+  </a>
 </div>
 
 <br>
 
 <body>
   <div class="login-content">
-    <img id="peopleImage" src="{{ url_for('static', filename='images/Vector Log.svg') }}" alt="People at a table"
+      <img id="peopleImage" src="{{ url_for('static', filename='images/Vector Log.svg') }}" alt="People at a table"
       width="392" height="480">
     <div class="login-form">
       <h1>Log In</h1>

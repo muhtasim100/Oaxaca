@@ -137,7 +137,7 @@ body {
   border-radius: 15px;
 }
 
-.login-form .flashMessage.error {
+.login-form .flashMessage {
   padding: 35px 35px 0 35px;
   color: red;
   font-family: 'Poppins-Regular', 'sans-serif';
