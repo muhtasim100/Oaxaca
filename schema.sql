@@ -1,31 +1,21 @@
-CREATE TABLE IF NOT EXISTS Customer(
-    UserId INT PRIMARY KEY,
-    Name VARCHAR(100) NOT NULL,
-    Email VARCHAR(100) NOT NULL UNIQUE,
-    Password VARCHAR(100) NOT NULL,
-    Status VARCHAR(100),
-    PaymentId VARCHAR(100) UNIQUE,
-    Fk_OrderId INT,
-    FOREIGN KEY (Fk_OrderId) REFERENCES Orders(OrderId) 
-);
 
 CREATE TABLE IF NOT EXISTS customer_table(
     TableId INT PRIMARY KEY,
     Seats INT,
-    Availability BOOLEAN,
+    Availabile BOOLEAN,
     EstimatedWaiting TIME,
     Fk_UserId INT,
     FOREIGN KEY (Fk_UserId) REFERENCES Customer(UserId)
 );
 
-CREATE TABLE IF NOT EXISTS Staff(
-    StaffId INT PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS User(
+    UserId INT PRIMARY KEY,
+    UserName VARCHAR(100) NOT NULL,
+    Email VARCHAR(100) NOT NULL UNIQUE,
+    UserPassword VARCHAR(100) NOT NULL,
     Fk_Table_Id INT,
     Fk_OrderID INT,
-    PaymentDate DATE,
     permission VARCHAR(100),
-    Amount PRECISION DECIMAL(6,2),
-    PaymentType VARCHAR(100),
     FOREIGN KEY (Fk_Table_Id) REFERENCES customer_table(TableId),
     FOREIGN KEY (Fk_OrderId) REFERENCES Orders(OrderId)
 );
