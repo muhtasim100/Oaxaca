@@ -11,30 +11,7 @@ class Person(db.Model):
     Status = db.Column(db.String(100))
     PaymentId = db.Column(db.String(100),nullable=True, unique=True)
     Fk_OrderId = db.Column(db.Integer, db.ForeignKey('Orders.OrderId'))
-    def get_UserId(self):
-        return self.UserId
-    def set_UserId(self, UserId):
-        self.UserId = UserId
-    def get_Name(self):
-        return self.Name
-    def set_Name(self, Name):
-        self.Name = Name
-    def get_Email(self):
-        return self.Email
-    def set_Email(self, Email):
-        self.Email = Email
-    def get_Password(self):
-        return self.Password
-    def set_Password(self, Password):
-        self.Password = Password
-    def get_Status(self):
-        return self.Status
-    def set_Status(self, Status):
-        self.Status = Status
-    def get_PaymentId(self):
-        return self.PaymentId
-    def set_PaymentId(self, PaymentId):
-        self.PaymentId = PaymentId
+    
 
 class customer_table(db.Model):
     __tablename__ = 'customer_table'
