@@ -1,6 +1,4 @@
 :root {
-  font-size: 20px;
-  font-family: 'Poppins-Regular', sans-serif;
   --text-primary: #000000;
   --text-secondary: #ececec;
   --bg-primary: #9EC2CC;
@@ -14,6 +12,8 @@ body {
 }
 
 .navbar {
+  font-size: 24px;
+  font-family: 'Poppins-Regular', sans-serif;
   top: 0;
   width: auto;
   padding: 0 20px;
@@ -35,12 +35,8 @@ body {
   height: 100%;
 }
 
-.navbar:hover {
-  /* width: 16rem; */
-}
-
 .navbar:hover .user-profile {
-  padding-left: 2rem;
+  padding-left: 1rem;
   margin-bottom: 1rem;
 }
 
@@ -55,7 +51,7 @@ body {
 }
 
 .navbar:hover .user-profile .summary-text-small {
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .navbar:hover .link-text {
@@ -67,6 +63,15 @@ body {
 .navbar:hover .menu-icon {
   width: 45%;
   margin-left: 100%;
+}
+
+.navbar:hover .nav-link {
+  padding-bottom: 2.5rem;
+}
+
+.navbar:hover .nav-link img {
+  width: 24px;
+  height: 24px;
 }
 
 .nav-item {
@@ -81,6 +86,11 @@ body {
   padding-bottom: 2rem;
   text-decoration: none;
   transition: var(--transition-speed);
+}
+
+.nav-link img {
+  width: 35px;
+  height: 35px;
 }
 
 .nav-link:hover {
