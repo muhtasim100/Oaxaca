@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <head>
+        <title>Oaxaca - Home</title>
+        
+    </head>
+
+    <div class="mainlogo-container-parent">
+        <div class="mainlogo-container-child"> <img src="Logo.svg" alt="logo"></div>
+    </div>
+
+    <div class="belowlogo-container-parent">
+        <div class="belowlogo-container-child"> <img src="belowLogo.svg" alt="logo"></div>
+    </div>
+
+    <div class= "blue-border"> 
+        height: 100%;
+    </div>
+
+    <div class="action">
+        <button1 type="submit" formaction="{{ url_for('auth.signup') }}">View Menu</button1>
+        <button type="submit" formaction="{{ url_for('auth.login') }}">Call a waiter</button>
+    </div>
+    
+
+</html>
