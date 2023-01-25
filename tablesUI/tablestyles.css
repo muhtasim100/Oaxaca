@@ -1,0 +1,140 @@
+
+  .top-header {
+    background: #9EC2CC;
+    padding: 45px 0px;
+    margin: -1%;
+  }
+  
+  .container {
+  max-width: 720px;
+  max-height: fit-content;
+  }
+  
+  .action .table1_btn {
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    background: #9EC2CC;
+    outline: 0;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    border-radius: 15px;
+    position: absolute;
+    top: 28%;
+    left: 8%;
+    box-shadow: 5px 5px 5px rgb(187, 187, 187)
+  }
+
+  .table1_btn:hover{
+    background-color: #9EC2CC;
+  }
+
+  .table1_btn:active{
+    transform: translatey(5px);
+    box-shadow:0px 0px 0px 0px rgb(187, 187, 187)
+  }
+  
+  .toplogo-container-parent .img{
+    width:150px;
+    height:auto;
+  }
+  
+  .toplogo-container-child {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    margin-bottom: 100px;
+  }
+  
+  @font-face {
+    font-family: 'Sans-Regular';
+    src: url('../Ravager-Sans-Regular.ttf') format('truetype');
+  }
+  
+  .dropdown {
+    min-width: 20em;
+    position: absolute;
+    top: 12%;
+    left: 6.3%;
+    margin: 2em;
+  }
+  
+  .dropdown * {
+    box-sizing: border-box;
+  }
+  
+  .select {
+    background: #cfd2da;
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px #535353 solid;
+    border-radius: 1.75em;
+    padding: 1em;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .select-clicked {
+    border: 2px #535353 solid;
+    box-shadow: 0 0 0.8em #535353;
+  }
+  
+  .select:hover {
+    background: #9EC2CC;
+  }
+  
+  .caret {
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 6px solid rgb(44, 44, 44);
+    transition: 0.3s;
+  }
+  
+  .caret-rotate {
+    transform: rotate(180deg);
+  }
+  
+  .menu {
+    list-style: none;
+    padding: 0.2em 0.5em;
+    background: #cfd2da;
+    border: 1px #363a43 solid;
+    box-shadow: 0 0.5em  1em rgba(255, 255, 255, 0.2);
+    border-radius: 0.5em;
+    color: #000000;
+    position: absolute;
+    top: 3em;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    opacity: 0;
+    display: none;
+    transition: 0.2s;
+    z-index: 1;
+  }
+  
+  .menu li {
+    padding: 0.7em 0.5em;
+    margin: 0.3em 0;
+    border-radius: 0.5em;
+    cursor: pointer;
+  }
+  
+  .menu li:hover {
+    background: #9EC2CC; 
+  }
+  
+  .active {
+    background: #cfd2da;
+  }
+  
+  .menu-open {
+    display: block;
+    opacity: 1;
+  }
