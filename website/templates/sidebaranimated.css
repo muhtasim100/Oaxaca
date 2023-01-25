@@ -63,10 +63,6 @@ body {
   margin-left: 100%;
 }
 
-.navbar:hover .nav-link {
-  padding-bottom: 2.5rem;
-}
-
 .navbar:hover .nav-link img {
   width: 24px;
   height: 24px;
@@ -81,7 +77,7 @@ body {
   color: var(--text-primary);
   display: flex;
   filter: grayscale(0%) opacity(1);
-  padding-bottom: 2rem;
+  padding-bottom: 2.5rem;
   text-decoration: none;
   transition: var(--transition-speed);
 }
