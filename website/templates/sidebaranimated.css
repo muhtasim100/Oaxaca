@@ -1,6 +1,6 @@
 :root {
-  font-size: 16px;
-  font-family: 'Poppins-Regular';
+  font-size: 20px;
+  font-family: 'Poppins-Regular', sans-serif;
   --text-primary: #000000;
   --text-secondary: #ececec;
   --bg-primary: #9EC2CC;
@@ -36,31 +36,33 @@ body {
 }
 
 .navbar:hover {
-  width: 16rem;
+  /* width: 16rem; */
 }
 
 .navbar:hover .user-profile {
+  padding-left: 2rem;
   margin-bottom: 1rem;
-  margin-left: -30%;
 }
 
 .navbar:hover .user-profile img {
-  width: 100%;
-  height: 100%;
+  transform: scale(2);
 }
 
-.navbar:hover .user-profile div {
+.navbar:hover .user-profile .summary-text {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  padding-left: 2rem;
+}
+
+.navbar:hover .user-profile .summary-text-small {
+  font-size: 12px;
 }
 
 .navbar:hover .link-text {
   display: inline;
+  margin-left: 1rem;
 }
 
-.navbar:hover .summary-text {
-  display: inline;
-}
 
 .navbar:hover .menu-icon {
   width: 45%;
@@ -71,16 +73,12 @@ body {
   width: 100%;
 }
 
-.nav-item:last-child {
-  margin-top: auto;
-}
-
 .nav-link {
   align-items: center;
   color: var(--text-primary);
   display: flex;
   filter: grayscale(0%) opacity(1);
-  height: 5rem;
+  padding-bottom: 2rem;
   text-decoration: none;
   transition: var(--transition-speed);
 }
@@ -90,19 +88,20 @@ body {
   filter: grayscale(100%) opacity(0.7);
 }
 
+
+
 .link-text {
   display: none;
-  margin-left: 1rem;
 }
 
-.navbar .user-profile div {
+.navbar .user-profile .summary-text {
   display: none;
 }
 
 .menu-icon {
   background: var(--bg-secondary);
   color: var(--text-secondary);
-  margin-bottom: 2rem;
+  padding-top: 1.5rem;
 }
 
 
@@ -133,8 +132,7 @@ body {
 
 @font-face {
   font-family: 'Poppins-Regular';
-  src: url('Poppins-Bold.otf') format('opentype'),
-    url('Poppins-Regular.ttf') format('truetype');
+  src: url('Poppins-Regular.ttf') format('truetype');
 }
 
 @font-face {
