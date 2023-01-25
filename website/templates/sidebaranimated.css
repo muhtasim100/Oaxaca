@@ -15,12 +15,24 @@ body {
 
 .navbar {
   top: 0;
-  width: 5rem;
+  width: auto;
+  padding: 0 20px;
   height: 100vh;
   position: fixed;
   background-color: var(--bg-primary);
   transition: width 600ms ease;
   overflow: scroll;
+}
+
+.navbar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  height: 100%;
 }
 
 .navbar:hover {
@@ -31,18 +43,10 @@ body {
   display: inline;
 }
 
-.navbar:hover .logo {
+.navbar:hover .menu-icon {
+  width:45%;
+  /* margin-left:-15px; */
   margin-left: 100%;
-}
-
-.navbar-nav {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
 }
 
 .nav-item {
@@ -73,22 +77,10 @@ body {
   margin-left: 1rem;
 }
 
-.nav-link svg {
-  width: 2rem;
-  min-width: 2rem;
-  margin: 0 1.5rem;
-}
-
-.logo {
-  font-weight: bold;
-  text-transform: uppercase;
+.menu-icon {
   margin-bottom: 1rem;
   color: var(--text-secondary);
   background: var(--bg-secondary);
-  font-size: 1.5rem;
-  letter-spacing: 0.3ch;
-  width:45%;
-  margin-left:-15px;
 }
 
 
