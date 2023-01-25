@@ -11,8 +11,7 @@ class User(db.Model):
     UserPassword = db.Column(db.String(100), nullable=True)
     Status = db.Column(db.String(100))
     PaymentId = db.Column(db.String(100), nullable=True, unique=True)
-    Fk_Table_Id = db.Column(
-        db.Integer, db.ForeignKey('customer_table.TableId'))
+    Fk_Table_Id = db.Column(db.Integer, db.ForeignKey('customer_table.TableId'))
     Fk_OrderID = db.Column(db.Integer, db.ForeignKey('Orders.OrderId'))
     Permission = db.Column(db.String(100))
 
