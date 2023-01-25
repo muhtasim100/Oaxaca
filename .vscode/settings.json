@@ -1,5 +1,6 @@
 {
     "ecl.launchConfiguration": "not found",
     "ecl.targetCluster": {},
-    "python.formatting.provider": "black"
+    "python.formatting.provider": "black",
+    "liveServer.settings.port": 5501
 }
