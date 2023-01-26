@@ -5,7 +5,12 @@ window.onload = function () {
     var content = document.getElementsByClassName("content")[0];
     originalSidebarWidth = 40;
     nav.style.width = originalSidebarWidth + "px";
-    content.style.marginLeft = originalSidebarWidth + "px";
+
+    if (!isScreenSmall()) {
+        content.style.marginLeft = originalSidebarWidth + "px";
+    } else {
+        content.style.marginLeft = "0px";
+    }
 }
 
 function toggleSidebar() {
@@ -14,7 +19,13 @@ function toggleSidebar() {
 
     if (nav.classList.contains("expand")) {
         nav.style.width = originalSidebarWidth + "px";
-        content.style.marginLeft = originalSidebarWidth + "px";
+        
+        if (!isScreenSmall()) {
+            content.style.marginLeft = originalSidebarWidth + "px";
+        } else {
+            content.style.marginLeft = "0px";
+        }
+
         nav.classList.remove("expand");
     } else {
         nav.style.width = "16rem";

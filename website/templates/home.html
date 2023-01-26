@@ -7,16 +7,18 @@
 {% endblock %}
 
 {% block content %}
-  <div class="mainlogo-container-parent">
-    <img src="{{ url_for('static', filename='images/Logo.svg') }}" alt="logo">
-  </div>
-
-  <div class="belowlogo-container-parent">
-    <img src="{{ url_for('static', filename='images/home/belowLogo.svg') }}" alt="belowlogo">
-  </div>
-
-  <div class="action">
-    <button class="menubutton" type="submit">View Menu</button>
-    <button class="waiterbutton" type="submit">Call a waiter</button>
+  <div class="home-content">
+    <div class="mainlogo-container-parent">
+      <img src="{{ url_for('static', filename='images/Logo.svg') }}" alt="logo">
+    </div>
+    
+    <div class="belowlogo-container-parent">
+      <img src="{{ url_for('static', filename='images/home/belowLogo.svg') }}" alt="belowlogo">
+    </div>
+    
+    <div class="action">
+      <button class="menubutton" type="submit">View Menu</button>
+      <button class="waiterbutton" type="submit">Call a waiter</button>
+    </div>
   </div>
 {% endblock %}
