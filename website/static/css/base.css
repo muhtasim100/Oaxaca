@@ -19,6 +19,28 @@
   src: url('../fonts/Poppins-Bold.otf') format('opentype');
 }
 
+@font-face {
+  font-family: 'Sans-Regular';
+  src: url('../fonts/Ravager-Sans-Regular.ttf') format('truetype');
+}
+
+/* Top of website */
+
+.toplogo-container-parent {
+  width: 100vw;
+  height: 10%;
+  background: var(--bg-primary);
+  display: flex;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+.toplogo-container-parent img {
+  transform: scale(0.9);
+}
+
 /* Sidebar CSS */
 
 .navbar {
@@ -114,8 +136,12 @@
 }
 
 div.content {
-  margin: 0 auto;
-  text-align: center;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Sidebar small screens */

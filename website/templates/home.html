@@ -1,12 +1,22 @@
 {% extends "base.html" %}
 {% block head %}
-<title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+  <title>
     Oaxaca - Home
-</title>
+  </title>
 {% endblock %}
 
 {% block content %}
-  <h1>
-    Sample homepage
-  </h1>
+  <div class="mainlogo-container-parent">
+    <img src="{{ url_for('static', filename='images/Logo.svg') }}" alt="logo">
+  </div>
+
+  <div class="belowlogo-container-parent">
+    <img src="{{ url_for('static', filename='images/home/belowLogo.svg') }}" alt="belowlogo">
+  </div>
+
+  <div class="action">
+    <button class="menubutton" type="submit">View Menu</button>
+    <button class="waiterbutton" type="submit">Call a waiter</button>
+  </div>
 {% endblock %}
