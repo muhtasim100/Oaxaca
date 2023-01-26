@@ -19,5 +19,5 @@ function toggleSidebar() {
 
 function isScreenSmall() {
     var displayWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-    return displayWidth < 600;
+    return displayWidth < 800;
 }
