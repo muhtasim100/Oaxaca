@@ -15,7 +15,7 @@
   position: fixed;
   background-color: var(--bg-primary);
   transition: width 600ms ease;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .navbar-nav {
@@ -24,7 +24,6 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-items: center;
   height: 100%;
 }
@@ -99,22 +98,16 @@
   margin-left: 1rem;
 }
 
-
 /* Small screens */
 @media only screen and (max-width: 600px) {
-  .navbar {
-    bottom: 0;
-    width: 100vw;
-    height: 5rem;
+  .navbar .nav-item:not(.hamburger-icon) a {
+    visibility: hidden;
   }
 
-  .navbar-nav {
-    flex-direction: row;
+  .navbar.expand .nav-item:not(.hamburger-icon) a {
+    visibility: visible;
   }
 
-  .nav-link {
-    justify-content: center;
-  }
 }
 
 @font-face {
