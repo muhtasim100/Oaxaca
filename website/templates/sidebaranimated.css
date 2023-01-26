@@ -10,7 +10,6 @@
   left: 0;
   font-size: 24px;
   font-family: 'Poppins-Regular', sans-serif;
-  width: auto;
   padding: 0 20px;
   height: 100vh;
   position: fixed;
@@ -28,41 +27,6 @@
   align-items: center;
   justify-items: center;
   height: 100%;
-}
-
-.navbar.expand .user-profile {
-  padding-left: 1rem;
-  margin-bottom: 1rem;
-}
-
-.navbar.expand .user-profile img {
-  transform: scale(2);
-}
-
-.navbar.expand .user-profile .summary-text {
-  display: flex;
-  flex-direction: column;
-  padding-left: 2rem;
-}
-
-.navbar.expand .user-profile .summary-text-small {
-  font-size: 13px;
-}
-
-.navbar.expand .link-text {
-  display: inline;
-  margin-left: 1rem;
-}
-
-
-.navbar.expand .menu-icon {
-  width: 45%;
-  margin-left: 100%;
-}
-
-.navbar.expand .nav-link img {
-  width: 24px;
-  height: 24px;
 }
 
 .nav-item {
@@ -97,18 +61,42 @@
   display: none;
 }
 
-.menu-icon {
+.hamburger-icon {
   background: var(--bg-secondary);
   color: var(--text-secondary);
   padding-top: 1.5rem;
 }
 
+.navbar.expand .nav-item:not(.hamburger-icon) img {
+  width: 24px;
+  height: 24px;
+}
 
-.logo-text {
+.navbar.expand .hamburger-icon img {
+  margin-left: 85%;
+}
+
+.navbar.expand .user-profile {
+  padding-left: 1rem;
+}
+
+.navbar.expand .user-profile img {
+  transform: scale(2);
+}
+
+.navbar.expand .user-profile .summary-text {
+  display: flex;
+  flex-direction: column;
+  padding-left: 2rem;
+}
+
+.navbar.expand .user-profile .summary-text-small {
+  font-size: 13px;
+}
+
+.navbar.expand .link-text {
   display: inline;
-  position: absolute;
-  left: -999px;
-  transition: var(--transition-speed);
+  margin-left: 1rem;
 }
 
 
