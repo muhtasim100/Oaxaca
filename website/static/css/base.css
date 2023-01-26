@@ -1,3 +1,5 @@
+/* Base CSS */
+
 :root {
   --bg-primary: #9EC2CC;
   --bg-secondary: #9EC2CC;
@@ -16,6 +18,8 @@
   font-family: 'Poppins-Bold';
   src: url('../fonts/Poppins-Bold.otf') format('opentype');
 }
+
+/* Sidebar CSS */
 
 .navbar {
   top: 0;
