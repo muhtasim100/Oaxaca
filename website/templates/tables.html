@@ -1,28 +1,15 @@
 {% extends "base.html" %}
 {% block head %}
-<!DOCTYPE html>
-<html lang="en">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/tablestyles.css') }}">
 
-    <head>
         <title>Oaxaca - Home</title>
-        
-    </head>
 {% endblock %}
 
 {% block content %}
+    <div class="table-page content">
+
     <div class="action">
         <button class="table1_btn" type="submit" ><img src="{{ url_for('static', filename='images/tables/BTN1.svg') }}" width="259.21" height="228.3" alt="btn1"></button>
-    </div>
-
-    <div class="top-header">
-        <div class="container"></div>
-    </div>
-    
-    <div class="toplogo-container-parent">
-        <div class="toplogo-container-child"> <img src="{{ url_for('static', filename='images/tables/topLogo.svg') }}" width="150" alt="toplogo"></div>
     </div>
 
     <div class="dropdown">
@@ -107,8 +94,5 @@
 
 
     <a href="#" class="close-popup-plus"></a>
-
-
-
-</html>
+  </div>
 {% endblock %}
