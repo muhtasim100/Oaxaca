@@ -67,3 +67,5 @@ CREATE TABLE IF NOT EXISTS Reviews(
     FOREIGN KEY (Fk_FoodId) REFERENCES FoodItem(FoodId)
 );
 
+
+
