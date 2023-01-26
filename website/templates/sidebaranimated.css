@@ -5,12 +5,9 @@
   --bg-secondary: #9EC2CC;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-}
-
 .navbar {
+  top: 0;
+  left: 0;
   font-size: 24px;
   font-family: 'Poppins-Regular', sans-serif;
   width: auto;
@@ -33,37 +30,37 @@ body {
   height: 100%;
 }
 
-.navbar:hover .user-profile {
+.navbar.expand .user-profile {
   padding-left: 1rem;
   margin-bottom: 1rem;
 }
 
-.navbar:hover .user-profile img {
+.navbar.expand .user-profile img {
   transform: scale(2);
 }
 
-.navbar:hover .user-profile .summary-text {
+.navbar.expand .user-profile .summary-text {
   display: flex;
   flex-direction: column;
   padding-left: 2rem;
 }
 
-.navbar:hover .user-profile .summary-text-small {
+.navbar.expand .user-profile .summary-text-small {
   font-size: 13px;
 }
 
-.navbar:hover .link-text {
+.navbar.expand .link-text {
   display: inline;
   margin-left: 1rem;
 }
 
 
-.navbar:hover .menu-icon {
+.navbar.expand .menu-icon {
   width: 45%;
   margin-left: 100%;
 }
 
-.navbar:hover .nav-link img {
+.navbar.expand .nav-link img {
   width: 24px;
   height: 24px;
 }
@@ -134,7 +131,7 @@ body {
 
 @font-face {
   font-family: 'Poppins-Regular';
-  src: url('Poppins-Regular.ttf') format('truetype');
+  src: url('Poppins-Regular.otf') format('opentype');
 }
 
 @font-face {
