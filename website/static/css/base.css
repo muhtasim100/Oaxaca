@@ -150,6 +150,10 @@ div.content {
     height: 10%;
   }
 
+  .navbar.expand {
+    height: 100vh;
+  }
+
   .navbar .nav-item:not(.hamburger-icon) a {
     visibility: hidden;
   }
