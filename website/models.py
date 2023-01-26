@@ -3,8 +3,8 @@ from flask_login import UserMixin
 from sqlalchemy.sql import func
 
 
-class User(db.Model):
-    __tablename__ = 'User_table'
+class User(db.Model, UserMixin):
+    __tablename__ = 'User'
     UserId = db.Column(db.Integer, primary_key=True)
     UserName = db.Column(db.String(100), nullable=True)
     Email = db.Column(db.String(100), nullable=True, unique=True)
@@ -15,6 +15,9 @@ class User(db.Model):
     Fk_OrderID = db.Column(db.Integer, db.ForeignKey('Orders.OrderId'))
     Permission = db.Column(db.String(100))
 
+    def get_id(self):
+        return self.UserId
+        
     def get_UserId(self):
         return self.UserId
 
@@ -75,7 +78,7 @@ class Orders(db.Model):
 
 class Menu(db.Model):
     __tablename__ = 'Menu'
-    MenuID = db.Column(db.Integer, primary_key=True)
+    MenuId = db.Column(db.Integer, primary_key=True)
     Price = db.Column(db.DECIMAL(6, 2))
     StartDate = db.Column(db.Date)
     EndDate = db.Column(db.Date)
