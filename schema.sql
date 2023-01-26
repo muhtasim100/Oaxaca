@@ -1,31 +1,20 @@
-CREATE TABLE IF NOT EXISTS Customer(
-    UserId INT PRIMARY KEY,
-    Name VARCHAR(100) NOT NULL,
-    Email VARCHAR(100) NOT NULL UNIQUE,
-    Password VARCHAR(100) NOT NULL,
-    Status VARCHAR(100),
-    PaymentId VARCHAR(100) UNIQUE,
-    Fk_OrderId INT,
-    FOREIGN KEY (Fk_OrderId) REFERENCES Orders(OrderId) 
-);
-
 CREATE TABLE IF NOT EXISTS customer_table(
     TableId INT PRIMARY KEY,
     Seats INT,
-    Availability BOOLEAN,
+    Available BOOLEAN,
     EstimatedWaiting TIME,
     Fk_UserId INT,
-    FOREIGN KEY (Fk_UserId) REFERENCES Customer(UserId)
+    FOREIGN KEY (Fk_UserId) REFERENCES User(UserId)
 );
 
-CREATE TABLE IF NOT EXISTS Staff(
-    StaffId INT PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS User(
+    UserId INT PRIMARY KEY,
+    UserName VARCHAR(100) NOT NULL,
+    Email VARCHAR(100) NOT NULL UNIQUE,
+    UserPassword VARCHAR(100) NOT NULL,
     Fk_Table_Id INT,
     Fk_OrderID INT,
-    PaymentDate DATE,
     permission VARCHAR(100),
-    Amount PRECISION DECIMAL(6,2),
-    PaymentType VARCHAR(100),
     FOREIGN KEY (Fk_Table_Id) REFERENCES customer_table(TableId),
     FOREIGN KEY (Fk_OrderId) REFERENCES Orders(OrderId)
 );
@@ -39,7 +28,7 @@ CREATE TABLE IF NOT EXISTS Orders(
     UnitPrice PRECISION DECIMAL(6,2),
     Fk_UserId INT,
     Fk_TableId INT,
-    FOREIGN KEY (Fk_UserId) REFERENCES Customer(UserId),
+    FOREIGN KEY (Fk_UserId) REFERENCES User(UserId),
     FOREIGN KEY (FoodId) REFERENCES FoodItem(FoodId),
     FOREIGN KEY (Fk_TableId) REFERENCES customer_table(TableId)
 );
@@ -71,5 +60,10 @@ CREATE TABLE IF NOT EXISTS Reviews(
     timeReview Date,
     starReview INT,
     Fk_UserId INT,
-    FOREIGN KEY (Fk_UserId) REFERENCES Customer(UserId)
+    Fk_MenuId INT,
+    Fk_FoodId INT,
+    FOREIGN KEY (Fk_UserId) REFERENCES User(UserId),
+    FOREIGN KEY (Fk_MenuId) REFERENCES Menu(MenuID),
+    FOREIGN KEY (Fk_FoodId) REFERENCES FoodItem(FoodId)
 );
+
