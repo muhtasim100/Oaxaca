@@ -4,9 +4,6 @@ window.onload = function () {
     var nav = document.getElementsByClassName("navbar")[0];
     originalSidebarWidth = 40;
     nav.style.width = originalSidebarWidth + "px";
-    
-    var content = document.getElementsByClassName("content")[0];
-    content.style.marginLeft = nav.style.width;
 }
 
 function toggleSidebar() {

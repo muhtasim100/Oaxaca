@@ -1,15 +1,26 @@
 :root {
-  --text-primary: #000000;
-  --text-secondary: #ececec;
   --bg-primary: #9EC2CC;
   --bg-secondary: #9EC2CC;
+  --text-primary: #000000;
+  --text-secondary: #ececec;
+  font-family: 'Poppins-Regular', sans-serif;
+}
+
+@font-face {
+  font-family: 'Poppins-Regular';
+  src: url('../fonts/Poppins-Regular.otf') format('opentype'),
+       url('../fonts/Poppins-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins-Bold';
+  src: url('../fonts/Poppins-Bold.otf') format('opentype');
 }
 
 .navbar {
   top: 0;
   left: 0;
   font-size: 24px;
-  font-family: 'Poppins-Regular', sans-serif;
   padding: 0 20px;
   height: 100vh;
   position: fixed;
@@ -98,7 +109,12 @@
   margin-left: 1rem;
 }
 
-/* Small screens */
+div.content {
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Sidebar small screens */
 @media only screen and (max-width: 600px) {
   .navbar .nav-item:not(.hamburger-icon) a {
     visibility: hidden;
@@ -108,15 +124,4 @@
     visibility: visible;
   }
 
-}
-
-@font-face {
-  font-family: 'Poppins-Regular';
-  src: url('Poppins-Regular.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'Poppins-Bold';
-  src: url('Poppins-Bold.otf') format('opentype'),
-    url('Poppins-Bold.ttf') format('truetype');
 }
