@@ -309,8 +309,10 @@
 
 
 
+/* ------------------------------------------------------- */
 
-.btn_plus {
+
+.btn-plus {
   position: absolute;
   top: 12%;
   right: 220px;
@@ -323,18 +325,18 @@
   font-weight: 700;
   transition: .3s;
 }
-.btn:hover {
+.btn-plus:hover {
   background-color: #cfd2da;
   color: rgb(0, 0, 0);
 }
-.popup_plus {
+.popup-plus {
   position: relative;
   padding: 10px;
-  width: fit-content;
-  height: fit-content;
+  width: 386px;
+  height: 215px;
   border-radius: 1em;
-  top: 50%;
-  left: 50%;
+  top: 25%;
+  left: 55%;
   color: #000;
   transform: translate(-50%, -50%);
   background-color: rgba(255,255,255,1);
@@ -343,12 +345,12 @@
   transition: opacity .5s, visibility 0s linear .5s;
   z-index: 1;
 }
-.popup_plus:target {
+.popup-plus:target {
   visibility: visible;
   opacity: 1;
   transition-delay: 0s;
 }
-.popup_plus .close {
+.popup-plus .close-plus {
   position: absolute;
   right: 5px;
   top: 5px;
@@ -359,10 +361,10 @@
   line-height: 1.5;
   font-weight: 700;
 }
-.popup_plus .close:hover {
+.popup-plus .close-plus:hover {
   color: #f00;
 }
-.close-popup_plus {
+.close-popup-plus {
   background-color: rgba(0,0,0,.7);
   cursor: default;
   position: fixed;
@@ -374,24 +376,82 @@
   visibility: hidden;
   transition: opacity .5s, visibility 0s linear .5s;
 }
-.popup_plus:target + .close-popup_plus {
+.popup-plus:target + .close-popup-plus {
   opacity: 1;
   visibility: visible;
   transition-delay: 0s;
 }
 
+h2{
+display: block;
+font-weight: 1000;
+}
 
-.popup-content_plus {
-  display: grid;
-  align-items: center;
+.addButton {
+position: absolute;
+top: 75%;
+left: 31.5%;
+display: block;
+width: 150px;
+height: 50px;
+border-radius: 40%;
+border-color: #000000;
+background-color: #9EC2CC;
+transition: .3s;
 }
 
 
-#greenButton {
-  display: grid;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  border-color: rgb(13, 214, 36);
-  background-color: rgb(13, 214, 36);
+.color-btn-container-plus {
+width: 25px;
+height: 25px;
+
+}
+
+
+#available {
+position: absolute;
+top: 126px;
+left: 60px;
+margin: 0;
+display: inline-block;
+}
+
+.popup-content-plus {
+display: grid;
+align-items: center;
+}
+
+
+/* ---------- */
+
+
+.wrapper{
+  position: absolute;
+  top: 45%;
+  left: 24%;
+  width: 220px;
+  background: #fff;
+  padding: 0px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+.wrapper .input-data{
+  height: 40px;
+  width: 100%;
+  position: relative;
+}
+.wrapper .input-data input{
+  height: 100%;
+  width: 100%;
+  border: none;
+  font-size: 17px;
+  border-bottom: 2px solid silver;
+}
+
+.wrapper .input-data label{
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  color: grey;
+  pointer-events: none;
+  transition: all 0.3s ease;
 }
