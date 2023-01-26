@@ -25,17 +25,3 @@
 .belowlogo-container-parent {
   margin-top: 20px;
 }
-
-@media screen and (max-width: 800px) {
-  .top-header {
-    width: 100vh;
-    max-height: fit-content;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-  }
-
-  .toplogo-container-child {
-    display: none;
-  }
-}

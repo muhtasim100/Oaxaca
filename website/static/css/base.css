@@ -11,7 +11,7 @@
 @font-face {
   font-family: 'Poppins-Regular';
   src: url('../fonts/Poppins-Regular.otf') format('opentype'),
-       url('../fonts/Poppins-Regular.ttf') format('truetype');
+    url('../fonts/Poppins-Regular.ttf') format('truetype');
 }
 
 @font-face {
@@ -146,6 +146,10 @@ div.content {
 
 /* Sidebar small screens */
 @media only screen and (max-width: 800px) {
+  .navbar {
+    height: 10%;
+  }
+
   .navbar .nav-item:not(.hamburger-icon) a {
     visibility: hidden;
   }
