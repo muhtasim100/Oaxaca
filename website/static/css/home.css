@@ -32,6 +32,7 @@
 }
 
 .belowlogo-container-parent {
+  display: flex;
   margin-top: 20px;
 }
 
@@ -45,7 +46,10 @@
     margin: 20px 0;
   }
 
-  .belowlogo-container-parent {
-    margin-bottom: 60px;
+  .belowlogo-container-parent img {
+    margin-bottom: 20px;
+    max-width: 98%;
   }
+
+  
 }
