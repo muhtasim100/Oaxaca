@@ -44,28 +44,17 @@ body{
     padding-left: 65px; 
  }
  .box .content{
-    padding: 47px 1px 50px 4px;
+    padding: 45px 1px 50px 4px;
     font-size: 15px;
  }
- .box .content p1{
-    color: black;
-
+ #details{
+   float: left ;
+   width: 138px;
+   text-align: start;
  }
- .box .content p2{
-    color: black;
-    padding-left: 85px;
-    text-align: center;
-    
- }
- .box .content p3{
-    color: black;
-    padding-left: 107px;
-    text-align: center;
-    
- }
- .box .content p4{
-    color: black;
-    padding-left: 102px;
-    text-align: center;
-    
+ #info{
+ float: right;
+ text-align: start;
+ width: 5px;
+ margin-right: 40px;
  }
