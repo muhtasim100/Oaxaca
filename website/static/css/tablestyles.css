@@ -20,7 +20,7 @@
     transition: all .3s;
     border-radius: 15px;
     position: absolute;
-    top: 28%;
+    top: 40%;
     left: 8%;
     box-shadow: 5px 5px 5px rgb(187, 187, 187)
   }
@@ -54,11 +54,13 @@
   }
   
   .dropdown {
-    min-width: 20em;
-    position: absolute;
+    min-width: 10em;
+    /* position: absolute;
     top: 12%;
-    left: 6.3%;
+    left: 6.3%; */
     margin: 2em;
+    width: 40%;
+    
   }
   
   .dropdown * {
@@ -140,7 +142,14 @@
   }
   
 
-
+/* Media Queries */
+@media screen and (min-width: 850px) {
+  .dropdown {
+    min-width: 20em;
+    width: 10%;
+    
+  }
+}
   html, body {
     padding: 0;
     margin: 0;
@@ -148,7 +157,7 @@
     height: 100%;
  }
  body {
-    text-align: center;
+    /* text-align: center; */
     background-color: #fff;
     color: #fff;
     font-family: 'Quicksand', sans-serif;
@@ -158,10 +167,18 @@
     color: rgb(0, 0, 0);
     text-decoration: none;
  }
+ /* dropdown_popups_section */
+ .dropdown-popups_section{
+  display: flex;
+  justify-content:space-between;
+ }
+ .popups_container{
+  margin-right: 2rem;
+ }
  .btn {
-    position: absolute;
+    /* position: absolute;
     top: 12%;
-    right: 100px;
+    right: 100px; */
     padding: 15px 25px;
     border: 1px solid rgb(0, 0, 0);
     border-radius: 20em;
@@ -176,27 +193,29 @@
     color: rgb(0, 0, 0);
  }
  .popup {
-    position: relative;
-    padding: 10px;
-    width: fit-content;
-    height: fit-content;
-    border-radius: 1em;
-    top: 50%;
-    left: 50%;
-    color: #000;
-    transform: translate(-50%, -50%);
-    background-color: rgba(255,255,255,1);
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity .5s, visibility 0s linear .5s;
-    z-index: 1;
+
+
+  padding: 10px;
+  /* 386 */
+ 
+  height: 215px;
+  border-radius: 1em;
+  
+  
+  color: #000;
+
+  background-color: rgba(255,255,255,1);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .5s, visibility 0s linear .5s;
+  z-index: 1;
  }
- .popup:target {
+ .popup-plus:target {
     visibility: visible;
     opacity: 1;
     transition-delay: 0s;
  }
- .popup .close {
+ .popup_position .close {
     position: absolute;
     right: 5px;
     top: 5px;
@@ -207,7 +226,7 @@
     line-height: 1.5;
     font-weight: 700;
  }
- .popup .close:hover {
+ .popup_position .close:hover {
     color: #f00;
  }
  .close-popup {
@@ -222,12 +241,12 @@
     visibility: hidden;
     transition: opacity .5s, visibility 0s linear .5s;
  }
- .popup:target + .close-popup {
+ .popup-plus:target + .close-popup {
     opacity: 1;
     visibility: visible;
     transition-delay: 0s;
  }
-
+/* ------------------------dropdown-section----------------------------------------- */
  h2{
   display: block;
   font-weight: 1000;
@@ -303,8 +322,8 @@
 
 
 .popup-content {
-  display: grid;
-  align-items: center;
+  /* display: grid;
+  align-items: center; */
 }
 
 
@@ -313,9 +332,9 @@
 
 
 .btn-plus {
-  position: absolute;
+  /* position: absolute;
   top: 12%;
-  right: 220px;
+  right: 220px; */
   padding: 15px 25px;
   border: 1px solid rgb(0, 0, 0);
   border-radius: 20em;
@@ -329,28 +348,39 @@
   background-color: #cfd2da;
   color: rgb(0, 0, 0);
 }
+
 .popup-plus {
-  position: relative;
+
   padding: 10px;
-  width: 386px;
+  /* 386 */
+ 
   height: 215px;
   border-radius: 1em;
-  top: 25%;
-  left: 55%;
+  
+  
   color: #000;
-  transform: translate(-50%, -50%);
+
   background-color: rgba(255,255,255,1);
   visibility: hidden;
   opacity: 0;
   transition: opacity .5s, visibility 0s linear .5s;
   z-index: 1;
 }
-.popup-plus:target {
+.popup_position{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 386px;
+
+}
+/* .popup_position:target {
   visibility: visible;
   opacity: 1;
   transition-delay: 0s;
-}
-.popup-plus .close-plus {
+} */
+.popup_position .close-plus {
   position: absolute;
   right: 5px;
   top: 5px;
@@ -361,10 +391,10 @@
   line-height: 1.5;
   font-weight: 700;
 }
-.popup-plus .close-plus:hover {
+.popup_position .close-plus:hover {
   color: #f00;
 }
-.close-popup-plus {
+/* .close-popup {
   background-color: rgba(0,0,0,.7);
   cursor: default;
   position: fixed;
@@ -375,12 +405,12 @@
   opacity: 0;
   visibility: hidden;
   transition: opacity .5s, visibility 0s linear .5s;
-}
-.popup-plus:target + .close-popup-plus {
+} */
+/* .popup_position:target + .close-popup {
   opacity: 1;
   visibility: visible;
   transition-delay: 0s;
-}
+} */
 
 h2{
 display: block;
@@ -398,8 +428,13 @@ border-radius: 40%;
 border-color: #000000;
 background-color: #9EC2CC;
 transition: .3s;
-}
+cursor: pointer;
 
+}
+.addButton:hover{
+  background-color: #64b6cd;
+  color: white;
+}
 
 .color-btn-container-plus {
 width: 25px;
