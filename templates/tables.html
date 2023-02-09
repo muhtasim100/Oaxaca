@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block head %}
-{{ url_for('static', filename='css/tablestyles.css') }}
-    <link rel="stylesheet" href={{ url_for('static', filename='css/tablestyles.css') }}>
+<!-- "{{ url_for('static', filename='css/tablestyles.css') }}" -->
+    <link rel="stylesheet" href="/css/tableStyles.css">
 
         <title>Oaxaca - Home</title>
 {% endblock %}
@@ -10,12 +10,12 @@
     <div class="table-page content">
 
     <div class="action">
-        <button class="table1_btn" type="submit" ><img src="{{ url_for('static', filename='images/tables/BTN1.svg') }}" width="259.21" height="228.3" alt="btn1"></button>
+        <button class="table1_btn" type="submit" ><img src="/images/tables/BTN1.svg" width="259.21" height="228.3" alt="btn1"></button>
     </div>
 
 
 
-      <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    
   
 <!-- dropdown and popus section -->
       <section class="dropdown-popups_section">
@@ -36,7 +36,7 @@
         <!-- popups_container -->
         <div class="popups_container">
           <!-- question_popup -->
-          <a href="#popup" class="btn">?</a>
+          <a href="#popup" class="btn popup-btn">?</a>
           <!-- plus popup -->
           <a href="#popup-plus" class="btn-plus">+</a>
         </div>
@@ -75,11 +75,11 @@
       </div>
     </div>  
 
+<!-- popup ? close-popup -->
+    <a href="#" class="close-popup2"></a>
 
-    <a href="#" class="close-popup"></a>
 
-
-    
+  
     
       <div id="popup-plus" class="popup-plus popup_position">
          <a href="#" class="close-plus">&times;</a>
@@ -105,4 +105,5 @@
 
     <a href="#" class="close-popup"></a>
   </div>
+  <script src="/js/main.js"></script>
 {% endblock %}
