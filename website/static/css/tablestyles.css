@@ -59,6 +59,8 @@
     top: 12%;
     left: 6.3%;
     margin: 2em;
+    width: 40%;
+    
   }
   
   .dropdown * {
@@ -191,7 +193,11 @@
     transition: opacity .5s, visibility 0s linear .5s;
     z-index: 1;
  }
+<<<<<<< HEAD
  .popup:target {
+=======
+ .popup-plus:target {
+>>>>>>> parent of ae23344 (tableui bugs fixed + ful responsiveness)
     visibility: visible;
     opacity: 1;
     transition-delay: 0s;
@@ -222,7 +228,11 @@
     visibility: hidden;
     transition: opacity .5s, visibility 0s linear .5s;
  }
+<<<<<<< HEAD
  .popup:target + .close-popup {
+=======
+ .popup-plus:target + .close-popup {
+>>>>>>> parent of ae23344 (tableui bugs fixed + ful responsiveness)
     opacity: 1;
     visibility: visible;
     transition-delay: 0s;
