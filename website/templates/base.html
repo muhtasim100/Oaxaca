@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    {% block head %}
+    {% endblock %}
+</head>
+
+<body>
+    <div class="toplogo-container-parent">
+        <img src="{{ url_for('static', filename='images/Logo.svg') }}" alt="toplogo">
+    </div>
+
+    <nav class="navbar">
+        <ul class="navbar-nav">
+            <li class="nav-item hamburger-icon" onclick="toggleSidebar()">
+                <a href="#" class="nav-link">
+                    <img src="{{ url_for('static', filename='images/sidebar/hamburger.svg') }}" alt="menubutton">
+                </a>
+            </li>
+
+            <li class="nav-item user-profile">
+                <a href="#" class="nav-link">
+                    <img src="{{ url_for('static', filename='images/sidebar/user-icon.svg') }}" alt="user">
+                    <div class="summary-text">
+                        <div>
+                            Table 2
+                        </div>
+                        <div class="summary-text-small">
+                            Customer
+                        </div>
+                    </div>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <img src="{{ url_for('static', filename='images/sidebar/food-menu-icon.svg') }}" alt="menu">
+                    <span class="link-text">Menu</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <img src="{{ url_for('static', filename='images/sidebar/allergies-icon.svg') }}"
+                        alt="allergies and calories">
+                    <span class="link-text">Allergies and calories</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <img src="{{ url_for('static', filename='images/sidebar/waiter-icon.svg') }}" alt="call a waiter">
+                    <span class="link-text">Call a waiter</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <img src="{{ url_for('static', filename='images/sidebar/checklist-icon.svg') }}" alt="ordered food">
+                    <span class="link-text">Ordered food</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <img src="{{ url_for('static', filename='images/sidebar/payment-icon.svg') }}" alt="payment">
+                    <span class="link-text">Payment</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <img src="{{ url_for('static', filename='images/sidebar/material-symbols_rate-review-outline.svg') }}" alt="review">
+                    <span class="link-text">Reviews</span>
+                </a>
+            </li>
+
+        </ul>
+    </nav>
+
+    <div class="content">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+
+    <script src="{{ url_for('static', filename='js/base.js') }}"></script>
+    {% block scripts %}
+
+    {% endblock %}
+</body>
+
+</html>

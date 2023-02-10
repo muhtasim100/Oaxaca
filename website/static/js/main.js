@@ -1,34 +1,4 @@
-
 const dropdowns = document.querySelectorAll('.dropdown');
-const popup_question = document.querySelector(".popup");
-const popup_back = document.querySelector(".close-popup2");
-const popup_btn = document.querySelector(".popup-btn");
-const close_btn = document.querySelector(".close");
-
-// -----Question popup code------
-// make the popup hidden
-popup_back.style.visibility = "hidden"
-//show
-popup_btn.addEventListener("click", ()=>{
-  popup_back.style.visibility = "visible"
-
-});
-
-// //hide
-function hidePopUp(){
-  close_btn.addEventListener("click",()=>{
-    popup_back.style.visibility = "hidden"
-  });
-
-   popup_back.addEventListener("click",()=>{
-    console.log("hide plzzz")
-    popup_back.style.visibility = "hidden"
-  })
-}
-
-hidePopUp();
-
-// ----------------------------------------
 
 //Loop through all dropdown elements
 dropdowns.forEach(dropdown => {
