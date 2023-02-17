@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+{% block head %}
+<!-- "{{ url_for('static', filename='css/tablestyles.css') }}" -->
+    <link rel="stylesheet" href="/css/tableStyles.css">
+
+        <title>Oaxaca - Home</title>
+{% endblock %}
+
+{% block content %}
+
+
+
+
+    
+  
+<!-- dropdown and popus section -->
+      <section class="dropdown-popups_section">
+        <!-- dropdown -->
+        <div class="dropdown">
+          <div class="select">
+            <span class="selected">Show all</span>
+            <div class="caret"></div>
+          </div>
+          <ul class="dropdown-menu">
+            <li>Show all</li>
+            <li>Occupied</li>
+            <li>Reserved for the next two hours</li>
+            <li class="active">Available</li>
+          </ul>
+        </div>
+
+        <!-- popups_container -->
+        <div class="popups_container">
+          <!-- question_popup -->
+          <a href="#popup" class="btn popup-btn">?</a>
+          <!-- plus popup -->
+          <a href="#popup-plus" class="btn-plus">+</a>
+        </div>
+      </section>
+
+
+      <!--------------- table Buttons Section --------->
+
+    <section class="table_btns-section">
+      <!-- Button -->
+      <div class="action">
+        <button class="table1_btn" type="submit" ><img src="/images/tables//btn1.png"  alt="btn1"></button>
+        <element class="numcircle red-dot"></element>
+      </div>
+
+      <div class="action">
+        <button class="table1_btn" type="submit" ><img src="/images/tables/btn2.png"  alt="btn1"></button>
+        <element class="numcircle red-dot"></element>
+      </div>
+
+      <div class="action">
+        <button class="table1_btn" type="submit" ><img src="/images/tables/btn3.png"  alt="btn1"></button>
+        <element class="numcircle red-dot"></element>
+      </div>
+
+      <div class="action">
+        <button class="table1_btn" type="submit" ><img src="/images/tables/btn4.png"  alt="btn1"></button>
+        <element class="numcircle yellow-dot"></element>
+      </div>
+
+      <div class="action">
+        <button class="table1_btn" type="submit" ><img src="/images/tables/btn5.png"  alt="btn1"></button>
+        <element class="numcircle yellow-dot"></element>
+      </div>
+
+      <div class="action">
+        <button class="table1_btn" type="submit" ><img src="/images/tables/btn6.png"  alt="btn1"></button>
+        <element class="numcircle green-dot"></element>
+      </div>
+
+      <div class="action">
+        <button class="table1_btn" type="submit" ><img src="/images/tables/btn7.png"  alt="btn1"></button>
+        <element class="numcircle green-dot"></element>
+      </div>
+
+      <div class="action">
+        <button class="table1_btn" type="submit" ><img src="/images/tables/btn8.png"  alt="btn1"></button>
+        <element class="numcircle green-dot"></element>
+      </div>
+
+      <div class="action">
+        <button class="table1_btn" type="submit" ><img src="/images/tables/btn9.png"  alt="btn1"></button>
+        <element class="numcircle green-dot"></element>
+      </div>
+
+      <div class="action">
+        <button class="table1_btn" type="submit" ><img src="/images/tables/btn10.png"  alt="btn1"></button>
+        <element class="numcircle green-dot"></element>
+      </div>
+
+      
+
+   
+
+    </section>
+      
+
+    <div id="popup" class="popup popup_position">
+       <a href="#" class="close">&times;</a>
+       <h2 id="tablestatustxt">Table Status:</h2>
+       <h4>The following dots show the status of the tables:</h4>
+      <div class="popup-content">
+
+        
+          <div class="color-btn-container">
+            <button id="greenButton"></button>
+
+            <div class="color-btn-container"></div>
+              <h4 id="available">Available.</h4>
+          </div>
+
+          <div class="color-btn-container">
+            <button id="yellowButton"></button>
+
+            <div class="color-btn-container"></div>
+              <h4 id="reserved">Reserved for the next two hours.</h4>
+          </div>
+
+          <div class="color-btn-container">
+            <button id="redButton"></button>
+
+            <div class="color-btn-container"></div>
+              <h4 id="occupied">Occupied.</h4>
+          </div>
+
+
+        </div>
+      </div>
+    </div>  
+
+<!-- popup ? close-popup -->
+    <a href="#" class="close-popup2"></a>
+
+
+  
+    
+      <div id="popup-plus" class="popup-plus popup_position">
+         <a href="#" class="close-plus">&times;</a>
+         <h2 id="addtabletxt">Add Table:</h2>
+        <div class="popup-content-plus">
+      
+            <div class="color-btn-container-plus">
+              <button class="addButton">Add table</button>
+            </div>
+            <body>
+              <div class="wrapper">
+                 <div class="input-data">
+                    <input type="text" required>
+                    <label></label>
+                 </div>
+              </div>
+            </body>
+          </div>
+        </div>
+    
+    </div>  
+
+
+    <a href="#" class="close-popup"></a>
+  </div>
+  <script src="/js/main.js"></script>
+  <script src="/js/tableBtns.js"></script>
+{% endblock %}
