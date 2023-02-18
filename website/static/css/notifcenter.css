@@ -1,0 +1,33 @@
+.notifs-content{
+    margin-right: 5%;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+}
+
+.action {
+    display: flex;
+    flex-direction: row;
+  }
+  
+.action button {
+    border: none;
+    padding: 18px 70px;
+    font-family: 'Sans-Regular';
+    cursor: pointer;
+    text-transform: uppercase;
+    background: var(--bg-primary);
+    color: rgb(0, 0, 0);
+    letter-spacing: 0.2px;
+    font-size: xx-large;
+    outline: 0;
+    -webkit-transition: all .6s;
+    transition: all .6s;
+    border-radius: 15px;
+    text-align: left;
+    box-shadow: 3px 3px 3px rgb(187, 187, 187);
+    margin: 30px 150px;
+  }

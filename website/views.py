@@ -9,3 +9,7 @@ def home():
 @views.route('/table')
 def tables():
     return render_template("tables.html")
+
+@views.route('/notifs')
+def notif():
+    return render_template("notifcenter.html")
