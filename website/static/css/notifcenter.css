@@ -12,7 +12,7 @@
 .action {
     display: flex;
     flex-direction: row;
-  }
+}
   
 .action button {
     border: none;
@@ -32,4 +32,9 @@
     box-shadow: 3px 3px 3px rgb(187, 187, 187);
     margin: 30px 150px;
     width: 1000px;
+  }
+
+
+  .action img {
+    width: auto;
   }
