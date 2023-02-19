@@ -2,13 +2,14 @@
   display: flex;
   justify-content: center;
   font-family: 'Sans-Regular';
-  font-size: 48px;
+  font-size: 44px;
 }
 
 .payment-container {
   display: flex;
   flex-direction: row;
   align-items: center;
+  font-size: 20px;
 }
 
 .payment-container-left {
@@ -23,6 +24,19 @@
 
 .order-details {
   display: flex;
+  flex-direction: column;
+  color: #7b7b7b;
+}
+
+.order-details hr {
+  border: none;
+  border-top: 3px dotted #7b7b7b;
+  height: 1px;
+  width: 100%;
+}
+
+.order-details-top {
+  display: flex;
   flex-direction: row;
 }
 
@@ -34,4 +48,12 @@
 .order-details-right {
   flex: auto;
   justify-content: right;
+}
+
+.bold {
+  font-family: 'Poppins-Bold';
+}
+
+.pence {
+  font-size: 16px;
 }
