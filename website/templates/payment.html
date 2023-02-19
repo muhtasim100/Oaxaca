@@ -18,7 +18,7 @@
             </div>
             <div class="payment-container-right">
                 <div class="order-details">
-                    <div class="order-details-top">
+                    <div class="order-details-section">
                         <div class="order-details-left">
                             <div>Order Number</div>
                             <div>VAT (20%)</div>
@@ -29,10 +29,17 @@
                         </div>
                     </div>
                     <hr>
-                    <div class="order-details-left">
-                        <div>You have to Pay</div>
-                        <div>
-                            <span class="bold">549</span><span class="pence">.99</span> USD
+                    <div class="order-details-section">
+                        <div class="order-details-left">
+                            <div>You have to Pay</div>
+                            <div>
+                                <span class="bold">549</span><span class="pence">.99</span> USD
+                            </div>
+                        </div>
+                        <div class="order-details-right">
+                            <div>
+                                <img src="{{ url_for('static', filename='images/order-details.png') }}" alt="order-icon">
+                            </div>
                         </div>
                     </div>
                 </div>

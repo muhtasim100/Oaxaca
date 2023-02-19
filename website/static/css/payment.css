@@ -28,6 +28,10 @@
   color: #7b7b7b;
 }
 
+.order-details div {
+  margin: 10px 0;
+}
+
 .order-details hr {
   border: none;
   border-top: 3px dotted #7b7b7b;
@@ -35,7 +39,7 @@
   width: 100%;
 }
 
-.order-details-top {
+.order-details-section {
   display: flex;
   flex-direction: row;
 }
