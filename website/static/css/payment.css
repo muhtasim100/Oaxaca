@@ -1,4 +1,37 @@
-.payment-content {
+.payment-header {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  font-family: 'Sans-Regular';
+  font-size: 48px;
+}
+
+.payment-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.payment-container-left {
+  flex: auto;
+  justify-content: left;
+}
+
+.payment-container-right {
+  flex: auto;
+  justify-content: right;
+}
+
+.order-details {
+  display: flex;
+  flex-direction: row;
+}
+
+.order-details-left {
+  flex: auto;
+  justify-content: left;
+}
+
+.order-details-right {
+  flex: auto;
+  justify-content: right;
 }
