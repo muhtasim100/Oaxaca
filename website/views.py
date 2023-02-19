@@ -9,3 +9,7 @@ def home():
 @views.route('/table')
 def tables():
     return render_template("tables.html")
+
+@views.route('/payment')
+def payment():
+    return render_template("payment.html")
