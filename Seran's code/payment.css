@@ -20,7 +20,22 @@
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 10px;
-  }
+}
+
+.payment input{
+    border: none;
+    text-align: center;
+}
+
+.cardinput{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.cardinput input{
+    margin-left: 15px;
+}
 
 @font-face {
     font-family: 'Poppins-Regular';
