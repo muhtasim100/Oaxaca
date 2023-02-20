@@ -1,0 +1,25 @@
+.payment p {
+    color: #7b7b7b;
+    font-family: "Poppins-Regular";
+}
+
+.payment p.bold {
+    font-family: "Poppins-Bold";
+    color: black;
+}
+
+@font-face {
+    font-family: 'Poppins-Regular';
+    src: url('Poppins-Regular.otf') format('opentype'),
+      url('Poppins-Regular.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'Poppins-Bold';
+    src: url('Poppins-Bold.otf') format('opentype');
+  }
+  
+  @font-face {
+    font-family: 'Sans-Regular';
+    src: url('Ravager-Sans-Regular.ttf') format('truetype');
+  }
