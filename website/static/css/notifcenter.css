@@ -31,10 +31,13 @@
     text-align: left;
     box-shadow: 3px 3px 3px rgb(187, 187, 187);
     margin: 30px 150px;
-    width: 1000px;
-  }
+    width: 65%;
+    position: relative;
+    
 
+  }
 
   .action img {
     width: auto;
+    float: right;
   }
