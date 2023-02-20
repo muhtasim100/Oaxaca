@@ -1,17 +1,43 @@
+.payment {
+    width: min-content;
+}
+
 .payment .summary {
     color: #7b7b7b;
     font-family: "Poppins-Regular";
+    margin-bottom: 20px;
 }
 
 .payment .bold {
     font-family: "Poppins-Bold";
     color: black;
+    margin-top: 20px;
 }
 
 .payment .payment-header {
     display: flex;
     flex-direction: column;
-    margin: 20px 0;   
+}
+
+.payment .sidebyside {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.sidebyside .summary {
+    flex: auto;
+    justify-content: left;
+}
+
+.sidebyside .CCVinput {
+    flex: auto;
+    justify-content: right;
+}
+
+.sidebyside .expiryinput {
+    flex: auto;
+    justify-content: right;
 }
 
 .payment button {
@@ -28,33 +54,33 @@
     border-radius: 10px;
 }
 
-.payment input{
+.payment input {
     border: none;
     text-align: center;
 }
 
-.cardinput{
+.cardinput {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-.cardinput input{
+.cardinput input {
     margin-left: 15px;
 }
 
 @font-face {
     font-family: 'Poppins-Regular';
     src: url('Poppins-Regular.otf') format('opentype'),
-      url('Poppins-Regular.ttf') format('truetype');
-  }
-  
-  @font-face {
+        url('Poppins-Regular.ttf') format('truetype');
+}
+
+@font-face {
     font-family: 'Poppins-Bold';
     src: url('Poppins-Bold.otf') format('opentype');
-  }
-  
-  @font-face {
+}
+
+@font-face {
     font-family: 'Sans-Regular';
     src: url('Ravager-Sans-Regular.ttf') format('truetype');
-  }
+}
