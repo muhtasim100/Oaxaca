@@ -6,9 +6,9 @@
 
 <body>
     <div class="payment">
-        <div class="Cardnumber">
-            <p class="bold">Card Number</p>
-            <p>Enter the 16-digit card number on the card</p>
+        <div class="payment-header">
+            <span class="bold">Card Number</span>
+            <span class="summary">Enter the 16-digit card number on the card</span>
         </div>
         <div class="cardinput">
             <img src="logos_mastercard.svg" alt="mastercard logo">
@@ -20,14 +20,18 @@
             <span>-</span>
             <input type="text" placeholder="1213" size="4">
         </div>
-        <div class="CCVnumber">
-            <p class="bold">CCV Number</p>
-            <p>Enter the 3 or 4 digits on the card</p>
+        <div class="payment-header">
+            <span class="bold">CCV Number</span>
+            <span class="summary">Enter the 3 or 4 digits on the card</span>
+        </div>
+        <div class="CCVinput">
             <input type="text" placeholder="000" size="4">
         </div>
-        <div class="Expirydate">
-            <p class="bold">Expiry Date</p>
-            <p>Enter the expiration of the card </p>
+        <div class="payment-header">
+            <span class="bold">Expiry Date</span>
+            <span class="summary">Enter the expiration of the card </span>
+        </div>
+        <div>
             <input type="text" placeholder="01" size="2">
             <span>/</span>
             <input type="text" placeholder="23" size="2">

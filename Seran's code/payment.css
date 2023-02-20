@@ -1,11 +1,17 @@
-.payment p {
+.payment .summary {
     color: #7b7b7b;
     font-family: "Poppins-Regular";
 }
 
-.payment p.bold {
+.payment .bold {
     font-family: "Poppins-Bold";
     color: black;
+}
+
+.payment .payment-header {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;   
 }
 
 .payment button {
