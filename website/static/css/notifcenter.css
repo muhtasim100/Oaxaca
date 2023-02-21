@@ -23,7 +23,7 @@
     background: var(--bg-primary);
     color: rgb(0, 0, 0);
     letter-spacing: 0.2px;
-    font-size: x-large;
+    font-size: large;
     outline: 0;
     -webkit-transition: all .6s;
     transition: all .6s;
@@ -33,11 +33,13 @@
     margin: 30px 150px;
     width: 65%;
     position: relative;
+    height: 50%;
     
 
   }
 
   .action img {
-    width: auto;
     float: right;
+    height: auto;
+    padding: 0%;
   }
