@@ -1,12 +1,43 @@
+
+
 const dropdowns = document.querySelectorAll('.dropdown');
+const popup_question = document.querySelector(".popup");
+const popup_back = document.querySelector(".close-popup2");
+const popup_btn = document.querySelector(".popup-btn");
+const close_btn = document.querySelector(".close");
+
+// -----Question popup code------
+// make the popup hidden
+popup_back.style.visibility = "hidden"
+//show
+popup_btn.addEventListener("click", ()=>{
+  popup_back.style.visibility = "visible"
+
+});
+
+// //hide
+function hidePopUp(){
+  close_btn.addEventListener("click",()=>{
+    popup_back.style.visibility = "hidden"
+  });
+
+   popup_back.addEventListener("click",()=>{
+    console.log("hide plzzz")
+    popup_back.style.visibility = "hidden"
+  })
+}
+
+hidePopUp();
+
+// ----------------------------------------
 
 //Loop through all dropdown elements
 dropdowns.forEach(dropdown => {
   //Get inner elements from each dropdown
   const select = dropdown.querySelector('.select');
   const caret = dropdown.querySelector('.caret');
-  const menu = dropdown.querySelector('.menu');
-  const options = dropdown.querySelectorAll('.menu li');
+  const menu = dropdown.querySelector('.dropdown-menu');
+  const options = dropdown.querySelectorAll('.dropdown-menu li');
   const selected = dropdown.querySelector('.selected');
   
   /*
@@ -16,6 +47,7 @@ dropdowns.forEach(dropdown => {
   
   //Add a click event to the select element
   select.addEventListener('click', () => {
+    console.log("clikedd");
     //Add the clicked select styles to the select element
     select.classList.toggle('select-clicked');
     //Add the rotate styles to the caret element
