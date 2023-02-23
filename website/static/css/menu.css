@@ -1,26 +1,55 @@
-.food_card {
-    border: none;
-    cursor: pointer;
-    text-transform: uppercase;
-    background: #9EC2CC;
-    outline: 0;
-    -webkit-transition: all .3s;
-    transition: all .3s;
-    border-radius: 15px;
-    position: absolute;
-    top: 40%;
-    left: 8%;
-    box-shadow: 5px 5px 5px rgb(187, 187, 187);
-    font-family: 'Ravenger', sans-serif;
-  }
-
-.food_card:hover{
-  background-color: #9EC2CC;
+.card_grid{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  column-gap: 40px;
+  row-gap: 40px;
 }
 
-.food_card:active{
-  transform: translatey(5px);
-  box-shadow:0px 0px 0px 0px rgb(187, 187, 187)
+.food_container{
+  border: none;
+  font-family: 'Sans-Regular';
+  cursor: pointer;
+  text-transform: uppercase;
+  background: var(--bg-primary);
+  color: rgb(0, 0, 0);
+  letter-spacing: 0.2px;
+  font-size: x-large;
+  outline: 0;
+  -webkit-transition: all .6s;
+  transition: all .6s;
+  border-radius: 15px;
+  text-align: left;
+  box-shadow: 3px 3px 3px rgb(187, 187, 187);
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  max-width: 200px;
+  margin-bottom: 10px ;
+  height: 171px;
+}
+
+.food_container .icon{
+  flex: auto;
+  justify-content: right;
+  margin-right: 10px;
+  margin-left: auto;
+}
+
+.food_container .food_info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+  width: 100%;
+}
+
+.food_container .food_name{
+  width: 100%;
+}
+
+.food_container .food_price{
+  width: 100%;
 }
 
 @font-face {

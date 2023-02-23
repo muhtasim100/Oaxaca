@@ -4,21 +4,32 @@
   rel="stylesheet"
   href="{{ url_for('static', filename='css/menu.css') }}"
 />
-{% endblock %} {% block content %} {% for food in res %}
-<div>
-{% if food.GlutenFree==True %}
-<img src="images\menu\mdi_gluten-free.svg" alt="Gluten_Icon" />
-{% endif %}
 
-{% if food.ContainsMeat==True %}
-<img src="{{ url_for('static', filename='images/menu/mdi_meat.svg') }}" alt="Vegan_Icon">
-{% endif %}
+{% endblock %} 
+{% block content %} 
+<div class="card_grid">
+{% for food in res %}
+  <div class="food_container">
+    <div class="icon">
+      {% if food.GlutenFree==True %}
+      <img src="{{ url_for('static', filename='images/menu/mdi_gluten-free.svg') }}" alt="Gluten_Icon" />
+      {% endif %}
 
-{% if food.Vegan==True %}
-<img src="{{ url_for('static', filename='images/menu/Group.svg') }}" alt="Vegan_Icon">
-{% endif %} 
+      {% if food.ContainsMeat==True %}
+      <img src="{{ url_for('static', filename='images/menu/mdi_meat.svg') }}" alt="Meat_icon">
+      {% endif %}
+      
+      {% if food.Vegan==True %}
+      <img src="{{ url_for('static', filename='images/menu/Group.svg') }}" alt="Vegan_Icon">
+      {% endif %} 
+    </div>
 
-<button class="food_card" type="submit">{{ food.FoodName }}</button>
-{{ food.UnitPrice }}$
+    <div class="food_info">
+      <div class="food_name">{{ food.FoodName }}</div>
+  
+      <div class="food_price">{{ food.UnitPrice }}$</div>
+      </div>
+  </div>
+{% endfor %}
 </div>
-{% endfor %} {% endblock %}
+{% endblock %}
