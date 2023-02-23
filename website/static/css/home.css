@@ -40,18 +40,19 @@
 /* Home page small screens */
 @media only screen and (max-width: 800px) {
   .action {
-    flex-direction: column;
-  }
+  flex-direction: column;
+}
 
   .action button {
-    margin: 20px 0;
-  }
+  margin: 20px 0;
+}
 
   .belowlogo-container-parent img {
-    margin-bottom: 20px;
-    margin-left: 2%;
-    margin-right: 1%;
-    max-width: 98%;
-    height: auto;
-  }
+  margin-bottom: 20px;
+  margin-left: 2%;
+  margin-right: 1%;
+  max-width: 98%;
+  height: auto;
+}
+
 }

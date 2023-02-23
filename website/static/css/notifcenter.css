@@ -1,0 +1,79 @@
+.notifs-content {
+  margin-right: 15%;
+  margin-top: 5%;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+}
+
+.action {
+  border: none;
+  padding: 12px 40px;
+  font-family: 'Sans-Regular';
+  cursor: pointer;
+  text-transform: uppercase;
+  background: var(--bg-primary);
+  color: rgb(0, 0, 0);
+  letter-spacing: 0.2px;
+  font-size: x-large;
+  outline: 0;
+  -webkit-transition: all .6s;
+  transition: all .6s;
+  border-radius: 15px;
+  text-align: left;
+  box-shadow: 3px 3px 3px rgb(187, 187, 187);
+  margin: 30px 200px;
+  display: flex;
+  flex-direction: row;
+}
+
+.action .notif-text {
+  flex: auto;
+  justify-content: left;
+  margin-left: 5%;
+}
+
+.notif-img img {
+  width: auto;
+  height: auto;
+  flex: auto;
+  justify-content: right;
+}
+
+.red-light-img {
+  position: absolute;
+}
+
+.user-img img {
+  width: auto;
+  height: 100%;
+  position: relative;
+}
+
+.notif-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notif-popup {
+  border: none;
+  padding: 15px 20px;
+  font-family: 'Sans-Regular';
+  cursor: pointer;
+  text-transform: uppercase;
+  background: var(--bg-primary);
+  color: rgb(0, 0, 0);
+  letter-spacing: 0.2px;
+  font-size: x-large;
+  outline: 0;
+  -webkit-transition: all .6s;
+  transition: all .6s;
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 3px 3px 3px rgb(187, 187, 187);
+  margin: auto;
+}
