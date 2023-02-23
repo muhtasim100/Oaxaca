@@ -6,3 +6,6 @@ views = Blueprint('views', __name__)
 def home():
     return render_template("home.html")
 
+@views.route('/prod')
+def product():
+    return render_template("Foodeditui.html")
