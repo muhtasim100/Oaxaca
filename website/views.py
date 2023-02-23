@@ -13,3 +13,7 @@ def tables():
 @views.route('/payment')
 def payment():
     return render_template("payment.html")
+
+@views.route('/notif')
+def notification():
+    return render_template("notifcentre.html")
