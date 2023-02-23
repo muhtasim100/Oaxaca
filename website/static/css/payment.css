@@ -130,7 +130,7 @@
 /* Review Modal CSS */
 
 .modal {
-  display: block;
+  display: none;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -205,6 +205,11 @@
   padding: 0 15px;
   font: inherit;
   text-decoration: none;
+}
+
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
 }
 
 @keyframes animatetop {

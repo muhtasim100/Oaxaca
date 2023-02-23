@@ -54,7 +54,7 @@
                     </div>
                 </div>
                 <div class="paynow">
-                    <button type="button">Pay Now</button>
+                    <button id="paynow-btn" type="button">Pay Now</button>
                 </div>
             </div>
             <div class="order-details container-right">
@@ -104,9 +104,13 @@
             </div>
 
             <div class="review-submit">
-                <button type="button">Submit</button>
+                <button id="review-btn" type="button">Submit</button>
             </div>
 
         </div>
     </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/payment.js') }}"></script>
 {% endblock %}
