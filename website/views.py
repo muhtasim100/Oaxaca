@@ -10,6 +10,6 @@ def home():
 def tables():
     return render_template("tables.html")
 
-@views.route('/notifs')
-def notif():
-    return render_template("notifcenter.html")
+@views.route('/notification')
+def notification():
+    return render_template("notifcentre.html")
