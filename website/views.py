@@ -9,3 +9,7 @@ def home():
 @views.route('/prod')
 def product():
     return render_template("Foodeditui.html")
+
+@views.route('/table')
+def tables():
+    return render_template("tables.html")
