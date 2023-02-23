@@ -170,6 +170,7 @@
 
 .stars img {
   width: 40px;
+  cursor: pointer;
 }
 
 .review-textarea {
@@ -205,6 +206,7 @@
   padding: 0 15px;
   font: inherit;
   text-decoration: none;
+  cursor: pointer;
 }
 
 @-webkit-keyframes animatetop {
