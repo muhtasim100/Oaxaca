@@ -10,6 +10,10 @@ def home():
 def tables():
     return render_template("tables.html")
 
+@views.route('/payment')
+def payment():
+    return render_template("payment.html")
+
 @views.route('/notif')
 def notification():
     return render_template("notifcentre.html")
