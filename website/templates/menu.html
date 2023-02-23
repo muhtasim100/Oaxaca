@@ -1,0 +1,24 @@
+{% extends "base.html" %} {% block head %}
+<title>Oaxaca - Menu</title>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/menu.css') }}"
+/>
+{% endblock %} {% block content %} {% for food in res %}
+<div>
+{% if food.GlutenFree==True %}
+<img src="images\menu\mdi_gluten-free.svg" alt="Gluten_Icon" />
+{% endif %}
+
+{% if food.ContainsMeat==True %}
+<img src="{{ url_for('static', filename='images/menu/mdi_meat.svg') }}" alt="Vegan_Icon">
+{% endif %}
+
+{% if food.Vegan==True %}
+<img src="{{ url_for('static', filename='images/menu/Group.svg') }}" alt="Vegan_Icon">
+{% endif %} 
+
+<button class="food_card" type="submit">{{ food.FoodName }}</button>
+{{ food.UnitPrice }}$
+</div>
+{% endfor %} {% endblock %}

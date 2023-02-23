@@ -96,6 +96,7 @@ class FoodItem(db.Model):
     GlutenFree = db.Column(db.Boolean)
     ContainsMeat = db.Column(db.Boolean)
     Vegan = db.Column(db.Boolean)
+    Cals = db.Column(db.Integer)
 
 
 class Reviews(db.Model):

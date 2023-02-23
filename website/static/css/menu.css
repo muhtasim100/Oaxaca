@@ -1,0 +1,29 @@
+.food_card {
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    background: #9EC2CC;
+    outline: 0;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    border-radius: 15px;
+    position: absolute;
+    top: 40%;
+    left: 8%;
+    box-shadow: 5px 5px 5px rgb(187, 187, 187);
+    font-family: 'Ravenger', sans-serif;
+  }
+
+.food_card:hover{
+  background-color: #9EC2CC;
+}
+
+.food_card:active{
+  transform: translatey(5px);
+  box-shadow:0px 0px 0px 0px rgb(187, 187, 187)
+}
+
+@font-face {
+  font-family: 'Sans-Regular';
+  src: url('../fonts/Ravager-Sans-Regular.ttf') format('truetype');
+}
