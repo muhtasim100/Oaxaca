@@ -12,34 +12,73 @@
             THANK YOU FOR EATING AT OAXACA!
         </div>
         <div class="payment-container">
-            <div class="payment-container-left">
-                <!-- Seran's code goes here -->
-                <h1>Seran's code</h1>
+            <div class="payment-details container-left">
+                <div class="payment-small-header">
+                    <span class="bold">Card Number</span>
+                    <span class="summary container-left">Enter the 16-digit card number on the card</span>
+                </div>
+                <div class="cardinput">
+                    <img src="{{ url_for('static', filename='images/logos_mastercard.svg') }}" alt="mastercard logo">
+                    <input type="text" placeholder="1234" size="4">
+                    <span>-</span>
+                    <input type="text" placeholder="5678" size="4">
+                    <span>-</span>
+                    <input type="text" placeholder="9101" size="4">
+                    <span>-</span>
+                    <input type="text" placeholder="1213" size="4">
+                </div>
+                <div class="payment-small-header">
+                    <span class="bold">CCV Number</span>
+                </div>
+        
+                <div class="sidebyside">
+                    <div class="summary container-left">
+                        <span>Enter the 3 or 4 digits on the card</span>
+                    </div>
+                    <div class="container-right">
+                        <input type="text" placeholder="000" size="4">
+                    </div>
+                </div>
+        
+                <div class="payment-small-header">
+                    <span class="bold">Expiry Date</span>
+                </div>
+                <div class="sidebyside">
+                    <div class="summary container-left">
+                        <span class="summary container-left">Enter the expiration of the card </span>
+                    </div>
+                    <div class="container-right">
+                        <input type="text" placeholder="01" size="2">
+                        <span>/</span>
+                        <input type="text" placeholder="23" size="2">
+                    </div>
+                </div>
+                <div class="paynow">
+                    <button type="button">Pay Now</button>
+                </div>
             </div>
-            <div class="payment-container-right">
-                <div class="order-details">
-                    <div class="order-details-section">
-                        <div class="order-details-left">
-                            <div>Order Number</div>
-                            <div>VAT (20%)</div>
-                        </div>
-                        <div class="order-details-right">
-                            <div>1235495</div>
-                            <div>$12.00</div>
+            <div class="order-details container-right">
+                <div class="order-details-section">
+                    <div class="container-left">
+                        <div>Order Number</div>
+                        <div>VAT (20%)</div>
+                    </div>
+                    <div class="container-right">
+                        <div>1235495</div>
+                        <div>$12.00</div>
+                    </div>
+                </div>
+                <hr>
+                <div class="order-details-section">
+                    <div class="container-left">
+                        <div>You have to Pay</div>
+                        <div>
+                            <span class="bold">549</span><span class="pence">.99</span> USD
                         </div>
                     </div>
-                    <hr>
-                    <div class="order-details-section">
-                        <div class="order-details-left">
-                            <div>You have to Pay</div>
-                            <div>
-                                <span class="bold">549</span><span class="pence">.99</span> USD
-                            </div>
-                        </div>
-                        <div class="order-details-right">
-                            <div>
-                                <img src="{{ url_for('static', filename='images/order-details.png') }}" alt="order-icon">
-                            </div>
+                    <div class="container-right">
+                        <div>
+                            <img src="{{ url_for('static', filename='images/order-details.png') }}" alt="order-icon">
                         </div>
                     </div>
                 </div>
