@@ -33,3 +33,10 @@ def menu():
         
     return render_template("menu.html", res= ListAll)
     
+@views.route('/payment')
+def payment():
+    return render_template("payment.html")
+
+@views.route('/notif')
+def notification():
+    return render_template("notifcentre.html")
