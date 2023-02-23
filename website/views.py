@@ -40,3 +40,7 @@ def payment():
 @views.route('/notif')
 def notification():
     return render_template("notifcentre.html")
+
+@views.route('/staff')
+def staff():
+    return render_template("staff_management.html")
