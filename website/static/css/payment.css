@@ -1,3 +1,5 @@
+/* General CSS for Payment Page */
+
 .bold {
   font-family: 'Poppins-Bold';
 }
@@ -20,7 +22,6 @@
   display: flex;
   flex-direction: column;
   width: 80%;
-  /* height: 100%; */
 }
 
 .payment-header {
@@ -124,4 +125,89 @@
 .order-details-section {
   display: flex;
   flex-direction: row;
+}
+
+/* Review Modal CSS */
+
+.modal {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  position: relative;
+  background-color: var(--bg-primary);
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 20px;
+  width: min-content;
+  box-shadow: 0px 5px 10px black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  animation-name: animatetop;
+  animation-duration: 0.8s;
+}
+
+.modal-header {
+  font-family: 'Sans-Regular';
+  font-size: 36px;
+}
+
+.stars {
+  margin-top: 10px;
+}
+
+.stars img {
+  width: 40px;
+}
+
+.review-textarea {
+  margin-top: 10px;
+}
+
+.review-textarea textarea {
+  background-color: #D9D9D9;
+  border: 2px solid black;
+  border-radius: 20px;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+.review-textarea textarea:focus {
+  outline: none;
+}
+
+.review-submit {
+  font-family: "Poppins-Bold", sans-serif;
+  font-size: 28px;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.review-submit button {
+  background-color: white;
+  border-radius: 10px;
+  border: 2px solid black;
+  padding: 0 15px;
+  font: inherit;
+  text-decoration: none;
+}
+
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
 }
