@@ -1,19 +1,22 @@
 from flask import Blueprint, redirect, render_template, request, session, url_for, flash
 from . import db
-from .models import FoodItem
+from .models import *
+from flask_login import current_user
+from sqlalchemy import func
 
 views = Blueprint('views', __name__)
 
-@views.route('/')
-def home():
-    return render_template("home.html")
+@views.route('/testing')
+def testing():
+    #Table
+    ListTable =  customer_table.query.all()
 
-@views.route('/table')
-def tables():
-    return render_template("tables.html")
+    if FoodItem.query.count() != 1:
+        testTable = customer_table(Seats = 4, Available = False, Fk_UserId = 1)
 
-@views.route('/menu')
-def menu():
+
+
+    #Food Items
     ListAll = FoodItem.query.all()
 
     if FoodItem.query.count() != 6:
@@ -30,7 +33,57 @@ def menu():
         db.session.add(test5)
         db.session.add(test6)
         db.session.commit()
-        
+
+    #Order
+    if Orders.query.count() != 1:
+        total = 0
+        testOrder = Orders(Quantity=2, Fk_UserId=1, Fk_TableId=1)
+
+        # Create order items
+        item1 = OrderItem(FoodId=1, Quantity=1, OrderId = testOrder.OrderId)
+        item2 = OrderItem(FoodId=2, Quantity=1, OrderId = testOrder.OrderId)
+        db.session.add(item1)
+        db.session.add(item2)
+        db.session.commit()
+
+        # Generate price 
+        allFoodOrdered = OrderItem.query.filter_by(OrderId = 1)
+        print(allFoodOrdered)
+        for i in allFoodOrdered:
+            food = FoodItem.query.filter_by(FoodId = i.FoodId).first()
+            total += food.UnitPrice * i.Quantity
+        testOrder.UnitPrice = total
+
+        db.session.add(testOrder)
+        db.session.commit()
+
+        # Add order items to the order
+        testOrder.items.append(item1)
+        testOrder.items.append(item2)
+
+        # Add the order to the database
+        db.session.add(testOrder)
+        db.session.commit()
+
+
+
+    if Notification.query.count() != 1:
+        test1 = Notification(status = 1, typeNotification = 1, FK_OrderID = 1, FK_UserID = current_user.UserId)
+        db.session.add(test1)
+        db.session.commit()
+
+    return("Done!")
+
+@views.route('/')
+def home():
+    return render_template("home.html")
+
+@views.route('/table')
+def tables():
+    return render_template("tables.html")
+
+@views.route('/menu')
+def menu(ListAll):
     return render_template("menu.html", res= ListAll)
     
 @views.route('/payment')
@@ -39,6 +92,7 @@ def payment():
 
 @views.route('/notif')
 def notification():
+
     return render_template("notifcentre.html")
 
 @views.route('/staff')
