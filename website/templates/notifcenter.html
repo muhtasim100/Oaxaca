@@ -16,10 +16,39 @@
         <div class= "notif-img"><img src="{{ url_for('static', filename='images/clickarrow.svg') }}" alt="arrow"></div>
     </div>
     {% endfor %}
-    
+
     <div class="popups_container">
       <a href="#popup" class="btn popup-btn">?</a>
     </div>
 
+    <div id="popup" class="popup popup_position">
+      <a href="#" class="close">&times;</a>
+      <h2 id="tablestatustxt">Table Status:</h2>
+      <h4>The following dots show the status of the tables:</h4>
+
+     <div class="popup-content">
+         <div class="color-btn-container">
+           <button id="greenButton"></button>
+
+           <div class="color-btn-container"></div>
+             <h4 id="available">Available.</h4>
+         </div>
+
+         <div class="color-btn-container">
+           <button id="yellowButton"></button>
+
+           <div class="color-btn-container"></div>
+             <h4 id="reserved">Reserved for the next two hours.</h4>
+         </div>
+
+         <div class="color-btn-container">
+           <button id="redButton"></button>
+
+           <div class="color-btn-container"></div>
+             <h4 id="occupied">Occupied.</h4>
+         </div>
+      </div>
+    </div>
+    
 </div>
 {% endblock %}

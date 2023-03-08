@@ -100,6 +100,15 @@
   transition-delay: 0s;
 }
 
+.popup_position {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 390px;
+}
+
 
 .popup_position .close {
   position: absolute;
@@ -117,17 +126,6 @@
   color: #f00;
 }
 
-/* --------Close-pop2 */
-.close-popup2 {
-  background-color: rgba(0, 0, 0, .7);
-  cursor: default;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  transition: opacity .5s, visibility 0s linear .0s;
-}
 
 /* ------------------- */
 .close-popup {
@@ -148,17 +146,58 @@
   top: 10;
   right: 0;
   margin-right: 5%;
-  z-index: 9999; /* ensure the pop-up container is on top of other elements */
+  z-index: 9999;
 }
 
 
 .btn {
   padding: 15px 25px;
   border: 1px solid rgb(0, 0, 0);
-  border-radius: 20em;
+  border-radius: 30px;
   display: inline-block;
-  margin-top: 2em;
+  margin-top: 50%;
   background-color: #9EC2CC;
   font-weight: 700;
   transition: .3s;
+}
+
+
+.color-btn-container {
+  width: 25px;
+  height: 25px;
+
+}
+
+.color-btn-container1 {
+  width: 25px;
+  height: 25px;
+}
+
+.color-btn-container2 {
+  width: 25px;
+  height: 25px;
+}
+
+#available {
+  position: absolute;
+  top: 126px;
+  left: 60px;
+  margin: 0;
+  display: inline-block;
+}
+
+#occupied {
+  position: absolute;
+  top: 178px;
+  left: 60px;
+  margin: 0;
+  display: inline-block;
+}
+
+#reserved {
+  position: absolute;
+  top: 151px;
+  left: 60px;
+  margin: 0;
+  display: inline-block;
 }
