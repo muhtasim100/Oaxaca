@@ -44,3 +44,7 @@ def notification():
 @views.route('/staff')
 def staff():
     return render_template("staff_management.html")
+
+@views.route('/order_tracker')
+def order():
+    return render_template("orderprogress.html")
