@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 <!-- saved from url=(0068)file:///C:/Users/seran/OneDrive/Desktop/Menu_Edit_UI/Foodeditui.html -->
-<html>
   {% block head %}
     <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/Foodeditui.css') }}">
@@ -23,10 +22,11 @@
     <table>
       <tbody><tr>
         <th>Name of product</th>
-        <th>cal</th> 
+        <th>Cals</th> 
         <th><img src="{{ url_for('static', filename='images/Vector.svg') }}" alt="Contains meat"></th>
         <th><img src="{{ url_for('static', filename='images/mdi_gluten-free.svg') }}" alt="Gluten free"></th>
         <th><img src="{{ url_for('static', filename='images/iconoir_vegan.svg') }}" alt="Vegan"></th>
+        <th>Price</th>
       </tr>
       {% for food in res %}
       <tr>
@@ -41,11 +41,64 @@
         <td>{% if food.Vegan==True %}
           <img src="{{ url_for('static', filename='images/Tick.svg') }}" alt="Vegan_Icon">
           {% endif %}</td>
+        <td>{{ food.UnitPrice }} £</td>
       </tr>
       {% endfor %}
     </tbody></table>
   
-  
+    <div class="popups_container">
+      <a href="#popup" class="btn popup-btn">?</a>
+    </div>
+    <div class="overlay">
+
+    <div id="popup" class="popup popup_position">
+      <a href="#" class="close">&times;</a>
+      <h2 id="tablestatustxt">Order Status:</h2>
+      <h4>The following dots show the status of the order:</h4>
+
+     <div class="popup-content">
+         <div class="color-btn-container">
+           <button id="greenButton"></button>
+
+           <div class="color-btn-container"></div>
+             <h4 id="available">Served.</h4>
+         </div>
+
+         <div class="color-btn-container">
+           <button id="yellowButton"></button>
+
+           <div class="color-btn-container"></div>
+             <h4 id="reserved">In Progress.</h4>
+         </div>
+
+         <div class="color-btn-container">
+           <button id="redButton"></button>
+
+           <div class="color-btn-container"></div>
+             <h4 id="occupied">Waiting.</h4>
+         </div>
+      </div>
+    </div>
+    </div>
+
+    
+
+</div>
+
+<script>
+  document.querySelector(".popup-btn").onclick = function() {
+    document.querySelector(".overlay").style.display = "block";
+  }
+
+  window.onclick = function (event) {
+     if (event.target == document.querySelector(".overlay")) {
+       document.querySelector(".overlay").style.display = "none";
+     }
+  }
+
+  document.querySelector(".close").onclick = function (event) {
+    document.querySelector(".overlay").style.display = "none";
+  }
+</script>
   
   {% endblock %}
-  </html>
