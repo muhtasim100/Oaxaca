@@ -104,7 +104,7 @@ img {
 
 .popups_container {
   position: fixed;
-  top: 10;
+  top: 80px;
   right: 0;
   margin-right: 5%;
   z-index: 9999;
