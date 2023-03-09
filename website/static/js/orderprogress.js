@@ -98,7 +98,9 @@ review_btn.onclick = function () {
       data: {stars: selectedStar+1, review: $("#review-text").val()},
       success: function(data) {
         // change this later to show a notification saying the review is submitted
-        console.log("Review submitted");
+        $(".content").prepend('<div class="notification"><div class="notification-message"></div></div>');
+        $(".notification-message").html("Review succesfully submitted!");
+        // console.log("Review submitted");
       },
       error: function(error) {
         console.log(error);

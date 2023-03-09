@@ -701,3 +701,21 @@
   from {top: -300px; opacity: 0}
   to {top: 0; opacity: 1}
 }
+
+
+/* Notification CSS  */
+
+.notification {
+  background-color: var(--bg-primary);
+  padding: 20px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  animation-name: animatetop;
+  animation-duration: 1s;
+}
+
+.notification-message {
+  font-size: 24px;
+}
