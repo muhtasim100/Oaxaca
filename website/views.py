@@ -38,8 +38,11 @@ def testing():
     if Orders.query.count() != 1:
         total = 0
         testOrder = Orders(Quantity=2, Fk_UserId=1, Fk_TableId=1)
+        db.session.add(testOrder)
+        db.session.commit()
 
         # Create order items
+        print(testOrder.OrderId)
         item1 = OrderItem(FoodId=1, Quantity=1, OrderId = testOrder.OrderId)
         item2 = OrderItem(FoodId=2, Quantity=1, OrderId = testOrder.OrderId)
         db.session.add(item1)
@@ -53,13 +56,12 @@ def testing():
             food = FoodItem.query.filter_by(FoodId = i.FoodId).first()
             total += food.UnitPrice * i.Quantity
         testOrder.UnitPrice = total
-
-        db.session.add(testOrder)
         db.session.commit()
 
         # Add order items to the order
         testOrder.items.append(item1)
         testOrder.items.append(item2)
+        db.session.commit()
 
         # Add the order to the database
         db.session.add(testOrder)

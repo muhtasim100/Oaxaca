@@ -68,7 +68,7 @@ class Orders(db.Model):
     OrderId = db.Column(db.Integer, primary_key=True)
     OrderDate = db.Column(db.DateTime (timezone = True), default = func.now())
     Quantity = db.Column(db.Integer)
-    UnitPrice = db.Column(db.DECIMAL(6, 2))
+    UnitPrice = db.Column(db.Float(precision=8, asdecimal = True))
     Fk_UserId = db.Column(db.Integer, db.ForeignKey('User.UserId'))
     Fk_TableId = db.Column(db.Integer, db.ForeignKey('customer_table.TableId'))
     items = db.relationship('OrderItem', backref='order', lazy='dynamic')
@@ -77,7 +77,7 @@ class Orders(db.Model):
 class Menu(db.Model):
     __tablename__ = 'Menu'
     MenuId = db.Column(db.Integer, primary_key=True)
-    Price = db.Column(db.DECIMAL(6, 2))
+    Price = db.Column(db.Float(precision=8, asdecimal = True))
     StartDate = db.Column(db.Date)
     EndDate = db.Column(db.Date)
     FK_FoodId = db.Column(db.String(100), db.ForeignKey('FoodItem.FoodId'))
@@ -88,7 +88,7 @@ class FoodItem(db.Model):
     FoodId = db.Column(db.Integer, primary_key=True)
     FoodName = db.Column(db.String(100))
     Quantity = db.Column(db.Integer)
-    UnitPrice = db.Column(db.DECIMAL(6, 2))
+    UnitPrice = db.Column(db.Float(precision=8, asdecimal = True))
     ItemCategory = db.Column(db.String(100))
     GlutenFree = db.Column(db.Boolean)
     ContainsMeat = db.Column(db.Boolean)
