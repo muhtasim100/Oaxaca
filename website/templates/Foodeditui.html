@@ -29,22 +29,16 @@
         <th><img src="{{ url_for('static', filename='images/mdi_gluten-free.svg') }}" alt="Gluten free"></th>
         <th><img src="{{ url_for('static', filename='images/iconoir_vegan.svg') }}" alt="Vegan"></th>
       </tr>
+      {% for food in res %}
       <tr>
-        <td>Name of product</td>
+        <td>{{ food.FoodName }}</td>
         <td>description</td>
         <td>323</td>
         <td><br></td>
         <td><br></td>
         <td><br></td>
       </tr>
-      <tr>
-        <td>Name of product</td>
-        <td>description</td>
-        <td>323</td>
-        <td><br></td>
-        <td><br></td>
-        <td><br></td>
-      </tr>
+      {% endfor %}
     </tbody></table>
   
   
