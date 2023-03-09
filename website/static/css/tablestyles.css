@@ -361,22 +361,10 @@ h2 {
   display: inline-block;
 }
 
-
-
-.popup-content {
-  /* display: grid;
-  align-items: center; */
-}
-
-
-
 /* ------------------------------------------------------- */
 
 
 .btn-plus {
-  /* position: absolute;
-  top: 12%;
-  right: 220px; */
   padding: 15px 25px;
   border: 1px solid rgb(0, 0, 0);
   border-radius: 20em;
@@ -395,14 +383,9 @@ h2 {
 .popup-plus {
 
   padding: 10px;
-  /* 386 */
-
   height: 215px;
   border-radius: 1em;
-
-
   color: #000;
-
   background-color: rgba(255, 255, 255, 1);
   visibility: hidden;
   opacity: 0;

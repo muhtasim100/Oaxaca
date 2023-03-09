@@ -48,8 +48,8 @@
 }
 
 .user-img img {
-  width: auto;
-  height: 100%;
+  width: 68px;
+  height: 68px;
   position: relative;
 }
 
@@ -79,7 +79,7 @@
 }
 
 
-
+/* popup button */
 
 
 .popup {
@@ -127,7 +127,6 @@
 }
 
 
-/* ------------------- */
 .close-popup {
   background-color: rgba(0, 0, 0, .7);
   cursor: default;
@@ -140,6 +139,7 @@
   visibility: hidden;
   transition: opacity .5s, visibility 0s linear .0s;
 }
+
 
 .popups_container {
   position: fixed;
@@ -161,6 +161,32 @@
   transition: .3s;
 }
 
+#greenButton {
+  display: grid;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border-color: rgb(13, 214, 36);
+  background-color: rgb(13, 214, 36);
+}
+
+#yellowButton {
+  display: grid;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border-color: rgb(255, 243, 73);
+  background-color: rgb(255, 243, 73);
+}
+
+#redButton {
+  display: grid;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border-color: rgb(245, 1, 1);
+  background-color: rgb(255, 1, 1);
+}
 
 .color-btn-container {
   width: 25px;
@@ -200,4 +226,50 @@
   left: 60px;
   margin: 0;
   display: inline-block;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, .7);
+  cursor: default;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: opacity .5s, visibility 0s linear .0s;
+}
+
+
+@media only screen and (max-width: 800px) {
+  .notifs-content{
+    position: relative;
+    top: 15%;
+    left: 5%
+  }
+
+  .action {
+    width: 75vw;
+    height: min-content;
+    margin: 10px 15px 5px;  
+    font-size: medium;
+
+  }
+
+  .overlay {
+    display: none;
+  }
+
+  .popups_container {
+    left: 85%;
+    bottom: 82%;
+  }
+
+  .btn {
+    padding: 5px 13px;
+  }
+
+  .user-img img {
+    width: 59px;
+    height: 59px;
+  }
 }
