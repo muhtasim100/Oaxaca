@@ -69,7 +69,6 @@ class Orders(db.Model):
     OrderDate = db.Column(db.DateTime (timezone = True), default = func.now())
     Quantity = db.Column(db.Integer)
     UnitPrice = db.Column(db.DECIMAL(6, 2))
-    FoodId = db.Column(db.Integer, db.ForeignKey('FoodItem.FoodId'))
     Fk_UserId = db.Column(db.Integer, db.ForeignKey('User.UserId'))
     Fk_TableId = db.Column(db.Integer, db.ForeignKey('customer_table.TableId'))
     items = db.relationship('OrderItem', backref='order', lazy='dynamic')

@@ -68,7 +68,7 @@ def testing():
 
 
     if Notification.query.count() != 1:
-        test1 = Notification(status = 1, typeNotification = 1, FK_OrderID = 1, FK_UserID = current_user.UserId)
+        test1 = Notification(statusNotification = 1, typeNotification = 1, FK_OrderID = 1, FK_UserId = current_user.UserId)
         db.session.add(test1)
         db.session.commit()
 
