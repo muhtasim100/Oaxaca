@@ -60,44 +60,47 @@ class customer_table(db.Model):
     TableId = db.Column(db.Integer, primary_key=True)
     Seats = db.Column(db.Integer)
     Available = db.Column(db.Boolean)
-    EstimatedWaiting = db.Column(db.Time)
     Fk_UserId = db.Column(db.Integer, db.ForeignKey('User.UserId'))
 
 
 class Orders(db.Model):
     __tablename__ = 'Orders'
     OrderId = db.Column(db.Integer, primary_key=True)
-    OrderDate = db.Column(db.Time)
-    PickupDate = db.Column(db.Time)
+    OrderDate = db.Column(db.DateTime (timezone = True), default = func.now())
     Quantity = db.Column(db.Integer)
-    UnitPrice = db.Column(db.DECIMAL(6, 2))
-    FoodId = db.Column(db.Integer, db.ForeignKey('FoodItem.FoodId'))
+    UnitPrice = db.Column(db.Float(precision=8, asdecimal = True))
     Fk_UserId = db.Column(db.Integer, db.ForeignKey('User.UserId'))
     Fk_TableId = db.Column(db.Integer, db.ForeignKey('customer_table.TableId'))
+    items = db.relationship('OrderItem', backref='order', lazy='dynamic')
 
 
 class Menu(db.Model):
     __tablename__ = 'Menu'
     MenuId = db.Column(db.Integer, primary_key=True)
-    Price = db.Column(db.DECIMAL(6, 2))
+    Price = db.Column(db.Float(precision=8, asdecimal = True))
     StartDate = db.Column(db.Date)
     EndDate = db.Column(db.Date)
     FK_FoodId = db.Column(db.String(100), db.ForeignKey('FoodItem.FoodId'))
     Fk_OrderId = db.Column(db.Integer, db.ForeignKey('Orders.OrderId'))
-
 
 class FoodItem(db.Model):
     __tablename__ = 'FoodItem'
     FoodId = db.Column(db.Integer, primary_key=True)
     FoodName = db.Column(db.String(100))
     Quantity = db.Column(db.Integer)
-    UnitPrice = db.Column(db.DECIMAL(6, 2))
+    UnitPrice = db.Column(db.Float(precision=8, asdecimal = True))
     ItemCategory = db.Column(db.String(100))
     GlutenFree = db.Column(db.Boolean)
     ContainsMeat = db.Column(db.Boolean)
     Vegan = db.Column(db.Boolean)
     Cals = db.Column(db.Integer)
 
+class OrderItem(db.Model):
+    __tablename__ = 'OrderItem'
+    ItemId = db.Column(db.Integer, primary_key=True)
+    FoodId = db.Column(db.Integer, db.ForeignKey('FoodItem.FoodId'))
+    Quantity = db.Column(db.Integer)
+    OrderId = db.Column(db.Integer, db.ForeignKey('Orders.OrderId'))
 
 class Reviews(db.Model):
     __tablename__ = 'Reviews'
@@ -107,3 +110,19 @@ class Reviews(db.Model):
     Fk_UserId = db.Column(db.Integer, db.ForeignKey('User.UserId'))
     Fk_MenuId = db.Column(db.Integer, db.ForeignKey('Menu.MenuId'))
     Fk_FoodId = db.Column(db.Integer, db.ForeignKey('FoodItem.FoodId'))
+
+class Notification(db.Model):
+    __tablename__ = 'Notification'
+    NotificationID = db.Column(db.Integer, primary_key=True)
+    TimeNotifcation = db.Column(db.DateTime (timezone = True), default = func.now())
+    statusNotification = db.Column(db.Integer)
+    # 1 -> Processing
+    # 2 -> Working on it
+    # 3 -> At the table
+    typeNotification = db.Column(db.Integer)
+    # 1 -> Customer has ordered
+    # 2 -> Customer has called the waiter
+    # 3 -> Customer has paid
+    # 4 -> Customer has left
+    FK_OrderID = db.Column(db.Integer, db.ForeignKey('User.Fk_OrderID'))
+    FK_UserId = db.Column(db.Integer, db.ForeignKey('User.UserId'))

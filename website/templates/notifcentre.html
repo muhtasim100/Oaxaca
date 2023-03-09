@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/notifcenter.css') }}">
+<title>
+  Oaxaca - Notification Center
+</title>
+{% endblock %}
+
+{% block content %}
+<div class="notifs-content">
+  {% for notif in res %}
+  <div class="action">
+    <div class="user-img"><img src="{{ url_for('static', filename='images/User-Icon.svg') }}" alt="user"></div>
+
+    {% if notif.typeNotification == 1 %}
+    <div class="light-img"><img src="{{ url_for('static', filename='images/red-light.svg') }}" alt="redlight"></div>
+    {% endif %}
+
+    {% if notif.typeNotification == 2 %}
+    <div class="light-img"><img src="{{ url_for('static', filename='images/yellow-light.svg') }}" alt="redlight"></div>
+    {% endif %}
+
+    {% if notif.typeNotification == 3 %}
+    <div class="light-img"><img src="{{ url_for('static', filename='images/green-light.svg') }}" alt="redlight"></div>
+    {% endif %}
+
+    <div class="notif-text"> Table {{ notif.FK_UserId }}
+      {% if notif.typeNotification == 1 %}
+      has ordered
+      {% endif %}
+
+      {% if notif.typeNotification == 2 %}
+      has called the waiter
+      {% endif %}
+
+      {% if notif.typeNotification == 3 %}
+      has paid
+      {% endif %}
+
+      {% if notif.typeNotification == 4 %}
+      Customer has left
+      {% endif %}
+
+      <br>
+      {{ notif.TimeNotifcation }}
+    </div>
+    <div class="notif-img"><img src="{{ url_for('static', filename='images/clickarrow.svg') }}" alt="arrow"></div>
+  </div>
+  {% endfor %}
+
+
+  <div class="popups_container">
+    <a href="#popup" class="btn popup-btn">?</a>
+  </div>
+  <div class="overlay">
+
+    <div id="popup" class="popup popup_position">
+      <a href="#" class="close">&times;</a>
+      <h2 id="tablestatustxt">Order Status:</h2>
+      <h4>The following dots show the status of the order:</h4>
+
+      <div class="popup-content">
+        <div class="color-btn-container">
+          <button id="greenButton"></button>
+          <div class="color-btn-container"></div>
+          <h4 id="available">Served.</h4>
+        </div>
+
+        <div class="color-btn-container">
+          <button id="yellowButton"></button>
+
+          <div class="color-btn-container"></div>
+          <h4 id="reserved">In Progress.</h4>
+        </div>
+
+        <div class="color-btn-container">
+          <button id="redButton"></button>
+          <div class="color-btn-container"></div>
+          <h4 id="occupied">Waiting.</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <script type="text/javascript">
+  function TimeAgo(){
+    const date = new Date();
+
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+    let hour = date.getHours();
+    let minutes = date.getMinutes();
+    let seconds =  date.getSeconds();
+
+    let currentDate = `${day}-${month}-${year}--${hour}--${minutes}--${seconds}`;
+    document.getElementById("time-ago").innerHTML = currentDate;
+  }
+  TimeAgo();
+</script> -->
+
+  <script>
+    document.querySelector(".popup-btn").onclick = function() {
+      document.querySelector(".overlay").style.display = "block";
+    }
+
+    window.onclick = function (event) {
+      if (event.target == document.querySelector(".overlay")) {
+        document.querySelector(".overlay").style.display = "none";
+      }
+    }
+
+    document.querySelector(".close").onclick = function (event) {
+      document.querySelector(".overlay").style.display = "none";
+    }
+  </script>
+{% endblock %}
