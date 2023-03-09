@@ -23,7 +23,6 @@
     <table>
       <tbody><tr>
         <th>Name of product</th>
-        <th>description</th>
         <th>cal</th> 
         <th><img src="{{ url_for('static', filename='images/Vector.svg') }}" alt="Contains meat"></th>
         <th><img src="{{ url_for('static', filename='images/mdi_gluten-free.svg') }}" alt="Gluten free"></th>
@@ -32,11 +31,16 @@
       {% for food in res %}
       <tr>
         <td>{{ food.FoodName }}</td>
-        <td>description</td>
-        <td>323</td>
-        <td><br></td>
-        <td><br></td>
-        <td><br></td>
+        <td>{{ food.Cals }}</td>
+        <td>{% if food.GlutenFree==True %}
+          <img src="{{ url_for('static', filename='images/Tick.svg') }}" alt="Gluten_Icon" />
+          {% endif %}</td>
+        <td>{% if food.ContainsMeat==True %}
+          <img src="{{ url_for('static', filename='images/Tick.svg') }}" alt="Meat_icon">
+          {% endif %}</td>
+        <td>{% if food.Vegan==True %}
+          <img src="{{ url_for('static', filename='images/Tick.svg') }}" alt="Vegan_Icon">
+          {% endif %}</td>
       </tr>
       {% endfor %}
     </tbody></table>
