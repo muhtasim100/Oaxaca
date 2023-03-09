@@ -1,0 +1,220 @@
+/* General CSS for Payment Page */
+
+.bold {
+  font-family: 'Poppins-Bold';
+}
+
+.pence {
+  font-size: 16px;
+}
+
+.container-left {
+  flex: auto;
+  justify-content: left;
+}
+
+.container-right {
+  flex: auto;
+  justify-content: right;
+}
+
+.payment-content {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.payment-header {
+  display: flex;
+  justify-content: center;
+  font-family: 'Sans-Regular';
+  font-size: 44px;
+}
+
+.payment-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 20px;
+}
+
+/* Payment Details (Left Section) */
+
+.payment-details {
+  /* max-width: 400px; */
+}
+
+.payment-details input {
+  border: none;
+  text-align: center;
+  font-size: 20px;
+}
+
+.payment-details .cardinput {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.payment-details .cardinput input {
+  margin-left: 15px;
+}
+
+.payment-details .payment-small-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.payment-details .payment-small-header .bold {
+  margin-top: 20px;
+}
+
+.payment-details .summary {
+  color: #7b7b7b;
+  font-family: "Poppins-Regular";
+  margin-bottom: 20px;
+}
+
+.payment-details .sidebyside {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.payment-details .paynow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.payment-details button {
+  background-color: #9EC2CC;
+  border: none;
+  color: white;
+  padding: 15px 100px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+/* Order Details (Right Section) */
+
+.order-details {
+  display: flex;
+  flex-direction: column;
+  color: #7b7b7b;
+  max-width: 300px;
+}
+
+.order-details div {
+  margin: 10px 0;
+}
+
+.order-details hr {
+  border: none;
+  border-top: 3px dotted #7b7b7b;
+  height: 1px;
+  width: 100%;
+}
+
+.order-details-section {
+  display: flex;
+  flex-direction: row;
+}
+
+/* Review Modal CSS */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  position: relative;
+  background-color: var(--bg-primary);
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 20px;
+  width: min-content;
+  box-shadow: 0px 5px 10px black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  animation-name: animatetop;
+  animation-duration: 0.8s;
+}
+
+.modal-header {
+  font-family: 'Sans-Regular';
+  font-size: 36px;
+}
+
+.stars {
+  margin-top: 10px;
+}
+
+.stars img {
+  width: 40px;
+  cursor: pointer;
+}
+
+.review-textarea {
+  margin-top: 10px;
+}
+
+.review-textarea textarea {
+  background-color: #D9D9D9;
+  border: 2px solid black;
+  border-radius: 20px;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+.review-textarea textarea:focus {
+  outline: none;
+}
+
+.review-submit {
+  font-family: "Poppins-Bold", sans-serif;
+  font-size: 28px;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.review-submit button {
+  background-color: white;
+  border-radius: 10px;
+  border: 2px solid black;
+  padding: 0 15px;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
+}

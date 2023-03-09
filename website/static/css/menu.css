@@ -1,0 +1,58 @@
+.card_grid{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  column-gap: 40px;
+  row-gap: 40px;
+}
+
+.food_container{
+  border: none;
+  font-family: 'Sans-Regular';
+  cursor: pointer;
+  text-transform: uppercase;
+  background: var(--bg-primary);
+  color: rgb(0, 0, 0);
+  letter-spacing: 0.2px;
+  font-size: x-large;
+  outline: 0;
+  -webkit-transition: all .6s;
+  transition: all .6s;
+  border-radius: 15px;
+  text-align: left;
+  box-shadow: 3px 3px 3px rgb(187, 187, 187);
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  max-width: 200px;
+  margin-bottom: 10px ;
+  height: 171px;
+}
+
+.food_container .icon{
+  flex: auto;
+  justify-content: right;
+  margin-right: 10px;
+  margin-left: auto;
+}
+
+.food_container .food_info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+  width: 100%;
+}
+
+.food_container .food_name{
+  width: 100%;
+}
+
+.food_container .food_price{
+  width: 100%;
+}
+
+@font-face {
+  font-family: 'Sans-Regular';
+  src: url('../fonts/Ravager-Sans-Regular.ttf') format('truetype');
+}
