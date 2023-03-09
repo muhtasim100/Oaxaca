@@ -101,3 +101,18 @@ def notification():
 @views.route('/staff')
 def staff():
     return render_template("staff_management.html")
+
+@views.route('/order_tracker')
+def order():
+    return render_template("orderprogress.html")
+
+#POST REQUEST FOR STORING REVIEW
+@views.route('/review_store', methods=["POST"])
+def review_store():
+    stars = request.form.get("stars")
+    review = request.form.get("review")
+    review_row = Reviews(Fk_UserId=current_user.UserId, starReview=int(stars))
+    db.session.add(review_row)
+    db.session.commit()
+
+    return "Success", 200
