@@ -85,7 +85,8 @@ def tables():
     return render_template("tables.html")
 
 @views.route('/menu')
-def menu(ListAll):
+def menu():
+    ListAll = FoodItem.query.all()
     return render_template("menu.html", res= ListAll)
     
 @views.route('/payment')
@@ -94,8 +95,8 @@ def payment():
 
 @views.route('/notif')
 def notification():
-
-    return render_template("notifcentre.html")
+    ListAll = Notification.query.all()
+    return render_template("notifcentre.html", res=ListAll)
 
 @views.route('/staff')
 def staff():
