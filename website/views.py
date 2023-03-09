@@ -1,6 +1,7 @@
 from flask import Blueprint, redirect, render_template, request, session, url_for, flash
 from . import db
-from .models import FoodItem
+from .models import FoodItem, Reviews
+from flask_login import current_user
 
 views = Blueprint('views', __name__)
 
@@ -48,3 +49,14 @@ def staff():
 @views.route('/order_tracker')
 def order():
     return render_template("orderprogress.html")
+
+#POST REQUEST FOR STORING REVIEW
+@views.route('/review_store', methods=["POST"])
+def review_store():
+    stars = request.form.get("stars")
+    review = request.form.get("review")
+    review_row = Reviews(Fk_UserId=current_user.UserId, starReview=int(stars))
+    db.session.add(review_row)
+    db.session.commit()
+
+    return "Success", 200

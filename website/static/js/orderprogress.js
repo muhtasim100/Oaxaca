@@ -92,6 +92,18 @@ review_modal_btn.onclick = function () {
 
 review_btn.onclick = function () {
     // submitting review
+    $.ajax({
+      url: '/review_store',
+      type: 'POST',
+      data: {stars: selectedStar+1, review: $("#review-text").val()},
+      success: function(data) {
+        // change this later to show a notification saying the review is submitted
+        console.log("Review submitted");
+      },
+      error: function(error) {
+        console.log(error);
+      }
+    });
     modal.style.display = "none";
 }
 
