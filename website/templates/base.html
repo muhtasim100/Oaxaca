@@ -59,14 +59,14 @@
             </li>
 
             <li class="nav-item">
-                <a href="{{url_for('views.notification')}}" class="nav-link">
+                <a href="{{ url_for('views.notification' )}}" class="nav-link">
                     <img src="{{ url_for('static', filename='images/sidebar/checklist-icon.svg') }}" alt="ordered food">
                     <span class="link-text">Ordered food</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ url_for('views.payment') }}" class="nav-link">
                     <img src="{{ url_for('static', filename='images/sidebar/payment-icon.svg') }}" alt="payment">
                     <span class="link-text">Payment</span>
                 </a>
