@@ -106,6 +106,12 @@ def staff():
 def order():
     return render_template("orderprogress.html")
 
+
+@views.route('/reviews')
+def reviews():
+    reviewsAll = Reviews.query.all();
+    return render_template("reviews.html", res=reviewsAll)
+
 #POST REQUEST FOR STORING REVIEW
 @views.route('/review_store', methods=["POST"])
 def review_store():

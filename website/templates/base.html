@@ -37,7 +37,7 @@
             </li>
 
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ url_for('views.menu') }}" class="nav-link">
                     <img src="{{ url_for('static', filename='images/sidebar/food-menu-icon.svg') }}" alt="menu">
                     <span class="link-text">Menu</span>
                 </a>
@@ -73,7 +73,7 @@
             </li>
 
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ url_for('views.reviews') }}" class="nav-link">
                     <img src="{{ url_for('static', filename='images/sidebar/material-symbols_rate-review-outline.svg') }}" alt="review">
                     <span class="link-text">Reviews</span>
                 </a>
