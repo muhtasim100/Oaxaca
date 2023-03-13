@@ -77,6 +77,11 @@ def testing():
     return("Done!")
 
 
+@views.route('/base')
+def base():
+    return render_template("base.html")
+
+
 @views.route('/')
 def home():
     return render_template("home.html")
