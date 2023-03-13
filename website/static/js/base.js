@@ -57,7 +57,12 @@ window.onclick = function (event) {
 
 
 // Helper Buttons
-$(".question-btn").click(function () {
+$(".table-btn").click(function () {
     $(".helper-popup").css("opacity", "0%");
     $(".table-popup").css("opacity", "100%");
+});
+
+$(".allergy-btn").click(function () {
+    $(".helper-popup").css("opacity", "0%");
+    $(".allergy-popup").css("opacity", "100%");
 });

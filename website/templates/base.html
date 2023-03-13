@@ -83,11 +83,11 @@
     </nav>
 
     <div class="content">
-        <div class="helper-buttons">
-            <div class="circle-btn">+</div>
-            <div class="question-btn circle-btn">?</div>
-        </div>
         {% block content %}
+            <div class="helper-buttons">
+                <div class="circle-btn">+</div>
+                <div class="circle-btn allergy-btn">?</div>
+            </div>
         {% endblock %}
 
         <div class="helper-popup table-popup">
@@ -97,6 +97,16 @@
                 <span><img src="{{ url_for('static', filename='images/green-light.svg') }}" alt="green-dot">Available</span>
                 <span><img src="{{ url_for('static', filename='images/yellow-light.svg') }}" alt="yellow-dot">Reserved for the next two hours</span>
                 <span><img src="{{ url_for('static', filename='images/red-light.svg') }}" alt="red-dot">Occupied</span>
+            </div>
+        </div>
+
+        <div class="helper-popup allergy-popup">
+            <div class="helper-title">Allergies Informations</div>
+            <div class="helper-subtitle">The following symbols show the allergies of the dishes:</div>
+            <div class="helper-content">
+                <span><img src="{{ url_for('static', filename='images/menu/mdi_meat.svg') }}" alt="Meat Icon">Contains meat.</span>
+                <span><img src="{{ url_for('static', filename='images/menu/mdi_gluten-free.svg') }}" alt="Gluten Free Icon">Gluten free.</span>
+                <span><img src="{{ url_for('static', filename='images/menu/Group.svg') }}" alt="Vegan Icon">Vegan</span>
             </div>
         </div>
     </div>
