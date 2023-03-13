@@ -5,24 +5,24 @@ from sqlalchemy.sql import func
 
 class User(db.Model, UserMixin):
     __tablename__ = 'User'
-    UserId = db.Column(db.Integer, primary_key=True)
+    UserID = db.Column(db.Integer, primary_key=True)
     UserName = db.Column(db.String(100), nullable=True)
     Email = db.Column(db.String(100), nullable=True, unique=True)
     UserPassword = db.Column(db.String(100), nullable=True)
     Status = db.Column(db.String(100))
-    PaymentId = db.Column(db.String(100), nullable=True, unique=True)
-    Fk_Table_Id = db.Column(db.Integer, db.ForeignKey('customer_table.TableId'))
-    Fk_OrderID = db.Column(db.Integer, db.ForeignKey('Orders.OrderId'))
+    PaymentID = db.Column(db.String(100), nullable=True, unique=True)
+    Fk_Table_ID = db.Column(db.Integer, db.ForeignKey('customer_table.TableID'))
+    Fk_OrderID = db.Column(db.Integer, db.ForeignKey('Orders.OrderID'))
     Permission = db.Column(db.String(100))
 
     def get_id(self):
-        return self.UserId
+        return self.UserID
         
-    def get_UserId(self):
-        return self.UserId
+    def get_UserID(self):
+        return self.UserID
 
-    def set_UserId(self, UserId):
-        self.UserId = UserId
+    def set_UserID(self, UserID):
+        self.UserID = UserID
 
     def get_Name(self):
         return self.Name
@@ -48,44 +48,44 @@ class User(db.Model, UserMixin):
     def set_Status(self, Status):
         self.Status = Status
 
-    def get_PaymentId(self):
-        return self.PaymentId
+    def get_PaymentID(self):
+        return self.PaymentID
 
-    def set_PaymentId(self, PaymentId):
-        self.PaymentId = PaymentId
+    def set_PaymentID(self, PaymentID):
+        self.PaymentID = PaymentID
 
 
 class customer_table(db.Model):
     __tablename__ = 'customer_table'
-    TableId = db.Column(db.Integer, primary_key=True)
+    TableID = db.Column(db.Integer, primary_key=True)
     Seats = db.Column(db.Integer)
     Available = db.Column(db.Boolean)
-    Fk_UserId = db.Column(db.Integer, db.ForeignKey('User.UserId'))
+    Fk_UserID = db.Column(db.Integer, db.ForeignKey('User.UserID'))
 
 
 class Orders(db.Model):
     __tablename__ = 'Orders'
-    OrderId = db.Column(db.Integer, primary_key=True)
+    OrderID = db.Column(db.Integer, primary_key=True)
     OrderDate = db.Column(db.DateTime (timezone = True), default = func.now())
     Quantity = db.Column(db.Integer)
     UnitPrice = db.Column(db.Float(precision=8, asdecimal = True))
-    Fk_UserId = db.Column(db.Integer, db.ForeignKey('User.UserId'))
-    Fk_TableId = db.Column(db.Integer, db.ForeignKey('customer_table.TableId'))
+    Fk_UserID = db.Column(db.Integer, db.ForeignKey('User.UserID'))
+    Fk_TableID = db.Column(db.Integer, db.ForeignKey('customer_table.TableID'))
     items = db.relationship('OrderItem', backref='order', lazy='dynamic')
 
 
 class Menu(db.Model):
     __tablename__ = 'Menu'
-    MenuId = db.Column(db.Integer, primary_key=True)
+    MenuID = db.Column(db.Integer, primary_key=True)
     Price = db.Column(db.Float(precision=8, asdecimal = True))
     StartDate = db.Column(db.Date)
     EndDate = db.Column(db.Date)
-    FK_FoodId = db.Column(db.String(100), db.ForeignKey('FoodItem.FoodId'))
-    Fk_OrderId = db.Column(db.Integer, db.ForeignKey('Orders.OrderId'))
+    FK_FoodID = db.Column(db.String(100), db.ForeignKey('FoodItem.FoodID'))
+    Fk_OrderID = db.Column(db.Integer, db.ForeignKey('Orders.OrderID'))
 
 class FoodItem(db.Model):
     __tablename__ = 'FoodItem'
-    FoodId = db.Column(db.Integer, primary_key=True)
+    FoodID = db.Column(db.Integer, primary_key=True)
     FoodName = db.Column(db.String(100))
     Quantity = db.Column(db.Integer)
     UnitPrice = db.Column(db.Float(precision=8, asdecimal = True))
@@ -97,19 +97,19 @@ class FoodItem(db.Model):
 
 class OrderItem(db.Model):
     __tablename__ = 'OrderItem'
-    ItemId = db.Column(db.Integer, primary_key=True)
-    FoodId = db.Column(db.Integer, db.ForeignKey('FoodItem.FoodId'))
+    ItemID = db.Column(db.Integer, primary_key=True)
+    FoodID = db.Column(db.Integer, db.ForeignKey('FoodItem.FoodID'))
     Quantity = db.Column(db.Integer)
-    OrderId = db.Column(db.Integer, db.ForeignKey('Orders.OrderId'))
+    OrderID = db.Column(db.Integer, db.ForeignKey('Orders.OrderID'))
 
 class Reviews(db.Model):
     __tablename__ = 'Reviews'
     reviewID = db.Column(db.Integer, primary_key=True)
     timeReview = db.Column(db.Date)
     starReview = db.Column(db.Integer)
-    Fk_UserId = db.Column(db.Integer, db.ForeignKey('User.UserId'))
-    Fk_MenuId = db.Column(db.Integer, db.ForeignKey('Menu.MenuId'))
-    Fk_FoodId = db.Column(db.Integer, db.ForeignKey('FoodItem.FoodId'))
+    Fk_UserID = db.Column(db.Integer, db.ForeignKey('User.UserID'))
+    Fk_MenuID = db.Column(db.Integer, db.ForeignKey('Menu.MenuID'))
+    Fk_FoodID = db.Column(db.Integer, db.ForeignKey('FoodItem.FoodID'))
 
 class Notification(db.Model):
     __tablename__ = 'Notification'
@@ -125,4 +125,4 @@ class Notification(db.Model):
     # 3 -> Customer has paid
     # 4 -> Customer has left
     FK_OrderID = db.Column(db.Integer, db.ForeignKey('User.Fk_OrderID'))
-    FK_UserId = db.Column(db.Integer, db.ForeignKey('User.UserId'))
+    FK_UserID = db.Column(db.Integer, db.ForeignKey('User.UserID'))

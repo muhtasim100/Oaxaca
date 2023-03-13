@@ -24,7 +24,7 @@
     <div class="light-img"><img src="{{ url_for('static', filename='images/green-light.svg') }}" alt="redlight"></div>
     {% endif %}
 
-    <div class="notif-text"> Table {{ notif.FK_UserId }}
+    <div class="notif-text"> Table {{ notif.FK_UserID }}
       {% if notif.typeNotification == 1 %}
       has ordered
       {% endif %}

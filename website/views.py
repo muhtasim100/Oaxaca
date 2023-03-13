@@ -12,7 +12,7 @@ def testing():
     ListTable =  customer_table.query.all()
 
     if FoodItem.query.count() != 1:
-        testTable = customer_table(Seats = 4, Available = False, Fk_UserId = 1)
+        testTable = customer_table(Seats = 4, Available = False, Fk_UserID = 1)
 
 
 
@@ -37,23 +37,23 @@ def testing():
     #Order
     if Orders.query.count() != 1:
         total = 0
-        testOrder = Orders(Quantity=2, Fk_UserId=1, Fk_TableId=1)
+        testOrder = Orders(Quantity=2, Fk_UserID=1, Fk_TableID=1)
         db.session.add(testOrder)
         db.session.commit()
 
         # Create order items
-        print(testOrder.OrderId)
-        item1 = OrderItem(FoodId=1, Quantity=1, OrderId = testOrder.OrderId)
-        item2 = OrderItem(FoodId=2, Quantity=1, OrderId = testOrder.OrderId)
+        print(testOrder.OrderID)
+        item1 = OrderItem(FoodID=1, Quantity=1, OrderID = testOrder.OrderID)
+        item2 = OrderItem(FoodID=2, Quantity=1, OrderID = testOrder.OrderID)
         db.session.add(item1)
         db.session.add(item2)
         db.session.commit()
 
         # Generate price 
-        allFoodOrdered = OrderItem.query.filter_by(OrderId = 1)
+        allFoodOrdered = OrderItem.query.filter_by(OrderID = 1)
         print(allFoodOrdered)
         for i in allFoodOrdered:
-            food = FoodItem.query.filter_by(FoodId = i.FoodId).first()
+            food = FoodItem.query.filter_by(FoodID = i.FoodID).first()
             total += food.UnitPrice * i.Quantity
         testOrder.UnitPrice = total
         db.session.commit()
@@ -70,7 +70,7 @@ def testing():
 
 
     if Notification.query.count() != 1:
-        test1 = Notification(statusNotification = 1, typeNotification = 1, FK_OrderID = 1, FK_UserId = current_user.UserId)
+        test1 = Notification(statusNotification = 1, typeNotification = 1, FK_OrderID = 1, FK_UserID = current_user.UserID)
         db.session.add(test1)
         db.session.commit()
 
@@ -117,7 +117,7 @@ def reviews():
 def review_store():
     stars = request.form.get("stars")
     review = request.form.get("review")
-    review_row = Reviews(Fk_UserId=current_user.UserId, starReview=int(stars))
+    review_row = Reviews(Fk_UserID=current_user.UserID, starReview=int(stars))
     db.session.add(review_row)
     db.session.commit()
 
