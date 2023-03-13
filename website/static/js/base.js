@@ -62,6 +62,11 @@ $(".table-btn").click(function () {
     $(".table-popup").css("opacity", "100%");
 });
 
+$(".order-btn").click(function () {
+    $(".helper-popup").css("opacity", "0%");
+    $(".order-popup").css("opacity", "100%");
+});
+
 $(".allergy-btn").click(function () {
     $(".helper-popup").css("opacity", "0%");
     $(".allergy-popup").css("opacity", "100%");

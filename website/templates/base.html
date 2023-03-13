@@ -86,7 +86,7 @@
         {% block content %}
             <div class="helper-buttons">
                 <div class="circle-btn">+</div>
-                <div class="circle-btn allergy-btn">?</div>
+                <div class="circle-btn order-btn">?</div>
             </div>
         {% endblock %}
 
@@ -97,6 +97,16 @@
                 <span><img src="{{ url_for('static', filename='images/green-light.svg') }}" alt="green-dot">Available</span>
                 <span><img src="{{ url_for('static', filename='images/yellow-light.svg') }}" alt="yellow-dot">Reserved for the next two hours</span>
                 <span><img src="{{ url_for('static', filename='images/red-light.svg') }}" alt="red-dot">Occupied</span>
+            </div>
+        </div>
+
+        <div class="helper-popup order-popup">
+            <div class="helper-title">Order Status</div>
+            <div class="helper-subtitle">The following dots show the status of the order:</div>
+            <div class="helper-content">
+                <span><img src="{{ url_for('static', filename='images/green-light.svg') }}" alt="green-dot">Served</span>
+                <span><img src="{{ url_for('static', filename='images/yellow-light.svg') }}" alt="yellow-dot">In Progress</span>
+                <span><img src="{{ url_for('static', filename='images/red-light.svg') }}" alt="red-dot">Waiting</span>
             </div>
         </div>
 
