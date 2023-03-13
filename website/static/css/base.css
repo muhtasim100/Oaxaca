@@ -41,6 +41,37 @@
   transform: scale(0.9);
 }
 
+
+/* Helper Buttons */
+.helper-buttons {
+  position: absolute;
+  top: calc(10% + 30px);
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: row;
+}
+
+.circle-btn {
+  margin-right: 20px;
+  background-color: var(--bg-secondary);
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 24px;
+  color: #111111;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  cursor: pointer;
+  filter: drop-shadow(0 4px 4px #00000040);
+}
+
 /* Sidebar CSS */
 
 .navbar {

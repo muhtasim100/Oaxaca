@@ -83,13 +83,16 @@
     </nav>
 
     <div class="content">
+        <div class="helper-buttons">
+            <div class="circle-btn">+</div>
+            <div class="circle-btn">?</div>
+        </div>
         {% block content %}
         {% endblock %}
     </div>
 
     <script src="{{ url_for('static', filename='js/base.js') }}"></script>
     {% block scripts %}
-
     {% endblock %}
 </body>
 
