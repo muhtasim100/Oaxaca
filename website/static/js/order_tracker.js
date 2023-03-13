@@ -1,35 +1,17 @@
-
-
+let currentIndex = 0;
+const images = document.getElementsByClassName("image");
 const dropdowns = document.querySelectorAll('.dropdown');
-const popup_question = document.querySelector(".popup");
-const popup_back = document.querySelector(".close-popup2");
-const popup_btn = document.querySelector(".popup-btn");
-const close_btn = document.querySelector(".close");
-
-// -----Question popup codee------
-// make the popup hidden
-popup_back.style.visibility = "hidden"
-//show
-popup_btn.addEventListener("click", ()=>{
-  popup_back.style.visibility = "visible"
-
-});
-
-// //hide
-function hidePopUp(){
-  close_btn.addEventListener("click",()=>{
-    popup_back.style.visibility = "hidden"
-  });
-
-   popup_back.addEventListener("click",()=>{
-    console.log("hide plzzz")
-    popup_back.style.visibility = "hidden"
-  })
-}
-
-hidePopUp();
 
 // ----------------------------------------
+
+function nextImage() {
+  images[currentIndex].classList.remove("visible");
+  images[currentIndex].classList.add("hidden");
+  currentIndex = (currentIndex + 1) % images.length;
+  images[currentIndex].classList.remove("hidden");
+  images[currentIndex].classList.add("visible");
+}
+
 
 //Loop through all dropdown elements
 dropdowns.forEach(dropdown => {

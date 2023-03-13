@@ -38,17 +38,3 @@ function isScreenSmall() {
     var displayWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
     return displayWidth < 800;
 }
-
-document.querySelector(".popup-btn").onclick = function() {
-    document.querySelector(".overlay").style.display = "block";
-}
-
-window.onclick = function (event) {
-    if (event.target == document.querySelector(".overlay")) {
-        document.querySelector(".overlay").style.display = "none";
-    }
-}
-
-document.querySelector(".close").onclick = function (event) {
-    document.querySelector(".overlay").style.display = "none";
-}

@@ -116,12 +116,12 @@ def staff():
 
 @views.route('/order_tracker')
 def order():
-    return render_template("orderprogress.html")
+    return render_template("order_tracker.html")
 
 
 @views.route('/reviews')
 def reviews():
-    reviewsAll = Reviews.query.all();
+    reviewsAll = Reviews.query.all()
     return render_template("reviews.html", res=reviewsAll)
 
 
