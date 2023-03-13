@@ -79,6 +79,8 @@ dropdowns.forEach(dropdown => {
 });
 
 
+// Code for the review modal + submitting reviews
+
 var modal = document.getElementById("reviewModal");
 var review_btn = document.getElementById("review-btn");
 var review_modal_btn = document.querySelector(".reviewbutton");

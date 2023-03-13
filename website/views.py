@@ -76,31 +76,38 @@ def testing():
 
     return("Done!")
 
+
 @views.route('/')
 def home():
     return render_template("home.html")
+
 
 @views.route('/table')
 def tables():
     return render_template("tables.html")
 
+
 @views.route('/menu')
 def menu():
     ListAll = FoodItem.query.all()
     return render_template("menu.html", res= ListAll)
-    
+
+
 @views.route('/payment')
 def payment():
     return render_template("payment.html")
+
 
 @views.route('/notif')
 def notification():
     ListAll = Notification.query.all()
     return render_template("notifcentre.html", res=ListAll)
 
+
 @views.route('/staff')
 def staff():
     return render_template("staff_management.html")
+
 
 @views.route('/order_tracker')
 def order():
@@ -111,6 +118,7 @@ def order():
 def reviews():
     reviewsAll = Reviews.query.all();
     return render_template("reviews.html", res=reviewsAll)
+
 
 #POST REQUEST FOR STORING REVIEW
 @views.route('/review_store', methods=["POST"])
