@@ -77,7 +77,7 @@ class Orders(db.Model):
     UnitPrice = db.Column(db.Float(precision=8, asdecimal = True))
     Fk_UserID = db.Column(db.Integer, db.ForeignKey('User.UserID'))
     Fk_TableID = db.Column(db.Integer, db.ForeignKey('customer_table.TableID'))
-    Fk_StaffID = db.Column(db.Integer, db.ForeignKey('User.UserID'))
+    Fk_WaiterID = db.Column(db.Integer, db.ForeignKey('User.UserID'))
     items = db.relationship('OrderItem', backref='order', lazy='dynamic')
 
 
