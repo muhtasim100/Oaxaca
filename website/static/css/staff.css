@@ -3,7 +3,6 @@
 * {
   margin: 0%;
   padding: 0%;
-  box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
 
 }
@@ -16,7 +15,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   padding: 6rem 6rem;
-
+  margin-top: 50px;
 }
 
 .box {
@@ -51,7 +50,7 @@ body {
   padding-left: 65px;
 }
 
-.box .content {
+.box .box-content {
   padding: 45px 1px 50px 4px;
   font-size: 15px;
 }

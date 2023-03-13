@@ -1,27 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Team Project</title>
-
+{% extends "base.html" %}
+{% block head %}
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
-    <!-- custom css file link  -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/staff.css') }}">
-</head>
+    <title>
+        Oaxaca - Staff
+    </title>
+{% endblock %}
 
-<body>
+{% block content %}
+
     <!-- staff management starts  -->
     <div class="container">
         <div class="box">
             <img src="{{ url_for('static', filename='images/User-Icon.svg') }}">
             <h2>???</h2>
             <h3>Owner</h3>
-            <div class="content">
+            <div class="box-content">
                 <div id="details">Total Working hours:</div>
                 <div id="info">1024hrs</div>
                 <div id="details">Average Reviews:</div>
@@ -35,7 +32,7 @@
             <img src="{{ url_for('static', filename='images/User-Icon.svg') }}">
             <h2>Carlos Esposito</h2>
             <h3>Owner</h3>
-            <div class="content">
+            <div class="box-content">
                 <div id="details">Total Working hours:</div>
                 <div id="info">1024hrs</div>
                 <div id="details">Average Reviews:</div>
@@ -49,7 +46,7 @@
             <img src="{{ url_for('static', filename='images/User-Icon.svg') }}">
             <h2>Carlos Esposito</h2>
             <h3>Owner</h3>
-            <div class="content">
+            <div class="box-content">
                 <div id="details">Total Working hours:</div>
                 <div id="info">1024hrs</div>
                 <div id="details">Average Reviews:</div>
@@ -63,7 +60,7 @@
             <img src="{{ url_for('static', filename='images/User-Icon.svg') }}">
             <h2>Carlos Esposito</h2>
             <h3>Owner</h3>
-            <div class="content">
+            <div class="box-content">
                 <div id="details">Total Working hours:</div>
                 <div id="info">1024hrs</div>
                 <div id="details">Average Reviews:</div>
@@ -77,7 +74,7 @@
             <img src="{{ url_for('static', filename='images/User-Icon.svg') }}">
             <h2>Carlos Esposito</h2>
             <h3>Owner</h3>
-            <div class="content">
+            <div class="box-content">
                 <div id="details">Total Working hours:</div>
                 <div id="info">1024hrs</div>
                 <div id="details">Average Reviews:</div>
@@ -91,7 +88,7 @@
             <img src="{{ url_for('static', filename='images/User-Icon.svg') }}">
             <h2>Carlos Esposito</h2>
             <h3>Owner</h3>
-            <div class="content">
+            <div class="box-content">
                 <div id="details">Total Working hours:</div>
                 <div id="info">1024hrs</div>
                 <div id="details">Average Reviews:</div>
@@ -104,6 +101,4 @@
 
     </div>
 
-</body>
-
-</html>
+{% endblock %}
