@@ -84,19 +84,12 @@ review_btn.onclick = function () {
         // change this later to show a notification saying the review is submitted
         $(".content").prepend('<div class="notification"><div class="notification-message"></div></div>');
         $(".notification-message").html("Review succesfully submitted!");
-        // console.log("Review submitted");
       },
       error: function(error) {
         console.log(error);
       }
     });
     modal.style.display = "none";
-}
-
-window.onclick = function (event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
 }
 
 stars.forEach(function(star) {

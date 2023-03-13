@@ -85,10 +85,20 @@
     <div class="content">
         <div class="helper-buttons">
             <div class="circle-btn">+</div>
-            <div class="circle-btn">?</div>
+            <div class="question-btn circle-btn">?</div>
         </div>
         {% block content %}
         {% endblock %}
+
+        <div class="helper-popup table-popup">
+            <div class="helper-title">Table Status</div>
+            <div class="helper-subtitle">The following dots show the status of the tables:</div>
+            <div class="helper-content">
+                <span><img src="{{ url_for('static', filename='images/green-light.svg') }}" alt="green-dot">Available</span>
+                <span><img src="{{ url_for('static', filename='images/yellow-light.svg') }}" alt="yellow-dot">Reserved for the next two hours</span>
+                <span><img src="{{ url_for('static', filename='images/red-light.svg') }}" alt="red-dot">Occupied</span>
+            </div>
+        </div>
     </div>
 
     <script src="{{ url_for('static', filename='js/base.js') }}"></script>
