@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block head %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/tablestyles.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/tables.css') }}">
 <title>Oaxaca - Home</title>
 {% endblock %}
 
@@ -10,7 +10,7 @@
         <!-- dropdown -->
         <div class="dropdown">
             <div class="select">
-                <span class="selected">Show all</span>
+                <span>Show all</span>
                 <div class="caret"></div>
             </div>
             <ul class="dropdown-menu">
@@ -90,6 +90,5 @@
 {% endblock %}
 
 {% block scripts %}
-    <script src="{{ url_for('static', filename='js/table.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/tableBtns.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/tables.js') }}"></script>
 {% endblock %}
