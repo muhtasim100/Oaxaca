@@ -14,6 +14,12 @@ class User(db.Model, UserMixin):
     Fk_Table_ID = db.Column(db.Integer, db.ForeignKey('customer_table.TableID'))
     Fk_OrderID = db.Column(db.Integer, db.ForeignKey('Orders.OrderID'))
     Permission = db.Column(db.String(100))
+    
+    # Permissions:
+        # Customer
+        # Waiter
+        # Chef
+        # Owner
 
     def get_id(self):
         return self.UserID
@@ -71,6 +77,7 @@ class Orders(db.Model):
     UnitPrice = db.Column(db.Float(precision=8, asdecimal = True))
     Fk_UserID = db.Column(db.Integer, db.ForeignKey('User.UserID'))
     Fk_TableID = db.Column(db.Integer, db.ForeignKey('customer_table.TableID'))
+    Fk_StaffID = db.Column(db.Integer, db.ForeignKey('User.UserID'))
     items = db.relationship('OrderItem', backref='order', lazy='dynamic')
 
 
@@ -126,7 +133,8 @@ class Notification(db.Model):
     typeNotification = db.Column(db.Integer)
     # 1 -> Customer has ordered
     # 2 -> Customer has called the waiter
-    # 3 -> Customer has paid
-    # 4 -> Customer has left
+    # 3 -> Customer has left
+    # 4 -> Chef has called the waiter
+    
     FK_OrderID = db.Column(db.Integer, db.ForeignKey('User.Fk_OrderID'))
     FK_UserID = db.Column(db.Integer, db.ForeignKey('User.UserID'))
