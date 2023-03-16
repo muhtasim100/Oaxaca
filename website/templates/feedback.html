@@ -19,7 +19,15 @@
         <div class="daily_cust"> Daily Customers</div>
         <div class="popular_dishes"> Most Popular Dishes </div>
     </div>
-    <!-- <div class= "scroll"> </div> -->
+    <div class= "scroll"> 
+        <div class= "lineleft"><img src="{{ url_for('static', filename='images/scroll/line-left.svg') }}" alt="lineleft"> </div>
+        <div class= "arrowleft"><img src="{{ url_for('static', filename='images/scroll/arrow-left.svg') }}" alt="arrowleft"> </div>
+        <!-- <div class= "scrollmsg"><img src="{{ url_for('static', filename='images/scroll/scroll-msg.svg') }}" alt="scrollmsg"> </div> -->
+        <div class= "scrollmsg">VIEW ALL REVIEWS</div>
+
+        <div class= "arrowright"><img src="{{ url_for('static', filename='images/scroll/arrow-right.svg') }}" alt="arrowright"> </div>
+        <div class= "lineright"><img src="{{ url_for('static', filename='images/scroll/line-right.svg') }}" alt="lineright"> </div>
+    </div>
 </div>
 
 
@@ -36,41 +44,6 @@
             <div class= "notif-img"><img src="{{ url_for('static', filename='images/clickarrow.svg') }}" alt="arrow"></div>
         </div>
         {% endfor %}
-
-        <div class="popups_container">
-        <a href="#popup" class="btn popup-btn">?</a>
-        </div>
-        <div class="overlay">
-
-        <div id="popup" class="popup popup_position">
-        <a href="#" class="close">&times;</a>
-        <h2 id="tablestatustxt">Order Status:</h2>
-        <h4>The following dots show the status of the order:</h4>
-
-        <div class="popup-content">
-            <div class="color-btn-container">
-            <button id="greenButton"></button>
-
-            <div class="color-btn-container"></div>
-                <h4 id="available">Served.</h4>
-            </div>
-
-            <div class="color-btn-container">
-            <button id="yellowButton"></button>
-
-            <div class="color-btn-container"></div>
-                <h4 id="reserved">In Progress.</h4>
-            </div>
-
-            <div class="color-btn-container">
-            <button id="redButton"></button>
-
-            <div class="color-btn-container"></div>
-                <h4 id="occupied">Waiting.</h4>
-            </div>
-        </div>
-        </div>
-        </div>
 
     </div>
 </div>
