@@ -30,19 +30,34 @@
   <section class="table_btns-section">
     <!-- Button -->
     <div class="action">
-      <button class="table1_btn" type="submit">
+      <button class="table_btn" type="submit">
+        
+        {% if table.Available==3 %}
+        <span class="numcircle red-dot"></span>
+        {% endif %}
+
+        {% if table.Available==2 %}
+        <span class="numcircle yellow-dot"></span>
+        {% endif %}
+
+        {% if table.Available==1 %}
+        <span class="numcircle green-dot"></span>
+        {% endif %}
+
         <img
-          src="{{ url_for('static', filename='images/tables/btn1.png') }}"
-          alt="btn1"
+          src="{{ url_for('static', filename='images/Tables.svg') }}"
+          alt="icon_table"
         />
       </button>
-      <span class="numcircle red-dot"></span>
+
+      <p>Table {{ table.TableID }} </p>
     </div>
   </section>
 
   {% endfor %}
 </div>
-{% endblock %} {% block scripts %}
+{% endblock %} 
+{% block scripts %}
 
-<script src="{{ url_for('static', filename='js/tables.js') }}"></script>
+<!-- <script src="{{ url_for('static', filename='js/tables.js') }}"></script> -->
 {% endblock %}
