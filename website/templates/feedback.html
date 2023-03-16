@@ -9,12 +9,50 @@
 {% block content %}
 <div class= "feedback">
     <div class="feedback-stats">
-        <div class= "avg_reviews"> <br> 4.7 <img src="{{ url_for('static', filename='images/star.svg') }}" alt="star"> </div>
-        <div class= "revenue"> <br> 1850 <img src="{{ url_for('static', filename='images/dollar.svg') }}" alt="dollar"> </div>
-        <div class= "popular_food"> <br> Tacos <img src="{{ url_for('static', filename='images/cutlery.svg') }}" alt="cutlery"> </div>
-        <div class= "popular_drink"> <br> Still Water <img src="{{ url_for('static', filename='images/drink.svg') }}" alt="drink"> </div>
-        <div class= "cust_seated"> <br> 25 <img src="{{ url_for('static', filename='images/cust.svg') }}" alt="cust"> </div>
+        <div class= "feedback-card">
+            <div class = "feedback-text">
+                <span class = "feedback-title">Avg. Rating</span> 
+                <span class = "feedback-secondary">4.7</span> 
+            </div>
+            <img class = "feedback-img" src="{{ url_for('static', filename='images/star.svg') }}" alt="star"> 
+        </div>
+
+        <div class= "feedback-card"> 
+            <div class = "feedback-text">
+                <span class = "feedback-title">Daily Revenue</span> 
+                <span class = "feedback-secondary">1850</span> 
+            </div>
+            <img class = "feedback-img" src="{{ url_for('static', filename='images/dollar.svg') }}" alt="dollar"> 
+        </div>
+
+        <div class= "feedback-card"> 
+            <div class = "feedback-text">
+                <span class = "feedback-title">Popular Food</span> 
+                <span class = "feedback-secondary">Tacos</span> 
+            </div>
+            <img class = "feedback-img" src="{{ url_for('static', filename='images/cutlery.svg') }}" alt="cutlery"> 
+        </div>
+
+
+        <div class= "feedback-card"> 
+            <div class = "feedback-text">
+                <span class = "feedback-title">Popular Drink</span> 
+                <span class = "feedback-secondary">Still Water</span> 
+            </div>
+            <img class = "feedback-img" src="{{ url_for('static', filename='images/drink.svg') }}" alt="drink"> 
+        </div>
+
+
+        <div class= "feedback-card">
+            <div class = "feedback-text">
+                <span class = "feedback-title">Customers seated</span> 
+                <span class = "feedback-secondary">25</span> 
+            </div>
+            <img class = "feedback-img" src="{{ url_for('static', filename='images/cust.svg') }}" alt="cust"> 
+        </div>
     </div>
+
+    
     <div class="feedback-visuals">
         <div class="daily_cust"> Daily Customers</div>
         <div class="popular_dishes"> Most Popular Dishes </div>
