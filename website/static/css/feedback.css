@@ -1,8 +1,229 @@
-.notifications {
-    margin-top: 110%;
+.feedback {
+    margin-right: 15%;
+    margin-top: 5%;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    position: relative;
+}
 
+.avg_reviews {
+    border: none;
+    width: 10%;
+    height: 4%;
+    position: relative;
+    top: 2%;
+    left: 10%;
+    padding: 12px 40px;
+    font-family: 'Sans-Regular';
+    cursor: pointer;
+    background: var(--bg-primary);
+    color: rgb(0, 0, 0);
+    letter-spacing: 0.2px;
+    font-size: medium;
+    outline: 0;
+    -webkit-transition: all .6s;
+    transition: all .6s;
+    border-radius: 15px;
+    text-align: left;
+    box-shadow: 3px 3px 3px rgb(187, 187, 187);
+    margin: 15px 25px ;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.avg_reviews:before {
+    content: "Avg. Rating: ";
+    text-align: left;
+    display: block;
+    font-size: small;
+}
+
+.avg_reviews img {
+    width: auto;
+    height: auto;
+    position: relative;
+    left: 30%;
+    margin-left: 10%;
+}
+
+
+.revenue {
+    border: none;
+    width: 10%;
+    height: 4%;
+    position: relative;
+    top: 2%;
+    left: 10%;
+    padding: 12px 40px;
+    font-family: 'Sans-Regular';
+    cursor: pointer;
+    background: var(--bg-primary);
+    color: rgb(0, 0, 0);
+    letter-spacing: 0.2px;
+    font-size: medium;
+    outline: 0;
+    -webkit-transition: all .6s;
+    transition: all .6s;
+    border-radius: 15px;
+    text-align: left;
+    box-shadow: 3px 3px 3px rgb(187, 187, 187);
+    margin: 15px 10px 1px;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.revenue:before {
+    content: "Daily Revenue: ";
+    text-align: left;
+    display: block;
+    font-size: small;
+}
+
+.revenue img {
+    width: auto;
+    height: auto;
+    position: relative;
+    left: 20%;
+    margin-left: 10%;
+}
+
+.popular_food {
+    border: none;
+    width: 10%;
+    height: 4%;
+    position: relative;
+    top: 2%;
+    left: 10%;
+    padding: 12px 40px;
+    font-family: 'Sans-Regular';
+    cursor: pointer;
+    background: var(--bg-primary);
+    color: rgb(0, 0, 0);
+    letter-spacing: 0.2px;
+    font-size: medium;
+    outline: 0;
+    -webkit-transition: all .6s;
+    transition: all .6s;
+    border-radius: 15px;
+    text-align: left;
+    box-shadow: 3px 3px 3px rgb(187, 187, 187);
+    margin: 15px 10px 1px;
+    margin-right: 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.popular_food:before {
+    content: "Most Popular Food:";
+    text-align: left;
+    display: block;
+    font-size: x-small;
+}
+
+.popular_food img {
+    width: auto;
+    height: auto;
+    position: relative;
+    left: 20%;
+    margin-left: 10%;
+}
+
+.popular_drink {
+    border: none;
+    width: 10%;
+    height: 4%;
+    position: relative;
+    top: 2%;
+    left: 10%;
+    padding: 12px 40px;
+    font-family: 'Sans-Regular';
+    cursor: pointer;
+    background: var(--bg-primary);
+    color: rgb(0, 0, 0);
+    letter-spacing: 0.2px;
+    font-size: small;
+    outline: 0;
+    -webkit-transition: all .6s;
+    transition: all .6s;
+    border-radius: 15px;
+    box-shadow: 3px 3px 3px rgb(187, 187, 187);
+    margin: 15px 10px 1px;
+    margin-right: 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.popular_drink:before {
+    content: "Most Popular Drink:";
+    text-align: left;
+    display: block;
+    font-size: x-small;
+}
+
+.popular_drink img {
+    width: auto;
+    height: auto;
+    position: relative;
+    left: 20%;
+    margin-left: 10%;
+}
+
+.cust_seated {
+    border: none;
+    width: 10%;
+    height: 4%;
+    position: relative;
+    top: 2%;
+    left: 10%;
+    padding: 12px 40px;
+    font-family: 'Sans-Regular';
+    cursor: pointer;
+    background: var(--bg-primary);
+    color: rgb(0, 0, 0);
+    letter-spacing: 0.2px;
+    font-size: medium;
+    outline: 0;
+    -webkit-transition: all .6s;
+    transition: all .6s;
+    border-radius: 15px;
+    box-shadow: 3px 3px 3px rgb(187, 187, 187);
+    margin: 15px 10px 1px;
+    margin-right: 0px;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.cust_seated:before {
+    content: "Customers: seated";
+    text-align: left;
+    display: block;
+    font-size: x-small;
+}
+
+.cust_seated img {
+    width: auto;
+    height: auto;
+    position: relative;
+    left: 30%;
+    margin-left: 10%;
+}
+
+
+.notifications {
+    top: 110%;
+    position: absolute;
     /* display: none; */
 }
+
 .notifs-content {
     margin-right: 15%;
     margin-top: 5%;
