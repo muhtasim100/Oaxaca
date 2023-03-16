@@ -1,4 +1,10 @@
 /* Dropdown Menu */
+.card_grid{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    column-gap: 40px;
+    row-gap: 40px;
+  }
 
 .dropdown-popups_section {
     display: flex;

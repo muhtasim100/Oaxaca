@@ -1,94 +1,48 @@
-{% extends "base.html" %}
-{% block head %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/tables.css') }}">
+{% extends "base.html" %} {% block head %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/tables.css') }}"
+/>
 <title>Oaxaca - Home</title>
-{% endblock %}
+{% endblock %} {% block content %}
+<!-- dropdown and popups section -->
+<section class="dropdown-popups_section">
+  <!-- dropdown -->
+  <div class="dropdown">
+    <div class="select">
+      <span>Show all</span>
+      <div class="caret"></div>
+    </div>
+    <ul class="dropdown-menu">
+      <li>Show all</li>
+      <li>Occupied</li>
+      <li>Reserved for the next two hours</li>
+      <li class="active">Available</li>
+    </ul>
+  </div>
+</section>
 
-{% block content %}
-    <!-- dropdown and popups section -->
-    <section class="dropdown-popups_section">
-        <!-- dropdown -->
-        <div class="dropdown">
-            <div class="select">
-                <span>Show all</span>
-                <div class="caret"></div>
-            </div>
-            <ul class="dropdown-menu">
-                <li>Show all</li>
-                <li>Occupied</li>
-                <li>Reserved for the next two hours</li>
-                <li class="active">Available</li>
-            </ul>
-        </div>
-    </section>
+<!--------------- table Buttons Section --------->
 
-    <!--------------- table Buttons Section --------->
+<div class="card_grid">
+  {% for table in res %}
 
-    <section class="table_btns-section">
-        <!-- Button -->
-        <div class="action">
-            <button class="table1_btn" type="submit"><img src="{{ url_for('static', filename='images/tables/btn1.png') }}"
-                    alt="btn1"></button>
-            <span class="numcircle red-dot"></span>
-        </div>
+  <section class="table_btns-section">
+    <!-- Button -->
+    <div class="action">
+      <button class="table1_btn" type="submit">
+        <img
+          src="{{ url_for('static', filename='images/tables/btn1.png') }}"
+          alt="btn1"
+        />
+      </button>
+      <span class="numcircle red-dot"></span>
+    </div>
+  </section>
 
-        <div class="action">
-            <button class="table1_btn" type="submit"><img src="{{ url_for('static', filename='images/tables/btn2.png') }}"
-                    alt="btn1"></button>
-            <span class="numcircle red-dot"></span>
-        </div>
+  {% endfor %}
+</div>
+{% endblock %} {% block scripts %}
 
-        <div class="action">
-            <button class="table1_btn" type="submit"><img src="{{ url_for('static', filename='images/tables/btn3.png') }}"
-                    alt="btn1"></button>
-            <span class="numcircle red-dot"></span>
-        </div>
-
-        <div class="action">
-            <button class="table1_btn" type="submit"><img src="{{ url_for('static', filename='images/tables/btn4.png') }}"
-                    alt="btn1"></button>
-            <span class="numcircle yellow-dot"></span>
-        </div>
-
-        <div class="action">
-            <button class="table1_btn" type="submit"><img src="{{ url_for('static', filename='images/tables/btn5.png') }}"
-                    alt="btn1"></button>
-            <span class="numcircle yellow-dot"></span>
-        </div>
-
-        <div class="action">
-            <button class="table1_btn" type="submit"><img src="{{ url_for('static', filename='images/tables/btn6.png') }}"
-                    alt="btn1"></button>
-            <span class="numcircle green-dot"></span>
-        </div>
-
-        <div class="action">
-            <button class="table1_btn" type="submit"><img src="{{ url_for('static', filename='images/tables/btn7.png') }}"
-                    alt="btn1"></button>
-            <span class="numcircle green-dot"></span>
-        </div>
-
-        <div class="action">
-            <button class="table1_btn" type="submit"><img src="{{ url_for('static', filename='images/tables/btn8.png') }}"
-                    alt="btn1"></button>
-            <span class="numcircle green-dot"></span>
-        </div>
-
-        <div class="action">
-            <button class="table1_btn" type="submit"><img src="{{ url_for('static', filename='images/tables/btn9.png') }}"
-                    alt="btn1"></button>
-            <span class="numcircle green-dot"></span>
-        </div>
-
-        <div class="action">
-            <button class="table1_btn" type="submit"><img src="{{ url_for('static', filename='images/tables/btn10.png') }}"
-                    alt="btn1"></button>
-            <span class="numcircle green-dot"></span>
-        </div>
-
-    </section>
-{% endblock %}
-
-{% block scripts %}
-    <script src="{{ url_for('static', filename='js/tables.js') }}"></script>
+<script src="{{ url_for('static', filename='js/tables.js') }}"></script>
 {% endblock %}

@@ -11,7 +11,7 @@ def testing():
     #Table
     ListTable =  customer_table.query.all()
 
-    if FoodItem.query.count() != 1:
+    if customer_table.query.count() != 1:
         testTable = customer_table(Seats = 4, Available = False, Fk_UserID = 1)
 
 
@@ -89,7 +89,8 @@ def home():
 
 @views.route('/table')
 def tables():
-    return render_template("tables.html")
+    ListAll =  customer_table.query.all()
+    return render_template("tables.html", res=ListAll)
 
 
 @views.route('/menu')
@@ -135,3 +136,7 @@ def review_store():
     db.session.commit()
 
     return "Success", 200
+
+@views.route('/auth/logout')
+def logout():
+    return render_template("login.html")
