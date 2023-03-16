@@ -1,0 +1,49 @@
+:root {
+    font-size: 16px;
+    font-family: 'Poppins-Regular';
+    --text-primary: #000000;
+    --text-secondary: #ececec;
+}
+
+.dropbar {
+    background-color: #D9D9D9;
+    border-radius: 8px;
+    padding: 5px 15px;
+    margin-left: 0px;
+    text-align: left;
+    justify-content: left;
+}
+
+table,
+th,
+td {
+    background-color: #D9D9D9;
+    border-collapse: collapse;
+}
+
+th {
+    border-top: none;
+}
+
+th,
+td {
+    border: 1px solid black;
+    padding: 15px;
+}
+
+th {
+    display: table-cell;
+    vertical-align: inherit;
+    font-weight: bold;
+    text-align: -internal-center;
+}
+
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+.delete-button {
+    width:28px;
+    height:28px;
+}

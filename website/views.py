@@ -15,7 +15,6 @@ def testing():
         testTable = customer_table(Seats = 4, Available = False, Fk_UserID = 1)
 
 
-
     #Food Items
     ListAll = FoodItem.query.all()
 
@@ -90,6 +89,12 @@ def home():
 @views.route('/table')
 def tables():
     return render_template("tables.html")
+
+
+@views.route('/prod')
+def product():
+    ListAll = FoodItem.query.all()
+    return render_template("Foodeditui.html", res= ListAll)
 
 
 @views.route('/menu')
