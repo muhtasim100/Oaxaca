@@ -147,3 +147,10 @@ def review_store():
 @views.route('/auth/logout')
 def logout():
     return render_template("login.html")
+
+@views.route('/call_waiter')
+def waiter():
+    WaiterNotif = Notification(statusNotification = 2, typeNotification = 2, FK_OrderID = 1, FK_UserID = current_user.UserID)
+    db.session.add(WaiterNotif)
+    db.session.commit()
+    return("A waiter has been called.")
