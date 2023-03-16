@@ -27,7 +27,8 @@
     <div class="food_info">
       <div class="food_name">{{ food.FoodName }}</div>
   
-      <div class="food_price">{{ food.UnitPrice }}$</div>
+      <div class="food_price">{{'%0.2f' % food.UnitPrice|float}}£</div>
+      
       </div>
   </div>
 {% endfor %}

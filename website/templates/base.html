@@ -4,6 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> 
     {% block head %}
     {% endblock %}
 </head>
@@ -36,7 +37,7 @@
             </li>
 
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ url_for('views.menu') }}" class="nav-link">
                     <img src="{{ url_for('static', filename='images/sidebar/food-menu-icon.svg') }}" alt="menu">
                     <span class="link-text">Menu</span>
                 </a>
@@ -58,21 +59,21 @@
             </li>
 
             <li class="nav-item">
-                <a href="{{url_for('views.notification')}}" class="nav-link">
+                <a href="{{ url_for('views.notification' )}}" class="nav-link">
                     <img src="{{ url_for('static', filename='images/sidebar/checklist-icon.svg') }}" alt="ordered food">
                     <span class="link-text">Ordered food</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ url_for('views.payment') }}" class="nav-link">
                     <img src="{{ url_for('static', filename='images/sidebar/payment-icon.svg') }}" alt="payment">
                     <span class="link-text">Payment</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ url_for('views.reviews') }}" class="nav-link">
                     <img src="{{ url_for('static', filename='images/sidebar/material-symbols_rate-review-outline.svg') }}" alt="review">
                     <span class="link-text">Reviews</span>
                 </a>
@@ -83,13 +84,44 @@
 
     <div class="content">
         {% block content %}
-
+            <div class="helper-buttons">
+                <div class="circle-btn order-btn">?</div>
+            </div>
         {% endblock %}
+
+        <div class="helper-popup table-popup">
+            <div class="helper-title">Table Status</div>
+            <div class="helper-subtitle">The following dots show the status of the tables:</div>
+            <div class="helper-content">
+                <span><img src="{{ url_for('static', filename='images/green-light.svg') }}" alt="green-dot">Available</span>
+                <span><img src="{{ url_for('static', filename='images/yellow-light.svg') }}" alt="yellow-dot">Reserved for the next two hours</span>
+                <span><img src="{{ url_for('static', filename='images/red-light.svg') }}" alt="red-dot">Occupied</span>
+            </div>
+        </div>
+
+        <div class="helper-popup order-popup">
+            <div class="helper-title">Order Status</div>
+            <div class="helper-subtitle">The following dots show the status of the order:</div>
+            <div class="helper-content">
+                <span><img src="{{ url_for('static', filename='images/green-light.svg') }}" alt="green-dot">Served</span>
+                <span><img src="{{ url_for('static', filename='images/yellow-light.svg') }}" alt="yellow-dot">In Progress</span>
+                <span><img src="{{ url_for('static', filename='images/red-light.svg') }}" alt="red-dot">Waiting</span>
+            </div>
+        </div>
+
+        <div class="helper-popup allergy-popup">
+            <div class="helper-title">Allergies Informations</div>
+            <div class="helper-subtitle">The following symbols show the allergies of the dishes:</div>
+            <div class="helper-content">
+                <span><img src="{{ url_for('static', filename='images/menu/mdi_meat.svg') }}" alt="Meat Icon">Contains meat.</span>
+                <span><img src="{{ url_for('static', filename='images/menu/mdi_gluten-free.svg') }}" alt="Gluten Free Icon">Gluten free.</span>
+                <span><img src="{{ url_for('static', filename='images/menu/Group.svg') }}" alt="Vegan Icon">Vegan</span>
+            </div>
+        </div>
     </div>
 
     <script src="{{ url_for('static', filename='js/base.js') }}"></script>
     {% block scripts %}
-
     {% endblock %}
 </body>
 
