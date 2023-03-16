@@ -1,7 +1,19 @@
+.content {
+    overflow-x: hidden;
+}
+
 .feedback {
     margin-right: 15%;
     margin-top: 5%;
     height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    position: relative;
+}
+.feedback-stats {
+    height: 10vh;
     width: 100vw;
     display: flex;
     flex-direction: row;
@@ -11,8 +23,8 @@
 
 .avg_reviews {
     border: none;
-    width: 10%;
-    height: 4%;
+    width: 10vw;
+    height: 4vh;
     position: relative;
     top: 2%;
     left: 10%;
@@ -54,8 +66,8 @@
 
 .revenue {
     border: none;
-    width: 10%;
-    height: 4%;
+    width: 10vw;
+    height: 4vh;
     position: relative;
     top: 2%;
     left: 10%;
@@ -95,8 +107,8 @@
 
 .popular_food {
     border: none;
-    width: 10%;
-    height: 4%;
+    width: 10vw;
+    height: 4vh;
     position: relative;
     top: 2%;
     left: 10%;
@@ -132,13 +144,13 @@
     height: auto;
     position: relative;
     left: 20%;
-    margin-left: 10%;
+    margin-left: 15%;
 }
 
 .popular_drink {
     border: none;
-    width: 10%;
-    height: 4%;
+    width: 10vw;
+    height: 4vh;
     position: relative;
     top: 2%;
     left: 10%;
@@ -178,8 +190,8 @@
 
 .cust_seated {
     border: none;
-    width: 10%;
-    height: 4%;
+    width: 10vw;
+    height: 4vh;
     position: relative;
     top: 2%;
     left: 10%;
@@ -196,7 +208,6 @@
     border-radius: 15px;
     box-shadow: 3px 3px 3px rgb(187, 187, 187);
     margin: 15px 10px 1px;
-    margin-right: 0px;
     display: flex;
     flex-direction: row;
 }
@@ -213,8 +224,61 @@
     width: auto;
     height: auto;
     position: relative;
-    left: 30%;
+    left: 25%;
     margin-left: 10%;
+}
+.feedback-visuals {
+    height: 70vh;
+    position: relative;
+    left: 10%;
+    display: flex;
+    flex-direction: row;}
+
+.daily_cust {
+    border: none;
+    width: 50vw;
+    height: 50vh;
+    position: relative;
+    padding: 12px 40px;
+    font-family: 'Sans-Regular';
+    cursor: pointer;
+    background: var(--bg-primary);
+    color: rgb(0, 0, 0);
+    letter-spacing: 0.2px;
+    font-size: x-large;
+    outline: 0;
+    -webkit-transition: all .6s;
+    transition: all .6s;
+    border-radius: 15px;
+    box-shadow: 3px 3px 3px rgb(187, 187, 187);
+    margin: 15px 25px ;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.popular_dishes {
+    border: none;
+    width: 25vw;
+    height: 50vh;
+    position: relative;
+    padding: 12px 40px;
+    font-family: 'Sans-Regular';
+    cursor: pointer;
+    background: var(--bg-primary);
+    color: rgb(0, 0, 0);
+    letter-spacing: 0.2px;
+    font-size: x-large;
+    outline: 0;
+    -webkit-transition: all .6s;
+    transition: all .6s;
+    border-radius: 15px;
+    box-shadow: 3px 3px 3px rgb(187, 187, 187);
+    margin: 15px 25px ;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
 }
 
 
