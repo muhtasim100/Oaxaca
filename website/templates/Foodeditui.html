@@ -41,7 +41,7 @@
         <td>{% if food.Vegan==True %}
           <img src="{{ url_for('static', filename='images/Tick.svg') }}" alt="Vegan_Icon">
           {% endif %}</td>
-        <td>{{ food.UnitPrice }} £</td>
+        <td>{{ food.UnitPrice|round(2) }} £</td>
       </tr>
       {% endfor %}
     </tbody></table>
