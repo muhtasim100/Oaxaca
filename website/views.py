@@ -11,9 +11,16 @@ def testing():
     #Table
     ListTable =  customer_table.query.all()
 
-    if FoodItem.query.count() != 1:
-        testTable = customer_table(Seats = 4, Available = False, Fk_UserID = 1)
-
+    if customer_table.query.count() != 4:
+        testTable1 = customer_table(Seats = 4, Available = 1, Fk_UserID = 1)
+        testTable2 = customer_table(Seats = 2, Available = 2, Fk_UserID = 2)
+        testTable3 = customer_table(Seats = 5, Available = 3, Fk_UserID = 4)
+        testTable4 = customer_table(Seats = 6, Available = 1, Fk_UserID = 5) 
+        db.session.add(testTable1)
+        db.session.add(testTable2)
+        db.session.add(testTable3)
+        db.session.add(testTable4)
+        db.session.commit()
 
     #Food Items
     ListAll = FoodItem.query.all()
@@ -88,7 +95,8 @@ def home():
 
 @views.route('/table')
 def tables():
-    return render_template("tables.html")
+    ListAll =  customer_table.query.all()
+    return render_template("tables.html", res=ListAll)
 
 
 @views.route('/prod')

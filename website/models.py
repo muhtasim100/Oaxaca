@@ -65,7 +65,10 @@ class customer_table(db.Model):
     __tablename__ = 'customer_table'
     TableID = db.Column(db.Integer, primary_key=True)
     Seats = db.Column(db.Integer)
-    Available = db.Column(db.Boolean)
+    Available = db.Column(db.Integer)
+    # 1 -> Available
+    # 2 -> Reserved
+    # 3 -> Occupied
     Fk_UserID = db.Column(db.Integer, db.ForeignKey('User.UserID'))
 
 
