@@ -22,7 +22,6 @@ def testing():
         db.session.add(testTable4)
         db.session.commit()
 
-
     #Food Items
     ListAll = FoodItem.query.all()
 
@@ -100,6 +99,12 @@ def tables():
     return render_template("tables.html", res=ListAll)
 
 
+@views.route('/prod')
+def product():
+    ListAll = FoodItem.query.all()
+    return render_template("Foodeditui.html", res= ListAll)
+
+
 @views.route('/menu')
 def menu():
     ListAll = FoodItem.query.all()
@@ -143,7 +148,3 @@ def review_store():
     db.session.commit()
 
     return "Success", 200
-
-@views.route('/auth/logout')
-def logout():
-    return render_template("login.html")
