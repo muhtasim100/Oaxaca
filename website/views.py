@@ -132,11 +132,6 @@ def order():
     return render_template("order_tracker.html")
 
 
-@views.route('/reviews')
-def reviews():
-    reviewsAll = Reviews.query.all()
-    return render_template("reviews.html", res=reviewsAll)
-
 @views.route('/feedback')
 def feedback():
     return render_template("feedback.html")
