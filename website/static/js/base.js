@@ -71,3 +71,8 @@ $(".allergy-btn").click(function () {
     $(".helper-popup").css("opacity", "0%");
     $(".allergy-popup").css("opacity", "100%");
 });
+
+
+$(".toplogo-container-parent").click(function() {
+    window.location.href = '/';
+});
