@@ -1,0 +1,253 @@
+.content {
+    overflow-x: hidden;
+}
+
+/* Widgets placeholders CSS */
+.feedback {
+    margin-right: 15%;
+    margin-top: 5%;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    position: relative;
+}
+.feedback-stats {
+    height: 10vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    position: relative;
+}
+
+.feedback-card {
+    border: 2px solid black;
+    width: min-content;
+    height: 4vh;
+    position: relative;
+    top: 2%;
+    left: 10%;
+    padding: 12px 40px;
+    cursor: pointer;
+    background: var(--bg-primary);
+    color: rgb(0, 0, 0);
+    letter-spacing: 0.2px;
+    font-size: medium;
+    outline: 0;
+    -webkit-transition: all .6s;
+    transition: all .6s;
+    border-radius: 15px;
+    text-align: left;
+    box-shadow: 3px 3px 3px rgb(187, 187, 187);
+    margin: 15px 25px ;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.feedback-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.feedback-title {
+    font-family: "Poppins-Light";
+}
+
+.feedback-secondary {
+    font-family: "Poppins-Bold";
+    flex: auto;
+    justify-content: right;
+    text-align: right;
+}
+
+.feedback-img {
+    width: auto;
+    height: auto;
+    position: relative;
+    left: 30%;
+    margin-left: 10%;
+}
+/* Graph placeholders CSS */
+
+.feedback-visuals {
+    height: 70vh;
+    position: relative;
+    left: 10%;
+    display: flex;
+    flex-direction: row;}
+
+.daily_cust {
+    border: 2px solid black;
+    width: 50vw;
+    height: 60vh;
+    position: relative;
+    padding: 12px 40px;
+    font-family: 'Sans-Regular';
+    cursor: pointer;
+    background: var(--bg-primary);
+    color: rgb(0, 0, 0);
+    letter-spacing: 0.2px;
+    font-size: x-large;
+    outline: 0;
+    -webkit-transition: all .6s;
+    transition: all .6s;
+    border-radius: 15px;
+    box-shadow: 3px 3px 3px rgb(187, 187, 187);
+    margin: 15px 25px ;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.popular_dishes {
+    border: 2px solid black;
+    width: 25vw;
+    height: 60vh;
+    position: relative;
+    padding: 12px 40px;
+    font-family: 'Sans-Regular';
+    cursor: pointer;
+    background: var(--bg-primary);
+    color: rgb(0, 0, 0);
+    letter-spacing: 0.2px;
+    font-size: x-large;
+    outline: 0;
+    -webkit-transition: all .6s;
+    transition: all .6s;
+    border-radius: 15px;
+    box-shadow: 3px 3px 3px rgb(187, 187, 187);
+    margin: 15px 25px ;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Scroll msg CSS */
+.scroll {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 13%;
+    max-width:fit-content;
+    position: relative;
+    overflow: hidden;
+}
+
+.scrollmsg {
+    margin-left: 2%;
+    margin-right: 2%;
+    width: auto;
+    height: auto;
+    font-family: 'Sans-Regular';
+    cursor: none;
+    font-size: xx-large;
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+
+}
+
+.arrowleft {
+    margin-left: 2%;
+    margin-top: 1%;
+}
+
+.arrowright {
+    margin-right: 2%;
+    margin-top: 1%;
+}
+
+
+/* Notifs CSS */
+.notifications {
+    top: 110%;
+    position: absolute;
+}
+
+.notifs-content {
+    margin-right: 15%;
+    margin-top: 5%;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+  }
+  
+  .action {
+    border: none;
+    padding: 12px 40px;
+    font-family: 'Sans-Regular';
+    cursor: pointer;
+    text-transform: uppercase;
+    background: var(--bg-primary);
+    color: rgb(0, 0, 0);
+    letter-spacing: 0.2px;
+    font-size: x-large;
+    outline: 0;
+    -webkit-transition: all .6s;
+    transition: all .6s;
+    border-radius: 15px;
+    text-align: left;
+    box-shadow: 3px 3px 3px rgb(187, 187, 187);
+    margin: 15px 200px 5px;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .action .notif-text {
+    flex: auto;
+    justify-content: left;
+    margin-left: 5%;
+  }
+  
+  .notif-img img {
+    width: auto;
+    height: auto;
+    flex: auto;
+    justify-content: right;
+  }
+  
+  .red-light-img {
+    position: absolute;
+  }
+  
+  .user-img img {
+    width: 68px;
+    height: 68px;
+    position: relative;
+  }
+  
+  .notif-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .notif-popup {
+    border: none;
+    padding: 15px 20px;
+    font-family: 'Sans-Regular';
+    cursor: pointer;
+    text-transform: uppercase;
+    background: var(--bg-primary);
+    color: rgb(0, 0, 0);
+    letter-spacing: 0.2px;
+    font-size: x-large;
+    outline: 0;
+    -webkit-transition: all .6s;
+    transition: all .6s;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 3px 3px 3px rgb(187, 187, 187);
+    margin: auto;
+  }
+  
+  
+  

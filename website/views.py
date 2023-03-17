@@ -137,6 +137,9 @@ def reviews():
     reviewsAll = Reviews.query.all()
     return render_template("reviews.html", res=reviewsAll)
 
+@views.route('/feedback')
+def feedback():
+    return render_template("feedback.html")
 
 #POST REQUEST FOR STORING REVIEW
 @views.route('/review_store', methods=["POST"])
