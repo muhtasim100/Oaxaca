@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-<!-- saved from url=(0068)file:///C:/Users/seran/OneDrive/Desktop/Menu_Edit_UI/Foodeditui.html -->
   {% block head %}
     <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/Foodeditui.css') }}">
@@ -44,7 +43,12 @@
         <td>{% if food.Vegan==True %}
           <img src="{{ url_for('static', filename='images/Tick.svg') }}" alt="Vegan_Icon">
           {% endif %}</td>
-        <td>{{ food.UnitPrice|round(2) }} £</td>
+        <td class="td-price">
+          <span>
+            {{ food.UnitPrice|round(2) }} £
+          </span>
+          <img class="delete-button" src="{{ url_for('static', filename='images/delete.png') }}" alt="delete-button">
+        </td>     
       </tr>
       {% endfor %}
     </tbody></table>
@@ -53,19 +57,16 @@
 </div>
 
 <script>
-  document.querySelector(".popup-btn").onclick = function() {
-    document.querySelector(".overlay").style.display = "block";
-  }
-
-  window.onclick = function (event) {
-     if (event.target == document.querySelector(".overlay")) {
-       document.querySelector(".overlay").style.display = "none";
-     }
-  }
-
-  document.querySelector(".close").onclick = function (event) {
-    document.querySelector(".overlay").style.display = "none";
-  }
+  let price_tds = Array.from(document.getElementsByClassName("td-price"));
+  price_tds.forEach(function (td) {
+    let delete_button = td.querySelector(".delete-button");
+    td.onmouseover = function() {
+      delete_button.style.visibility = "visible";
+    }
+    td.onmouseout = function() {
+      delete_button.style.visibility = "hidden";
+    }
+  });
 </script>
   
-  {% endblock %}
+{% endblock %}
