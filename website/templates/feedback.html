@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block head %}
   <link rel="stylesheet" href="{{ url_for('static', filename='css/feedback.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/notifcenter.css') }}">
   <title>
     Oaxaca - Feedback
   </title>
@@ -9,46 +10,56 @@
 {% block content %}
 <div class= "feedback">
     <div class="feedback-stats">
-        <div class= "feedback-card">
+        <div class="feedback-card">
             <div class = "feedback-text">
                 <span class = "feedback-title">Avg. Rating</span> 
                 <span class = "feedback-secondary">4.7</span> 
             </div>
-            <img class = "feedback-img" src="{{ url_for('static', filename='images/star.svg') }}" alt="star"> 
+            <div class="feedback-img">
+                <img src="{{ url_for('static', filename='images/star.svg') }}" alt="star"> 
+            </div>
         </div>
 
-        <div class= "feedback-card"> 
+        <div class="feedback-card"> 
             <div class = "feedback-text">
                 <span class = "feedback-title">Daily Revenue</span> 
                 <span class = "feedback-secondary">1850</span> 
             </div>
-            <img class = "feedback-img" src="{{ url_for('static', filename='images/dollar.svg') }}" alt="dollar"> 
+            <div class="feedback-img">
+                <img src="{{ url_for('static', filename='images/dollar.svg') }}" alt="dollar"> 
+            </div>
         </div>
 
-        <div class= "feedback-card"> 
+        <div class="feedback-card"> 
             <div class = "feedback-text">
                 <span class = "feedback-title">Popular Food</span> 
                 <span class = "feedback-secondary">Tacos</span> 
             </div>
-            <img class = "feedback-img" src="{{ url_for('static', filename='images/cutlery.svg') }}" alt="cutlery"> 
+            <div class="feedback-img">
+                <img src="{{ url_for('static', filename='images/cutlery.svg') }}" alt="cutlery"> 
+            </div>
         </div>
 
 
-        <div class= "feedback-card"> 
+        <div class="feedback-card"> 
             <div class = "feedback-text">
                 <span class = "feedback-title">Popular Drink</span> 
                 <span class = "feedback-secondary">Still Water</span> 
             </div>
-            <img class = "feedback-img" src="{{ url_for('static', filename='images/drink.svg') }}" alt="drink"> 
+            <div class="feedback-img">
+                <img src="{{ url_for('static', filename='images/drink.svg') }}" alt="drink"> 
+            </div>
         </div>
 
 
-        <div class= "feedback-card">
+        <div class="feedback-card">
             <div class = "feedback-text">
                 <span class = "feedback-title">Customers seated</span> 
                 <span class = "feedback-secondary">25</span> 
             </div>
-            <img class = "feedback-img" src="{{ url_for('static', filename='images/cust.svg') }}" alt="cust"> 
+            <div class="feedback-img">
+                <img src="{{ url_for('static', filename='images/cust.svg') }}" alt="cust"> 
+            </div>
         </div>
     </div>
 
@@ -60,17 +71,12 @@
     <div class= "scroll"> 
         <div class= "lineleft"><img src="{{ url_for('static', filename='images/scroll/line-left.svg') }}" alt="lineleft"> </div>
         <div class= "arrowleft"><img src="{{ url_for('static', filename='images/scroll/arrow-left.svg') }}" alt="arrowleft"> </div>
-        <!-- <div class= "scrollmsg"><img src="{{ url_for('static', filename='images/scroll/scroll-msg.svg') }}" alt="scrollmsg"> </div> -->
         <div class= "scrollmsg">VIEW ALL REVIEWS</div>
 
         <div class= "arrowright"><img src="{{ url_for('static', filename='images/scroll/arrow-right.svg') }}" alt="arrowright"> </div>
         <div class= "lineright"><img src="{{ url_for('static', filename='images/scroll/line-right.svg') }}" alt="lineright"> </div>
     </div>
 </div>
-
-
-
-
 
 <div class="notifications">
     <div class="notifs-content">
@@ -87,19 +93,12 @@
 </div>
 
 <script>
-  document.querySelector(".popup-btn").onclick = function() {
-    document.querySelector(".overlay").style.display = "block";
-  }
-
-  window.onclick = function (event) {
-     if (event.target == document.querySelector(".overlay")) {
-       document.querySelector(".overlay").style.display = "none";
-     }
-  }
-
-  document.querySelector(".close").onclick = function (event) {
-    document.querySelector(".overlay").style.display = "none";
-  }
+    $(".scrollmsg").click(function() {
+        $("html, body").animate({
+            scrollTop: $(".notifications").offset().top},
+            'slow'
+        );
+    });
 </script>
 
 {% endblock %}

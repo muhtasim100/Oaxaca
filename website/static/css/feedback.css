@@ -13,23 +13,19 @@
     align-items: left;
     position: relative;
 }
+
 .feedback-stats {
-    height: 10vh;
-    width: 100vw;
     display: flex;
     flex-direction: row;
     align-items: left;
-    position: relative;
 }
 
 .feedback-card {
     border: 2px solid black;
-    width: min-content;
-    height: 4vh;
+    width: 150px;
+    height: 50px;
     position: relative;
-    top: 2%;
     left: 10%;
-    padding: 12px 40px;
     cursor: pointer;
     background: var(--bg-primary);
     color: rgb(0, 0, 0);
@@ -45,6 +41,9 @@
     margin-right: 10px;
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15px;
 }
 
 .feedback-text {
@@ -54,6 +53,7 @@
 
 .feedback-title {
     font-family: "Poppins-Light";
+    font-size: 10px;
 }
 
 .feedback-secondary {
@@ -61,17 +61,23 @@
     flex: auto;
     justify-content: right;
     text-align: right;
+    font-size: 14px;
 }
 
 .feedback-img {
-    width: auto;
-    height: auto;
-    position: relative;
-    left: 30%;
-    margin-left: 10%;
+    flex: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
 }
-/* Graph placeholders CSS */
 
+.feedback-img img {
+    width: auto;
+    height: 30px;
+    /* margin-left: 30px; */
+}
+
+/* Graph placeholders CSS */
 .feedback-visuals {
     height: 70vh;
     position: relative;
@@ -144,7 +150,7 @@
     width: auto;
     height: auto;
     font-family: 'Sans-Regular';
-    cursor: none;
+    cursor: pointer;
     font-size: xx-large;
     display: flex;
     flex-direction: row;
@@ -162,92 +168,8 @@
     margin-top: 1%;
 }
 
-
-/* Notifs CSS */
+/* Full Reviews List CSS*/
 .notifications {
-    top: 110%;
     position: absolute;
+    top: 100%;
 }
-
-.notifs-content {
-    margin-right: 15%;
-    margin-top: 5%;
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    justify-content: left;
-  }
-  
-  .action {
-    border: none;
-    padding: 12px 40px;
-    font-family: 'Sans-Regular';
-    cursor: pointer;
-    text-transform: uppercase;
-    background: var(--bg-primary);
-    color: rgb(0, 0, 0);
-    letter-spacing: 0.2px;
-    font-size: x-large;
-    outline: 0;
-    -webkit-transition: all .6s;
-    transition: all .6s;
-    border-radius: 15px;
-    text-align: left;
-    box-shadow: 3px 3px 3px rgb(187, 187, 187);
-    margin: 15px 200px 5px;
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .action .notif-text {
-    flex: auto;
-    justify-content: left;
-    margin-left: 5%;
-  }
-  
-  .notif-img img {
-    width: auto;
-    height: auto;
-    flex: auto;
-    justify-content: right;
-  }
-  
-  .red-light-img {
-    position: absolute;
-  }
-  
-  .user-img img {
-    width: 68px;
-    height: 68px;
-    position: relative;
-  }
-  
-  .notif-img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .notif-popup {
-    border: none;
-    padding: 15px 20px;
-    font-family: 'Sans-Regular';
-    cursor: pointer;
-    text-transform: uppercase;
-    background: var(--bg-primary);
-    color: rgb(0, 0, 0);
-    letter-spacing: 0.2px;
-    font-size: x-large;
-    outline: 0;
-    -webkit-transition: all .6s;
-    transition: all .6s;
-    border-radius: 50px;
-    text-align: center;
-    box-shadow: 3px 3px 3px rgb(187, 187, 187);
-    margin: auto;
-  }
-  
-  
-  
