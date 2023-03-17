@@ -25,7 +25,6 @@
     width: 150px;
     height: 50px;
     position: relative;
-    top: 2%;
     left: 10%;
     cursor: pointer;
     background: var(--bg-primary);
