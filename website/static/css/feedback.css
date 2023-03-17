@@ -169,9 +169,8 @@
     margin-top: 1%;
 }
 
-
 /* Full Reviews List CSS*/
 .notifications {
     position: absolute;
-    top: 110%;
+    top: 100%;
 }
