@@ -151,7 +151,7 @@
     width: auto;
     height: auto;
     font-family: 'Sans-Regular';
-    cursor: none;
+    cursor: pointer;
     font-size: xx-large;
     display: flex;
     flex-direction: row;
