@@ -146,7 +146,96 @@
 }
 
 /* Full Reviews List CSS*/
-.notifications {
+.reviews {
     position: absolute;
-    top: 100%;
+    top: 110%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.reviews-heading {
+    font-family: 'Sans-Regular';
+    font-size: xx-large;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.reviews-heading img {
+    width: 30px;
+    margin-left: 20px;
+    transform: translateY(-5px);
+}
+
+.reviews-content {
+    margin-top: 20px;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+}
+
+.reviews-action {
+    border: none;
+    padding: 12px 40px;
+    font-family: 'Poppins-Regular';
+    cursor: pointer;
+    background: var(--bg-primary);
+    color: rgb(0, 0, 0);
+    letter-spacing: 0.2px;
+    font-size: 26px;
+    outline: 0;
+    -webkit-transition: all .6s;
+    transition: all .6s;
+    border-radius: 15px;
+    text-align: left;
+    box-shadow: 3px 3px 3px rgb(187, 187, 187);
+    margin: 15px 200px 5px;
+    display: flex;
+    flex-direction: row;
+}
+
+.reviews-bold {
+    font-family: 'Poppins-Bold';
+}
+
+.user-img img {
+    width: 68px;
+    height: 68px;
+    position: relative;
+}
+
+.reviews-text {
+    flex: auto;
+    justify-content: left;
+    margin-left: 30px;
+}
+
+.reviews-main {
+    display: flex;
+    flex-direction: row;
+}
+
+.reviews-secondary {
+    font-size: 14px;
+}
+
+.stars {
+    margin-left: 15px;
+}
+
+.stars img {
+    width: 20px;
+}
+
+.arrow-img img {
+    width: auto;
+    height: auto;
+    flex: auto;
+    justify-content: right;
 }

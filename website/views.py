@@ -146,7 +146,8 @@ def feedback():
 
     # List of Reviews
     reviews = db.session.execute("SELECT User.UserName, Reviews.starReview, Reviews.timeReview " + 
-    "FROM Reviews LEFT JOIN User ON Reviews.Fk_UserID = User.UserID;")
+        "FROM Reviews LEFT JOIN User ON Reviews.Fk_UserID = User.UserID " +
+        "ORDER BY Reviews.timeReview DESC;")
 
     return render_template("feedback.html", avg_stars=avg_stars, dishes_graph=dishes_graph(), reviews=reviews)
 

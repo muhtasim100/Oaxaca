@@ -89,14 +89,34 @@
     </div>
 </div>
 
-<div class="notifications">
-    <div class="notifs-content">
+<div class="reviews">
+    <div class="reviews-heading">AVG. RATING: {{ avg_stars }} <img src="{{ url_for('static', filename='images/payment/star-full.png') }}" alt="star-full"></div>
+    <div class="reviews-content">
         {% for review in reviews %}
-        <div class="action">
-            <div class= "user-img"><img src="{{ url_for('static', filename='images/User-Icon.svg') }}" alt="user"></div> 
-            <div class= "red-light-img"><img src="{{ url_for('static', filename='images/red-light.svg') }}" alt="redlight"></div> 
-            <div class="notif-text">{{ review[0] }} has left a review of {{ review[1] }} stars<br> {{ review[2] }}</div>
-            <div class= "notif-img"><img src="{{ url_for('static', filename='images/clickarrow.svg') }}" alt="arrow"></div>
+        <div class="reviews-action">
+            <div class= "user-img"><img src="{{ url_for('static', filename='images/User-Icon.svg') }}" alt="user"></div>
+            <div class="reviews-text">
+                <div class="reviews-main">
+                    <div>
+                        <span class="reviews-bold">{{ review[0] }}</span> has left a review
+                    </div>
+                    <div class="stars">
+                        {% for i in range(review[1]) %}
+                            <img src="{{ url_for('static', filename='images/payment/star-full.png') }}" alt="star-full">
+                        {% endfor %}
+        
+                        {% for i in range(5-review[1]) %}
+                            <img src="{{ url_for('static', filename='images/payment/star-blank.png') }}" alt="star-blank">
+                        {% endfor %}
+                    </div>
+                </div>
+                
+                <div class="reviews-secondary">
+                    <!-- The Date and Time of the Review -->
+                    {{ review[2] }}
+                </div>
+            </div>
+            <div class="arrow-img"><img src="{{ url_for('static', filename='images/clickarrow.svg') }}" alt="arrow"></div>
         </div>
         {% endfor %}
 
@@ -107,7 +127,7 @@
 <script>
     $(".scrollmsg").click(function() {
         $("html, body").animate({
-            scrollTop: $(".notifications").offset().top},
+            scrollTop: $(".reviews").offset().top},
             'slow'
         );
     });
