@@ -143,7 +143,12 @@ def feedback():
         if row[0] != None:
             avg_stars = f"{row[0]:.1f}"
 
-    return render_template("feedback.html", avg_stars=avg_stars, dishes_graph=dishes_graph())
+
+    # List of Reviews
+    reviews = db.session.execute("SELECT User.UserName, Reviews.starReview, Reviews.timeReview " + 
+    "FROM Reviews LEFT JOIN User ON Reviews.Fk_UserID = User.UserID;")
+
+    return render_template("feedback.html", avg_stars=avg_stars, dishes_graph=dishes_graph(), reviews=reviews)
 
 
 #POST REQUEST FOR STORING REVIEW
