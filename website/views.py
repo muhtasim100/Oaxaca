@@ -140,7 +140,8 @@ def feedback():
     avg_stars = "N / A"
     result = db.session.execute("SELECT AVG(starReview) FROM Reviews;")
     for row in result: # There's only one row
-        avg_stars = f"{row[0]:.1f}"
+        if row[0] != None:
+            avg_stars = f"{row[0]:.1f}"
 
     return render_template("feedback.html", avg_stars=avg_stars, dishes_graph=dishes_graph())
 
