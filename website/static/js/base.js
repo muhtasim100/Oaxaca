@@ -40,13 +40,6 @@ function isScreenSmall() {
 }
 
 window.onclick = function (event) {
-    if (!event.target.classList.contains("circle-btn")) {
-        let helpers = Array.from(document.getElementsByClassName("helper-popup"));
-        helpers.forEach(function(helper) {
-            helper.style.opacity = "0%";
-        });
-    }
-
     if (event.target.classList.contains("modal")) {
         let modals = Array.from(document.getElementsByClassName("modal"));
         modals.forEach(function(modal) {
@@ -55,20 +48,24 @@ window.onclick = function (event) {
     }
 }
 
+$(".toplogo-container-parent").click(function() {
+    window.location.href = '/';
+});
 
 // Helper Buttons
 $(".popup-btn").click(function() {
     $(".helper-popup").css("opacity", "0%");
     let popup = $(this).attr("popup");
     if ($("#" + popup).length) {
-        $("#" + popup).css("opacity", "100%");
-        let left = $(this).offset().left;
-        let width = $("#" + popup).width();
-        let position = left - width;
-        $("#" + popup).css("left", position + "px");
+        if ($("#" + popup).css("opacity") == "1") {
+            return;
+        } else {
+            $("#" + popup).css("opacity", "100%");
+            let left = $(this).offset().left;
+            let width = $("#" + popup).width();
+            let position = left - width;
+            $("#" + popup).css("left", position + "px");
+        }
     }
 });
 
-$(".toplogo-container-parent").click(function() {
-    window.location.href = '/';
-});
