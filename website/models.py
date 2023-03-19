@@ -120,6 +120,7 @@ class Reviews(db.Model):
     reviewID = db.Column(db.Integer, primary_key=True)
     timeReview = db.Column(db.DateTime (timezone = True), default = func.now())
     starReview = db.Column(db.Integer)
+    textReview = db.Column(db.String(100))
     Fk_UserID = db.Column(db.Integer, db.ForeignKey('User.UserID'))
     Fk_MenuID = db.Column(db.Integer, db.ForeignKey('Menu.MenuID'))
     Fk_FoodID = db.Column(db.Integer, db.ForeignKey('FoodItem.FoodID'))

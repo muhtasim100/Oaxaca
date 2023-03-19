@@ -135,8 +135,14 @@ def order():
 
 @views.route('/feedback')
 def feedback():
-    # Popular Dishes Graph
-    return render_template("feedback.html", dishes_graph=dishes_graph())
+
+    # Average Star Review
+    avg_stars = "N / A"
+    result = db.session.execute("SELECT AVG(starReview) FROM Reviews;")
+    for row in result: # There's only one row
+        avg_stars = f"{row[0]:.1f}"
+
+    return render_template("feedback.html", avg_stars=avg_stars, dishes_graph=dishes_graph())
 
 
 #POST REQUEST FOR STORING REVIEW
@@ -144,7 +150,7 @@ def feedback():
 def review_store():
     stars = request.form.get("stars")
     review = request.form.get("review")
-    review_row = Reviews(Fk_UserID=current_user.UserID, starReview=int(stars))
+    review_row = Reviews(Fk_UserID=current_user.UserID, textReview=review, starReview=int(stars))
     db.session.add(review_row)
     db.session.commit()
 
