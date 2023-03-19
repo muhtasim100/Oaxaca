@@ -39,7 +39,7 @@ def dishes_graph():
                     y=-0.6,
                     xanchor="center",
                     x=0.5),
-        width=600,
+        width=500,
         height=400,
         autosize=True
     )
