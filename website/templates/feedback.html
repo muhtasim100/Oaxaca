@@ -65,8 +65,19 @@
 
     
     <div class="feedback-visuals">
-        <div class="daily_cust"> Daily Customers</div>
-        <div class="popular_dishes"> Most Popular Dishes </div>
+        <div class="daily_cust">
+            <div class="graph_header">
+                Daily Customers
+            </div>
+        </div>
+        <div class="popular_dishes">
+            <div class="graph_header">
+                Most Popular Dishes
+            </div>
+            <div class="chart">
+                <div id="dishes_graph"></div>
+            </div>
+        </div>
     </div>
     <div class= "scroll"> 
         <div class= "lineleft"><img src="{{ url_for('static', filename='images/scroll/line-left.svg') }}" alt="lineleft"> </div>
@@ -92,6 +103,7 @@
     </div>
 </div>
 
+<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
 <script>
     $(".scrollmsg").click(function() {
         $("html, body").animate({
@@ -99,6 +111,10 @@
             'slow'
         );
     });
+
+    var graphs = {{ dishes_graph | safe }};
+    Plotly.plot('dishes_graph', graphs, {});
+
 </script>
 
 {% endblock %}

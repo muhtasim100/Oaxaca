@@ -1,6 +1,7 @@
 from flask import Blueprint, redirect, render_template, request, session, url_for, flash
 from . import db
 from .models import *
+from .graphs import *
 from flask_login import current_user
 from sqlalchemy import func
 
@@ -134,7 +135,9 @@ def order():
 
 @views.route('/feedback')
 def feedback():
-    return render_template("feedback.html")
+    # Popular Dishes Graph
+    return render_template("feedback.html", dishes_graph=dishes_graph())
+
 
 #POST REQUEST FOR STORING REVIEW
 @views.route('/review_store', methods=["POST"])

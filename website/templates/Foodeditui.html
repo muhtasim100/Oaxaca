@@ -74,7 +74,6 @@
           type: 'POST',
           data: {id: tr.id},
           success: function(data) {
-            // change this later to show a notification saying the review is submitted
             $(".content").prepend('<div class="notification"><div class="notification-message"></div></div>');
             $(".notification-message").html("Product deleted!");
           },
