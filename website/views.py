@@ -146,3 +146,13 @@ def review_store():
     db.session.commit()
 
     return "Success", 200
+
+
+@views.route('/delete_product', methods=["POST"])
+def delete_product():
+    food_id = int(request.form.get("id"))
+    food = FoodItem.query.filter_by(FoodID=food_id).first()
+    db.session.delete(food)
+    db.session.commit()
+
+    return "Success", 200

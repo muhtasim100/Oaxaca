@@ -31,7 +31,7 @@
         <th>Price</th>
       </tr>
       {% for food in res %}
-      <tr>
+      <tr id="{{ food.FoodID }}">
         <td>{{ food.FoodName }}</td>
         <td>{{ food.Cals }}</td>
         <td>{% if food.GlutenFree==True %}
@@ -57,14 +57,33 @@
 </div>
 
 <script>
-  let price_tds = Array.from(document.getElementsByClassName("td-price"));
-  price_tds.forEach(function (td) {
-    let delete_button = td.querySelector(".delete-button");
-    td.onmouseover = function() {
-      delete_button.style.visibility = "visible";
-    }
-    td.onmouseout = function() {
-      delete_button.style.visibility = "hidden";
+  let rows = Array.from(document.querySelectorAll("tr"));
+  rows.forEach(function (tr) {
+    let delete_button = tr.querySelector(".delete-button");
+    if (delete_button) {
+      tr.onmouseover = function() {
+        delete_button.style.visibility = "visible";
+      }
+      tr.onmouseout = function() {
+        delete_button.style.visibility = "hidden";
+      }
+
+      delete_button.onclick = function() {
+        $.ajax({
+          url: '/delete_product',
+          type: 'POST',
+          data: {id: tr.id},
+          success: function(data) {
+            // change this later to show a notification saying the review is submitted
+            $(".content").prepend('<div class="notification"><div class="notification-message"></div></div>');
+            $(".notification-message").html("Product deleted!");
+          },
+          error: function(error) {
+            console.log(error);
+          }
+        });
+        tr.remove();
+      }
     }
   });
 </script>
