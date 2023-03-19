@@ -89,7 +89,6 @@
   flex-direction: column;
   position: absolute;
   top: calc(10% + 100px);
-  right: 60px;
   z-index: 1;
   padding: 15px;
 

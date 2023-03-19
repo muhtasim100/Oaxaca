@@ -91,11 +91,13 @@
     <div class="content">
         {% block content %}
             <div class="helper-buttons">
-                <div class="circle-btn order-btn">?</div>
+                <div class="circle-btn popup-btn" popup="table-popup">?</div>
+                <div class="circle-btn popup-btn" popup="order-popup">?</div>
+                <div class="circle-btn popup-btn" popup="allergy-popup">?</div>
             </div>
         {% endblock %}
 
-        <div class="helper-popup table-popup">
+        <div id="table-popup" class="helper-popup">
             <div class="helper-title">Table Status</div>
             <div class="helper-subtitle">The following dots show the status of the tables:</div>
             <div class="helper-content">
@@ -105,7 +107,7 @@
             </div>
         </div>
 
-        <div class="helper-popup order-popup">
+        <div id="order-popup" class="helper-popup">
             <div class="helper-title">Order Status</div>
             <div class="helper-subtitle">The following dots show the status of the order:</div>
             <div class="helper-content">
@@ -115,7 +117,7 @@
             </div>
         </div>
 
-        <div class="helper-popup allergy-popup">
+        <div id="allergy-popup" class="helper-popup">
             <div class="helper-title">Allergies Informations</div>
             <div class="helper-subtitle">The following symbols show the allergies of the dishes:</div>
             <div class="helper-content">

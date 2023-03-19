@@ -57,21 +57,17 @@ window.onclick = function (event) {
 
 
 // Helper Buttons
-$(".table-btn").click(function () {
+$(".popup-btn").click(function() {
     $(".helper-popup").css("opacity", "0%");
-    $(".table-popup").css("opacity", "100%");
+    let popup = $(this).attr("popup");
+    if ($("#" + popup).length) {
+        $("#" + popup).css("opacity", "100%");
+        let left = $(this).offset().left;
+        let width = $("#" + popup).width();
+        let position = left - width;
+        $("#" + popup).css("left", position + "px");
+    }
 });
-
-$(".order-btn").click(function () {
-    $(".helper-popup").css("opacity", "0%");
-    $(".order-popup").css("opacity", "100%");
-});
-
-$(".allergy-btn").click(function () {
-    $(".helper-popup").css("opacity", "0%");
-    $(".allergy-popup").css("opacity", "100%");
-});
-
 
 $(".toplogo-container-parent").click(function() {
     window.location.href = '/';
