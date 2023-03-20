@@ -91,6 +91,7 @@
     <div class="content">
         {% block content %}
             <div class="helper-buttons">
+                <div class="circle-btn popup-btn" popup="add-dish-popup">+</div>
                 <div class="circle-btn popup-btn" popup="add-table-popup">+</div>
                 <div class="circle-btn popup-btn" popup="table-popup">?</div>
                 <div class="circle-btn popup-btn" popup="order-popup">?</div>
@@ -134,6 +135,39 @@
             <div class="helper-content">
                 <input type="text" placeholder="Number of seats", pattern="^[0-9]*$" />
                 <div id="add-table-btn" class="white-button">Add table</div>
+            </div>
+        </div>
+
+        <div id="add-dish-popup" class="helper-popup">
+            <div class="helper-title">Add a Dish</div>
+            <div class="helper-content">
+                <div class="dish-main">
+                    <div class="dish-textfields">
+                        <input id="dish_name" type="text" placeholder="Name"/>
+                        <input id="dish_price" type="text" placeholder="£ Price" />
+                    </div>
+                    <div class="dish-checkboxes">
+                        <label class="popup-checkbox">
+                            <img src="{{ url_for('static', filename='images/menu/mdi_meat.svg') }}" alt="Meat Icon">
+                            <span>Contains meat</span>
+                            <input type="checkbox">
+                        </label>
+                        <label class="popup-checkbox">
+                            <img src="{{ url_for('static', filename='images/menu/mdi_gluten-free.svg') }}" alt="Gluten Free Icon">
+                            <span>Gluten free</span>
+                            <input type="checkbox">
+                        </label>
+                        <label class="popup-checkbox">
+                            <img src="{{ url_for('static', filename='images/menu/Group.svg') }}" alt="Vegan Icon">
+                            <span>Vegan</span>
+                            <input type="checkbox">
+                        </label>
+                    </div>
+                </div>
+                <div class="dish-btns">
+                    <div id="add-dish-btn" class="white-button">Add dish</div>
+                    <div id="add-picture-btn" class="white-button">Add picture*</div>
+                </div>
             </div>
         </div>
     </div>

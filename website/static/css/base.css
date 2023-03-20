@@ -115,6 +115,17 @@
   font-size: 12px;
 }
 
+.helper-content input[type='text'] {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+  color: black;
+}
+
+.helper-content input[type='text']::placeholder {
+  color: white;
+}
+
 .helper-content span {
   display: flex;
   flex-direction: row;
@@ -126,6 +137,18 @@
   height: 20px;
   object-fit: contain;
   margin-right: 10px;
+}
+
+.popup-checkbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.popup-checkbox input {
+  margin-left: auto;
+  transform: translateX(10px);
 }
 
 .white-button {
@@ -141,10 +164,56 @@
   white-space: nowrap;
   width: min-content;
   padding: 5px 20px;
+  cursor: pointer;
+}
+
+.white-button:hover {
+  background-color: #dddddd;
 }
 
 #add-table-popup .helper-content {
   align-items: center;
+}
+
+.dish-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.dish-textfields {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.dish-textfields #dish_name {
+  background-image: url("/static/images/fluent_food-apple-24-filled.svg");
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+  background-position: left center;
+  text-indent: 30px;
+}
+
+.dish-textfields #dish_price {
+  background-image: url("/static/images/ion_pricetags.svg");
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+  background-position: left center;
+  text-indent: 30px;
+}
+
+.dish-checkboxes {
+  display: flex;
+  flex-direction: column;
+}
+
+.dish-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 15px;
 }
 
 /* Sidebar CSS */
