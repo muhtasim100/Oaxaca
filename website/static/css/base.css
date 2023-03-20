@@ -115,9 +115,9 @@
   font-size: 12px;
 }
 
-.helper-content input[type='text'] {
+.helper-content input[type='text'], .helper-content input[type='password'] {
   background: transparent;
-  background-size: 24px 24px;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: left center;
   text-indent: 30px;
@@ -126,7 +126,7 @@
   color: black;
 }
 
-.helper-content input[type='text']::placeholder {
+.helper-content input::placeholder {
   color: white;
 }
 
@@ -202,10 +202,6 @@
 
 .dish-textfields #dish_price {
   background-image: url("/static/images/ion_pricetags.svg");
-  /* background-size: 24px 24px;
-  background-repeat: no-repeat;
-  background-position: left center;
-  text-indent: 30px; */
 }
 
 .dish-checkboxes {
@@ -220,6 +216,43 @@
   margin-top: 15px;
 }
 
+.worker-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 100px;
+}
+
+.worker-textfields {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.worker-textfields #worker_name {
+  background-image: url("/static/images/person.svg");
+}
+
+.worker-textfields #worker_email {
+  background-image: url("/static/images/ic_round-email.svg");
+}
+
+.worker-textfields #worker_password {
+  background-image: url("/static/images/material-symbols_lock.svg");
+}
+
+.worker-checkboxes {
+  display: flex;
+  flex-direction: column;
+  padding-right: 20px;
+}
+
+.worker-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 15px;
+}
 /* Sidebar CSS */
 
 .navbar {

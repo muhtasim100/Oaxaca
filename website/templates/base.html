@@ -91,6 +91,7 @@
     <div class="content">
         {% block content %}
             <div class="helper-buttons">
+                <div class="circle-btn popup-btn" popup="add-worker-popup">+</div>
                 <div class="circle-btn popup-btn" popup="add-dish-popup">+</div>
                 <div class="circle-btn popup-btn" popup="add-table-popup">+</div>
                 <div class="circle-btn popup-btn" popup="table-popup">?</div>
@@ -167,6 +168,32 @@
                 <div class="dish-btns">
                     <div id="add-dish-btn" class="white-button">Add dish</div>
                     <div id="add-picture-btn" class="white-button">Add picture*</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="add-worker-popup" class="helper-popup">
+            <div class="helper-title">Add a worker</div>
+            <div class="helper-content">
+                <div class="worker-main">
+                    <div class="worker-textfields">
+                        <input id="worker_name" type="text" placeholder="Name"/>
+                        <input id="worker_email" type="text" placeholder="Email" />
+                        <input id="worker_password" type="password" placeholder="Password" />
+                    </div>
+                    <div class="worker-checkboxes">
+                        <label class="popup-checkbox">
+                            <span>Worker</span>
+                            <input type="checkbox">
+                        </label>
+                        <label class="popup-checkbox">
+                            <span>Chef</span>
+                            <input type="checkbox">
+                        </label>
+                    </div>
+                </div>
+                <div class="worker-btns">
+                    <div id="confirm-worker-btn" class="white-button">Confirm</div>
                 </div>
             </div>
         </div>
