@@ -154,3 +154,10 @@ def waiter():
     db.session.add(WaiterNotif)
     db.session.commit()
     return("A waiter has been called.")
+
+@views.route("/add_table", methods=["POST"])
+def add_table():
+  seats = int(request.form.get("seats"))
+  NewTable = customer_table(Seats = seats, Available = 1) 
+  db.session.add(NewTable)
+  db.session.commit()
