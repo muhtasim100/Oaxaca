@@ -91,11 +91,16 @@
     <div class="content">
         {% block content %}
             <div class="helper-buttons">
-                <div class="circle-btn order-btn">?</div>
+                <div class="circle-btn popup-btn" popup="add-worker-popup">+</div>
+                <div class="circle-btn popup-btn" popup="add-dish-popup">+</div>
+                <div class="circle-btn popup-btn" popup="add-table-popup">+</div>
+                <div class="circle-btn popup-btn" popup="table-popup">?</div>
+                <div class="circle-btn popup-btn" popup="order-popup">?</div>
+                <div class="circle-btn popup-btn" popup="allergy-popup">?</div>
             </div>
         {% endblock %}
 
-        <div class="helper-popup table-popup">
+        <div id="table-popup" class="helper-popup">
             <div class="helper-title">Table Status</div>
             <div class="helper-subtitle">The following dots show the status of the tables:</div>
             <div class="helper-content">
@@ -105,7 +110,7 @@
             </div>
         </div>
 
-        <div class="helper-popup order-popup">
+        <div id="order-popup" class="helper-popup">
             <div class="helper-title">Order Status</div>
             <div class="helper-subtitle">The following dots show the status of the order:</div>
             <div class="helper-content">
@@ -115,13 +120,81 @@
             </div>
         </div>
 
-        <div class="helper-popup allergy-popup">
+        <div id="allergy-popup" class="helper-popup">
             <div class="helper-title">Allergies Informations</div>
             <div class="helper-subtitle">The following symbols show the allergies of the dishes:</div>
             <div class="helper-content">
                 <span><img src="{{ url_for('static', filename='images/menu/mdi_meat.svg') }}" alt="Meat Icon">Contains meat.</span>
                 <span><img src="{{ url_for('static', filename='images/menu/mdi_gluten-free.svg') }}" alt="Gluten Free Icon">Gluten free.</span>
                 <span><img src="{{ url_for('static', filename='images/menu/Group.svg') }}" alt="Vegan Icon">Vegan</span>
+            </div>
+        </div>
+
+        <div id="add-table-popup" class="helper-popup">
+            <div class="helper-title">Add a table</div>
+            <div class="helper-subtitle">Choose the number of seats here:</div>
+            <div class="helper-content">
+                <input id="table_seats" type="text" placeholder="Number of seats", pattern="^[0-9]*$" />
+                <div id="add-table-btn" class="white-button">Add table</div>
+            </div>
+        </div>
+
+        <div id="add-dish-popup" class="helper-popup">
+            <div class="helper-title">Add a Dish</div>
+            <div class="helper-content">
+                <div class="dish-main">
+                    <div class="dish-textfields">
+                        <input id="dish_name" type="text" placeholder="Name"/>
+                        <input id="dish_price" type="text" placeholder="£ Price" />
+                    </div>
+                    <div class="dish-checkboxes">
+                        <label class="popup-checkbox">
+                            <img src="{{ url_for('static', filename='images/menu/mdi_meat.svg') }}" alt="Meat Icon">
+                            <span>Contains meat</span>
+                            <input type="checkbox">
+                        </label>
+                        <label class="popup-checkbox">
+                            <img src="{{ url_for('static', filename='images/menu/mdi_gluten-free.svg') }}" alt="Gluten Free Icon">
+                            <span>Gluten free</span>
+                            <input type="checkbox">
+                        </label>
+                        <label class="popup-checkbox">
+                            <img src="{{ url_for('static', filename='images/menu/Group.svg') }}" alt="Vegan Icon">
+                            <span>Vegan</span>
+                            <input type="checkbox">
+                        </label>
+                    </div>
+                </div>
+                <div class="dish-btns">
+                    <div id="add-dish-btn" class="white-button">Add dish</div>
+                    <div id="add-picture-btn" class="white-button">Add picture*</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="add-worker-popup" class="helper-popup">
+            <div class="helper-title">Add a worker</div>
+            <div class="helper-content">
+                <div class="worker-main">
+                    <div class="worker-textfields">
+                        <input id="worker_name" type="text" placeholder="Name"/>
+                        <input id="worker_email" type="text" placeholder="Email" />
+                        <input id="worker_password" type="password" placeholder="Password" />
+                    </div>
+                    <div class="worker-checkboxes">
+                        <label class="popup-checkbox">
+                            <span>Worker</span>
+                            <input type="checkbox">
+                        </label>
+                        <label class="popup-checkbox">
+                            <span>Chef</span>
+                            <input type="checkbox">
+                        </label>
+                    </div>
+                </div>
+                <div class="worker-btns">
+                    <div id="confirm-worker-btn" class="white-button">Confirm</div>
+                </div>
             </div>
         </div>
     </div>
