@@ -117,6 +117,10 @@
 
 .helper-content input[type='text'] {
   background: transparent;
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+  background-position: left center;
+  text-indent: 30px;
   border: none;
   border-bottom: 1px solid black;
   color: black;
@@ -175,6 +179,10 @@
   align-items: center;
 }
 
+#table_seats {
+  background-image: url("/static/images/material-symbols_chair-alt.svg");
+}
+
 .dish-main {
   display: flex;
   flex-direction: row;
@@ -190,18 +198,14 @@
 
 .dish-textfields #dish_name {
   background-image: url("/static/images/fluent_food-apple-24-filled.svg");
-  background-size: 24px 24px;
-  background-repeat: no-repeat;
-  background-position: left center;
-  text-indent: 30px;
 }
 
 .dish-textfields #dish_price {
   background-image: url("/static/images/ion_pricetags.svg");
-  background-size: 24px 24px;
+  /* background-size: 24px 24px;
   background-repeat: no-repeat;
   background-position: left center;
-  text-indent: 30px;
+  text-indent: 30px; */
 }
 
 .dish-checkboxes {
