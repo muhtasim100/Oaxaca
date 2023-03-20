@@ -239,3 +239,24 @@
     flex: auto;
     justify-content: right;
 }
+
+.fnotif_popup_container {
+    border: none;
+    width: 500px;
+    height: 500px;
+    cursor: pointer;
+    background: var(--bg-primary);
+    color: rgb(0, 0, 0);
+    letter-spacing: 0.2px;
+    font-size: medium;
+    outline: 0;
+    -webkit-transition: all .6s;
+    transition: all .6s;
+    border-radius: 15px;
+    box-shadow: 3px 3px 3px rgb(41, 40, 40);
+    margin: -650px 0px 0px 450px;
+    display: flex;
+    flex-direction: row;
+    padding: 0 15px;
+}
+
