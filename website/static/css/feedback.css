@@ -256,7 +256,17 @@
     box-shadow: 3px 3px 3px rgb(41, 40, 40);
     margin: -650px 0px 0px 450px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 0 15px;
+}
+
+.review_box {
+    border-radius: 20px;
+    height: 330px;
+    width: 430px;
+    margin: 100px 0px 0px 0px;
+    background-color: lightgray;
 }
 
