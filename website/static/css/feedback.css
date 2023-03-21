@@ -241,6 +241,7 @@
     justify-content: right;
 }
 
+
 .fnotif_popup_container {
     position: relative;
     background-color: var(--bg-primary);
@@ -251,24 +252,17 @@
     box-shadow: 0px 5px 10px black;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    text-align: center;
+    /* justify-content: center; */
+    /* text-align: center; */
 }
 
-
-
-.review-area {
+.review-textarea {
     margin-top: 10px;
-    }
-    
-    .review-area textarea {
     background-color: #D9D9D9;
     border: 2px solid black;
     border-radius: 20px;
     padding-left: 10px;
     padding-top: 10px;
-    }
-    
-    .review-textarea textarea:focus {
-    outline: none;
-    }
+    width: 432px;
+    height: 352px;
+}
