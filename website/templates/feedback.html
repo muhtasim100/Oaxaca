@@ -2,6 +2,8 @@
 {% block head %}
   <link rel="stylesheet" href="{{ url_for('static', filename='css/feedback.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/notifcenter.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/order_tracker.css') }}">
+  
   <title>
     Oaxaca - Feedback
   </title>
@@ -120,13 +122,78 @@
         </div>
         {% endfor %}
 
-    </div>
-    <!-- container for feedback pop up container -->
-    <div class= "fnotif_popup_container">
+            <!-- container for feedback pop up container -->
+    <!-- <div class= "fnotif_popup_container">
+        {% for review in reviews %}
+                <span class="reviews-bold">{{ reviews }}</span> has left a review.
+        {% endfor %}
         <div class="review_box">
-            
+
         </div>
-        
+    </div> -->
+    
+
+
+
+
+    <div id="reviewCard" class="fnotif_popup_container">
+        <!-- Modal content -->
+        <div class="fb-content">
+            <div class="fb-header">
+                <span>REVIEW</span>
+            </div>
+
+            <div class="review-textarea">
+                <textarea id="review-text" name="review-text" rows="10" cols="50"
+                    placeholder="Enter a review..."></textarea>
+            </div>
+
+            <div class="review-submit">
+                <button id="review-btn" type="button">Submit</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- <div id="reviewModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span>HELP US IMPROVE</span>
+            </div>
+
+            <div class="stars">
+                {% for i in range(1, 6) %}
+                <img id="{{ i }}" src="{{ url_for('static', filename='images/payment/star-blank.png') }}" alt="star-blank">
+                {% endfor %}
+            </div>
+
+            <div class="review-textarea">
+                <textarea id="review-text" name="review-text" rows="10" cols="50"
+                    placeholder="Enter a review..."></textarea>
+            </div>
+
+            <div class="review-submit">
+                <button id="review-btn" type="button">Submit</button>
+            </div>
+
+        </div>
+    </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
 </div>
 
