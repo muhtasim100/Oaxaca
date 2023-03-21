@@ -77,7 +77,7 @@ def testing():
 
 
     if Notification.query.count() != 1:
-        test1 = Notification(statusNotification = 1, typeNotification = 1, FK_OrderID = 1, FK_UserID = current_user.UserID)
+        test1 = Notification(statusNotification = 1, typeNotification = 2, FK_OrderID = 1, FK_UserID = current_user.UserID)
         db.session.add(test1)
         db.session.commit()
 
@@ -91,7 +91,8 @@ def base():
 
 @views.route('/')
 def home():
-    return render_template("home.html")
+    x = Notification.query.all()
+    return render_template("home.html", x=x)
 
 
 @views.route('/table')
