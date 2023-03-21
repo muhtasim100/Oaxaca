@@ -252,6 +252,7 @@
     box-shadow: 0px 5px 10px black;
     display: flex;
     flex-direction: column;
+    bottom: 175px;
     /* justify-content: center; */
     /* text-align: center; */
 }
