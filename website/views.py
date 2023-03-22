@@ -91,7 +91,7 @@ def base():
 
 @views.route('/')
 def home():
-    x = Notification.query.all()
+    x = db.session.query(Notification.typeNotification)
     return render_template("home.html", x=x)
 
 
