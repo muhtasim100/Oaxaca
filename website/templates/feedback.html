@@ -123,37 +123,30 @@
         {% endfor %}
 
             <!-- container for feedback pop up container -->
-    <!-- <div class= "fnotif_popup_container">
-        {% for review in reviews %}
-                <span class="reviews-bold">{{ reviews }}</span> has left a review.
-        {% endfor %}
-        <div class="review_box">
-
-        </div>
-    </div> -->
+ 
     
 
 
+            {% for review in reviews %}
+            <div id="{{ Reviews.reviewID }}" class="fnotif_popup_container">
+                <!-- Modal content -->
+                <div class="fb-content">
+                    <div class="fb-header">
+                        <span class="reviews-bold">{{ reviews }}</span> has left a review.
+                    </div>
 
+                    <div class="review-textarea">
+                        <div class="review-text">
+                        </div>
+                    </div>
 
-    <div id="reviewCard" class="fnotif_popup_container">
-        <!-- Modal content -->
-        <div class="fb-content">
-            <div class="fb-header">
-                <span>REVIEW</span>
-            </div>
+                    <div class="review-submit">
+                        <button id="review-btn" type="button">Submit</button>
+                    </div>
 
-            <div class="review-textarea">
-                <div class="review-text">
                 </div>
             </div>
-
-            <div class="review-submit">
-                <button id="review-btn" type="button">Submit</button>
-            </div>
-
-        </div>
-    </div>
+            {% endfor %}
 
 
     <!-- <div id="reviewModal" class="modal">
@@ -211,4 +204,8 @@
 
 </script>
 
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/feedbackcard.js') }}"></script>
 {% endblock %}
