@@ -18,7 +18,12 @@
     
     <div class="action">
       <button class="menubutton" type="submit">View Menu</button>
-      <button class="waiterbutton" type="submit">Call a waiter  {{ x[0] }}</button>
+      <button class="waiterbutton" type="submit">Call a waiter</button>
     </div>
   </div>
+{% endblock %}
+
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/home.js') }}"></script>
 {% endblock %}

@@ -173,3 +173,12 @@ def delete_product():
     db.session.commit()
 
     return "Success", 200
+
+
+@views.route('/call_waiter', methods=["POST"])
+def call_waiter():
+    notif = Notification(statusNotification = 1, typeNotification = 2, FK_UserID = current_user.UserID)
+    db.session.add(notif)
+    db.session.commit()
+
+    return "Success", 200
