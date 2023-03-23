@@ -206,11 +206,15 @@
             <div class="helper-subtitle">View basket details below:</div>
             <div class="helper-content">
                 <div class="basket-products">
-                    <ul>
-                        {% for item in cart_items %}
-                            <li>{{ item }}</li>
-                        {% endfor %}
-                    </ul>
+                    {% for cart_id, item in cart_items.items() %}
+                        <div class="basket-item" id="{{ cart_id }}">
+                            <div>{{ item }}</div>
+                            <div class="quantity-container">
+                                <div class="white-button">-</div>
+                                <div class="white-button">+</div>
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
                 <div class="basket-vat">
                     <div>VAT (20%)</div>

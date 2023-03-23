@@ -87,11 +87,11 @@ def testing():
 @views.route('/base')
 def base():
     cart = Cart.query.filter_by(Fk_UserID=current_user.UserID)
-    cart_items = []
+    cart_items = {}
     cart_total = 0
     for item in cart:
         food_item = FoodItem.query.filter_by(FoodID=item.Fk_FoodID).first()
-        cart_items.append(f"{item.Quantity}x {food_item.FoodName} (£{item.Quantity * food_item.UnitPrice:.2f})")
+        cart_items[item.cartID] = f"{item.Quantity}x {food_item.FoodName} (£{item.Quantity * food_item.UnitPrice:.2f})"
         cart_total += item.Quantity * food_item.UnitPrice
 
     cart_total = float(cart_total)
