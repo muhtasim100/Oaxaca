@@ -133,8 +133,39 @@ def payment():
 
 @views.route('/notif')
 def notification():
+    # OrderID, Total Price
+    # Individual products: name, quantity, price
     ListAll = Notification.query.all()
-    return render_template("notifcentre.html", res=ListAll)
+    totalString = "N/A"
+    totalPrice = 0
+    products = {}
+
+    for notif in ListAll:
+        if notif.FK_OrderID != None:
+            OrderID = notif.FK_OrderID
+            products[OrderID] = []
+            order = Orders.query.filter_by(OrderID=notif.FK_OrderID).first()
+            totalPrice = order.UnitPrice
+            order_items = OrderItem.query.filter_by(OrderID=notif.FK_OrderID)
+            for item in order_items:
+                food = FoodItem.query.filter_by(FoodID=item.FoodID).first()
+                totalPrice += food.UnitPrice * item.Quantity
+                products[notif.FK_OrderID].append(f"{item.Quantity}x {food.FoodName} (£{food.UnitPrice * item.Quantity:.2f})")
+    
+    totalString = f"£{totalPrice:.2f}"
+
+    return render_template("notifcentre.html", res=ListAll, totalString=totalString, products=products)
+
+    for OrderID, productList in products.items():
+      #This is where you'd open the div for the popup with the order info
+      #You'd put the OrderID as like a heading or something and the total price
+      for product in productList:
+        pass
+        #instead of pass, here is where you'd do put each line of text that's like 1x Taco (£5.99) (presumably within a cointainer div)
+
+     #After the inner for loop you'd close the div with all the products
+
+   #This is where you'd close the div code for the popup
 
 
 @views.route('/staff')
