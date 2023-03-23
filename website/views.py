@@ -145,7 +145,7 @@ def feedback():
 
 
     # List of Reviews
-    reviews = db.session.execute("SELECT User.UserName, Reviews.starReview, Reviews.timeReview, Reviews.reviewID " + 
+    reviews = db.session.execute("SELECT User.UserName, Reviews.starReview, Reviews.timeReview, Reviews.reviewID, Reviews.textReview " + 
         "FROM Reviews LEFT JOIN User ON Reviews.Fk_UserID = User.UserID " +
         "ORDER BY Reviews.timeReview DESC;")
 
