@@ -115,7 +115,20 @@ def menu():
 
 @views.route('/payment')
 def payment():
-    return render_template("payment.html")
+    cart = Cart.query.filter_by(Fk_UserID=current_user.UserID)
+    cart_total = 0
+    for item in cart:
+        food_item = FoodItem.query.filter_by(FoodID=item.Fk_FoodID).first()
+        cart_total += item.Quantity * food_item.UnitPrice
+
+    cart_total = float(cart_total)
+    vat = 0.2 * cart_total
+    vat_string = f"£{vat:.2f}"
+    cart_total += vat
+    total_string = f"{cart_total:.2f}"
+    total_pounds, total_pence = total_string.split(".")
+
+    return render_template("payment.html", vat=vat_string, total_pounds=total_pounds, total_pence=total_pence)
 
 
 @views.route('/notif')
