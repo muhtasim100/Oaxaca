@@ -181,7 +181,9 @@ def call_waiter():
     db.session.add(notif)
     db.session.commit()
 
-    
+    return "Success", 200
+
+
 @views.route('/delete_notif', methods=["POST"])
 def delete_notif():
     NotifID = int(request.form.get("id"))
