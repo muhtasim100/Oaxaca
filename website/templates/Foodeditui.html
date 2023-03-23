@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+  {% block head %}
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Foodeditui.css') }}">
+    <title>
+      Oaxaca - Allergies & Calories
+    </title>
+  {% endblock %}
+  
+  {% block content %}
+    <div>
+    <select name="option" id="show all" class="dropbar">
+        <option value="show">Show All  </option>
+        <option value="option 2">Select All</option>
+        <option value="option 3">Select All</option>
+        <option value="option 4">Select All</option>
+      </select>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+  
+    <table>
+      <tbody><tr>
+        <th>Name of product</th>
+        <th>Cals</th> 
+        <th><img src="{{ url_for('static', filename='images/Vector.svg') }}" alt="Contains meat"></th>
+        <th><img src="{{ url_for('static', filename='images/mdi_gluten-free.svg') }}" alt="Gluten free"></th>
+        <th><img src="{{ url_for('static', filename='images/iconoir_vegan.svg') }}" alt="Vegan"></th>
+        <th>Price</th>
+      </tr>
+      {% for food in res %}
+      <tr id="{{ food.FoodID }}">
+        <td>{{ food.FoodName }}</td>
+        <td>{{ food.Cals }}</td>
+        <td>{% if food.GlutenFree==True %}
+          <img src="{{ url_for('static', filename='images/Tick.svg') }}" alt="Gluten_Icon" />
+          {% endif %}</td>
+        <td>{% if food.ContainsMeat==True %}
+          <img src="{{ url_for('static', filename='images/Tick.svg') }}" alt="Meat_icon">
+          {% endif %}</td>
+        <td>{% if food.Vegan==True %}
+          <img src="{{ url_for('static', filename='images/Tick.svg') }}" alt="Vegan_Icon">
+          {% endif %}</td>
+        <td class="td-price">
+          <span>
+            {{ food.UnitPrice|round(2) }} £
+          </span>
+          <img class="delete-button" src="{{ url_for('static', filename='images/delete.png') }}" alt="delete-button">
+        </td>     
+      </tr>
+      {% endfor %}
+    </tbody></table>
+    </div>
+
+</div>
+
+<script>
+  let rows = Array.from(document.querySelectorAll("tr"));
+  rows.forEach(function (tr) {
+    let delete_button = tr.querySelector(".delete-button");
+    if (delete_button) {
+      tr.onmouseover = function() {
+        delete_button.style.visibility = "visible";
+      }
+      tr.onmouseout = function() {
+        delete_button.style.visibility = "hidden";
+      }
+
+      delete_button.onclick = function() {
+        $.ajax({
+          url: '/delete_product',
+          type: 'POST',
+          data: {id: tr.id},
+          success: function(data) {
+            $(".content").prepend('<div class="notification"><div class="notification-message"></div></div>');
+            $(".notification-message").html("Product deleted!");
+          },
+          error: function(error) {
+            console.log(error);
+          }
+        });
+        tr.remove();
+      }
+    }
+  });
+</script>
+  
+{% endblock %}

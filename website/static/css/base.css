@@ -40,6 +40,7 @@
   top: 0;
   left: 0;
   position: absolute;
+  cursor: pointer;
 }
 
 .toplogo-container-parent img {
@@ -88,8 +89,7 @@
   flex-direction: column;
   position: absolute;
   top: calc(10% + 100px);
-  right: 60px;
-  z-index: 1;
+  z-index: -1000;
   padding: 15px;
 
   filter: drop-shadow(0 4px 4px #00000040);
@@ -115,6 +115,21 @@
   font-size: 12px;
 }
 
+.helper-content input[type='text'], .helper-content input[type='password'] {
+  background: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left center;
+  text-indent: 30px;
+  border: none;
+  border-bottom: 1px solid black;
+  color: black;
+}
+
+.helper-content input::placeholder {
+  color: white;
+}
+
 .helper-content span {
   display: flex;
   flex-direction: row;
@@ -126,6 +141,188 @@
   height: 20px;
   object-fit: contain;
   margin-right: 10px;
+}
+
+.popup-checkbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.popup-checkbox input {
+  margin-left: auto;
+  transform: translateX(10px);
+}
+
+.white-button {
+  margin-top: 10px;
+  border: 1px solid black;
+  border-radius: 20px;
+  background-color: #ffffff;
+  color: black;
+  display: flex;
+  font-family: 'Poppins-Light', sans-serif;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  width: min-content;
+  padding: 5px 20px;
+  cursor: pointer;
+}
+
+.white-button:hover {
+  background-color: #dddddd;
+}
+
+#add-table-popup .helper-content {
+  align-items: center;
+}
+
+#table_seats {
+  background-image: url("/static/images/material-symbols_chair-alt.svg");
+}
+
+.dish-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.dish-textfields {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.dish-textfields #dish_name {
+  background-image: url("/static/images/fluent_food-apple-24-filled.svg");
+}
+
+.dish-textfields #dish_price {
+  background-image: url("/static/images/ion_pricetags.svg");
+}
+
+.dish-checkboxes {
+  display: flex;
+  flex-direction: column;
+}
+
+.dish-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 15px;
+}
+
+.worker-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 100px;
+}
+
+.worker-textfields {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.worker-textfields #worker_name {
+  background-image: url("/static/images/person.svg");
+}
+
+.worker-textfields #worker_email {
+  background-image: url("/static/images/ic_round-email.svg");
+}
+
+.worker-textfields #worker_password {
+  background-image: url("/static/images/material-symbols_lock.svg");
+}
+
+.worker-checkboxes {
+  display: flex;
+  flex-direction: column;
+  padding-right: 20px;
+}
+
+.worker-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 15px;
+}
+
+#basket-popup .helper-content {
+  font-family: "Poppins-Regular", sans-serif;
+  font-size: 18px;
+}
+
+.basket-products {
+  margin-left: 20px;
+}
+
+.basket-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  white-space: nowrap;
+  margin-top: 10px;
+}
+
+.quantity-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex: auto;
+  justify-content: right;
+}
+
+.quantity-container .white-button {
+  border-radius: 50%;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  margin: 0;
+  margin-left: 10px;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.basket-vat {
+  display: flex;
+  column-gap: 40px;
+  margin-top: 40px;
+}
+
+.basket-bottom {
+  display: flex;
+  margin-top: 40px;
+  justify-content: space-around;
+  width: 100%;
+  padding-top: 20px;
+  border-top: 1px solid var(--text-secondary);
+}
+
+.basket-total {
+  display: flex;
+  flex-direction: column;
+}
+
+.basket-total div {
+  display: flex;
+}
+
+.basket-total .bold {
+  font-family: "Poppins-Bold", sans-serif;
+}
+
+#paynow-btn {
+  margin-left: 150px;
 }
 
 /* Sidebar CSS */

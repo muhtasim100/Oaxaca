@@ -76,7 +76,6 @@ class Orders(db.Model):
     __tablename__ = 'Orders'
     OrderID = db.Column(db.Integer, primary_key=True)
     OrderDate = db.Column(db.DateTime (timezone = True), default = func.now())
-    Quantity = db.Column(db.Integer)
     UnitPrice = db.Column(db.Float(precision=8, asdecimal = True))
     Fk_UserID = db.Column(db.Integer, db.ForeignKey('User.UserID'))
     Fk_TableID = db.Column(db.Integer, db.ForeignKey('customer_table.TableID'))
@@ -120,9 +119,18 @@ class Reviews(db.Model):
     reviewID = db.Column(db.Integer, primary_key=True)
     timeReview = db.Column(db.DateTime (timezone = True), default = func.now())
     starReview = db.Column(db.Integer)
+    textReview = db.Column(db.String(100))
     Fk_UserID = db.Column(db.Integer, db.ForeignKey('User.UserID'))
     Fk_MenuID = db.Column(db.Integer, db.ForeignKey('Menu.MenuID'))
     Fk_FoodID = db.Column(db.Integer, db.ForeignKey('FoodItem.FoodID'))
+
+
+class Cart(db.Model):
+    __tablename__ = 'Cart'
+    cartID = db.Column(db.Integer, primary_key=True)
+    Fk_UserID = db.Column(db.Integer, db.ForeignKey('User.UserID'))
+    Fk_FoodID = db.Column(db.Integer, db.ForeignKey('FoodItem.FoodID'))
+    Quantity = db.Column(db.Integer)
 
 
 class Notification(db.Model):

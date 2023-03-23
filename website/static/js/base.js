@@ -40,13 +40,6 @@ function isScreenSmall() {
 }
 
 window.onclick = function (event) {
-    if (!event.target.classList.contains("circle-btn")) {
-        let helpers = Array.from(document.getElementsByClassName("helper-popup"));
-        helpers.forEach(function(helper) {
-            helper.style.opacity = "0%";
-        });
-    }
-
     if (event.target.classList.contains("modal")) {
         let modals = Array.from(document.getElementsByClassName("modal"));
         modals.forEach(function(modal) {
@@ -55,19 +48,92 @@ window.onclick = function (event) {
     }
 }
 
+$(".toplogo-container-parent").click(function() {
+    window.location.href = '/';
+});
+
+
+// Call Waiter Buttons
+$(".waiterbutton").click(function() {
+    $.ajax({
+        url: '/call_waiter',
+        type: 'POST',
+        data: {},
+        success: function(data) {
+          // change this later to show a notification saying the review is submitted
+          $(".content").prepend('<div class="notification"><div class="notification-message"></div></div>');
+          $(".notification-message").html("Waiter has been called!");
+        },
+        error: function(error) {
+          console.log(error);
+        }
+      });
+});
+
 
 // Helper Buttons
-$(".table-btn").click(function () {
+$(".popup-btn").click(function() {
     $(".helper-popup").css("opacity", "0%");
-    $(".table-popup").css("opacity", "100%");
+    $(".helper-popup").css("z-index", "-1000");
+    let popup = $(this).attr("popup");
+    if ($("#" + popup).length) {
+        if ($("#" + popup).css("opacity") == "1") {
+            return;
+        } else {
+            $("#" + popup).css("opacity", "100%");
+            $(".helper-popup").css("z-index", "1");
+            let left = $(this).offset().left;
+            let width = $("#" + popup).width();
+            let position = left - width;
+            $("#" + popup).css("left", position + "px");
+        }
+    }
 });
 
-$(".order-btn").click(function () {
-    $(".helper-popup").css("opacity", "0%");
-    $(".order-popup").css("opacity", "100%");
+
+// Basket Code
+
+function reloadBasket() {
+    $.ajax({
+        url: '/cart_products',
+        type: 'POST',
+        success: function(data) {
+            $("#basket-popup .helper-content").html(data);
+        },
+        error: function(error) {
+          console.log(error);
+        }
+      });
+}
+
+$(document).on("click", ".basket-item .minus", function() {
+    $.ajax({
+        url: '/minus_cart_quantity',
+        type: 'POST',
+        data: {id: $(this).attr("item_id")},
+        success: function(data) {
+            reloadBasket();
+        },
+        error: function(error) {
+          console.log(error);
+        }
+      });
 });
 
-$(".allergy-btn").click(function () {
-    $(".helper-popup").css("opacity", "0%");
-    $(".allergy-popup").css("opacity", "100%");
+$(document).on("click", ".basket-item .plus", function() {
+    $.ajax({
+        url: '/add_cart_quantity',
+        type: 'POST',
+        data: {id: $(this).attr("item_id")},
+        success: function(data) {
+            reloadBasket();
+        },
+        error: function(error) {
+          console.log(error);
+        }
+      });
+});
+
+$(document).on("click", "#basket-pay-now", function() {
+    window.location.href = "/payment";
 });

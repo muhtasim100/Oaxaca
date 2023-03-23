@@ -1,0 +1,207 @@
+{% extends "base.html" %}
+{% block head %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/feedback.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/notifcenter.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/order_tracker.css') }}">
+  
+  <title>
+    Oaxaca - Feedback
+  </title>
+{% endblock %}
+
+{% block content %}
+<div class= "feedback">
+    <div class="feedback-stats">
+        <div class="feedback-card">
+            <div class = "feedback-text">
+                <span class = "feedback-title">Avg. Rating</span> 
+                <span class = "feedback-secondary">{{ avg_stars }}</span> 
+            </div>
+            <div class="feedback-img">
+                <img src="{{ url_for('static', filename='images/star.svg') }}" alt="star"> 
+            </div>
+        </div>
+
+        <div class="feedback-card"> 
+            <div class = "feedback-text">
+                <span class = "feedback-title">Daily Revenue</span> 
+                <span class = "feedback-secondary">1850</span> 
+            </div>
+            <div class="feedback-img">
+                <img src="{{ url_for('static', filename='images/dollar.svg') }}" alt="dollar"> 
+            </div>
+        </div>
+
+        <div class="feedback-card"> 
+            <div class = "feedback-text">
+                <span class = "feedback-title">Popular Food</span> 
+                <span class = "feedback-secondary">Tacos</span> 
+            </div>
+            <div class="feedback-img">
+                <img src="{{ url_for('static', filename='images/cutlery.svg') }}" alt="cutlery"> 
+            </div>
+        </div>
+
+
+        <div class="feedback-card"> 
+            <div class = "feedback-text">
+                <span class = "feedback-title">Popular Drink</span> 
+                <span class = "feedback-secondary">Still Water</span> 
+            </div>
+            <div class="feedback-img">
+                <img src="{{ url_for('static', filename='images/drink.svg') }}" alt="drink"> 
+            </div>
+        </div>
+
+
+        <div class="feedback-card">
+            <div class = "feedback-text">
+                <span class = "feedback-title">Customers seated</span> 
+                <span class = "feedback-secondary">25</span> 
+            </div>
+            <div class="feedback-img">
+                <img src="{{ url_for('static', filename='images/cust.svg') }}" alt="cust"> 
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="feedback-visuals">
+        <div class="graph_container">
+            <div class="graph_header">
+                Daily Customers
+            </div>
+        </div>
+        <div class="graph_container">
+            <div class="graph_header">
+                Most Popular Dishes
+            </div>
+            <div class="graph">
+                <div id="dishes_graph"></div>
+            </div>
+        </div>
+    </div>
+    <div class= "scroll"> 
+        <div class= "lineleft"><img src="{{ url_for('static', filename='images/scroll/line-left.svg') }}" alt="lineleft"> </div>
+        <div class= "arrowleft"><img src="{{ url_for('static', filename='images/scroll/arrow-left.svg') }}" alt="arrowleft"> </div>
+        <div class= "scrollmsg">VIEW ALL REVIEWS</div>
+
+        <div class= "arrowright"><img src="{{ url_for('static', filename='images/scroll/arrow-right.svg') }}" alt="arrowright"> </div>
+        <div class= "lineright"><img src="{{ url_for('static', filename='images/scroll/line-right.svg') }}" alt="lineright"> </div>
+    </div>
+</div>
+
+<div class="reviews">
+    <div class="reviews-heading">AVG. RATING: {{ avg_stars }} <img src="{{ url_for('static', filename='images/payment/star-full.png') }}" alt="star-full"></div>
+    <div class="reviews-content">
+        {% for review in reviews %}
+        <div class="reviews-action">
+            <div class= "user-img"><img src="{{ url_for('static', filename='images/User-Icon.svg') }}" alt="user"></div>
+            <div class="reviews-text">
+                <div class="reviews-main">
+                    <div>
+                        <span class="reviews-bold">{{ review[0] }}</span> has left a review
+                    </div>
+                    <div class="stars">
+                        {% for i in range(review[1]) %}
+                            <img src="{{ url_for('static', filename='images/payment/star-full.png') }}" alt="star-full">
+                        {% endfor %}
+        
+                        {% for i in range(5-review[1]) %}
+                            <img src="{{ url_for('static', filename='images/payment/star-blank.png') }}" alt="star-blank">
+                        {% endfor %}
+                    </div>
+                </div>
+                
+                <div class="reviews-secondary">
+                    <!-- The Date and Time of the Review -->
+                    {{ review[2] }}
+                </div>
+            </div>
+            <div class="arrow-img"><img src="{{ url_for('static', filename='images/clickarrow.svg') }}" alt="arrow"></div>
+        </div>
+        <div id="{{ review[3] }}" class="fnotif_popup_container">
+            <!-- container for feedback pop up container -->
+            <!-- Modal content -->
+            <div class="fb-content">
+                <div class="fb-header">
+                    <span class="reviews-bold">{{ review[0] }}</span> has left a review.
+                </div>
+
+                <div class="review-textarea">
+                    <div class="review-text">
+                    </div>
+                </div>
+
+                <div class="review-submit">
+                    <button id="review-btn" type="button">Submit</button>
+                </div>
+
+            </div>
+        </div>
+        {% endfor %}
+ 
+
+
+
+
+    <!-- <div id="reviewModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span>HELP US IMPROVE</span>
+            </div>
+
+            <div class="stars">
+                {% for i in range(1, 6) %}
+                <img id="{{ i }}" src="{{ url_for('static', filename='images/payment/star-blank.png') }}" alt="star-blank">
+                {% endfor %}
+            </div>
+
+            <div class="review-textarea">
+                <textarea id="review-text" name="review-text" rows="10" cols="50"
+                    placeholder="Enter a review..."></textarea>
+            </div>
+
+            <div class="review-submit">
+                <button id="review-btn" type="button">Submit</button>
+            </div>
+
+        </div>
+    </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+</div>
+
+<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+<script>
+    $(".scrollmsg").click(function() {
+        $("html, body").animate({
+            scrollTop: $(".reviews").offset().top},
+            'slow'
+        );
+    });
+
+    var graphs = {{ dishes_graph | safe }};
+    Plotly.plot('dishes_graph', graphs, {});
+
+</script>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/feedbackcard.js') }}"></script>
+{% endblock %}
