@@ -60,12 +60,12 @@
             <div class="order-details container-right">
                 <div class="order-details-section">
                     <div class="container-left">
-                        <div>Order Number</div>
+                        <div>Table Number</div>
                         <div>VAT (20%)</div>
                     </div>
                     <div class="container-right">
-                        <div>1235495</div>
-                        <div>$12.00</div>
+                        <div>N/A</div>
+                        <div>{{ vat }}</div>
                     </div>
                 </div>
                 <hr>
@@ -73,7 +73,7 @@
                     <div class="container-left">
                         <div>You have to Pay</div>
                         <div>
-                            <span class="bold">549</span><span class="pence">.99</span> USD
+                            <span class="bold">£{{ total_pounds }}</span><span class="pence">.{{ total_pence }}</span> GBP
                         </div>
                     </div>
                     <div class="container-right">
