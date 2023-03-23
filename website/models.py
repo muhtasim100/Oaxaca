@@ -126,6 +126,14 @@ class Reviews(db.Model):
     Fk_FoodID = db.Column(db.Integer, db.ForeignKey('FoodItem.FoodID'))
 
 
+class Cart(db.Model):
+    __tablename__ = 'Cart'
+    cartID = db.Column(db.Integer, primary_key=True)
+    Fk_UserID = db.Column(db.Integer, db.ForeignKey('User.UserID'))
+    Fk_FoodID = db.Column(db.Integer, db.ForeignKey('FoodItem.FoodID'))
+    Quantity = db.Column(db.Integer)
+
+
 class Notification(db.Model):
     __tablename__ = 'Notification'
     NotificationID = db.Column(db.Integer, primary_key=True)
