@@ -92,11 +92,11 @@
 </div>
 
 <div class="reviews">
-    <div id="overlay" onclick="off()"></div>
+    <div id="overlay" onclick="closeReview()"></div>
     <div class="reviews-heading">AVG. RATING: {{ avg_stars }} <img src="{{ url_for('static', filename='images/payment/star-full.png') }}" alt="star-full"></div>
     <div class="reviews-content">
         {% for review in reviews %}
-        <div class="reviews-action" >
+        <div class="reviews-action" onclick="Open_Review(this)" id="r{{ review[3] }}" >
             <div class= "user-img"><img src="{{ url_for('static', filename='images/User-Icon.svg') }}" alt="user"></div>
             <div class="reviews-text">
                 <div class="reviews-main">
@@ -119,9 +119,9 @@
                     {{ review[2] }}
                 </div>
             </div>
-            <div class="arrow-img" onclick="on()"><img src="{{ url_for('static', filename='images/clickarrow.svg') }}" alt="arrow"></div>
+            <div class="arrow-img"><img src="{{ url_for('static', filename='images/clickarrow.svg') }}" alt="arrow"></div>
         </div>
-        <div id="{{ review[review] }}" class="fnotif_popup_container">
+        <div id="p{{ review[3] }}" class="fnotif_popup_container">
             <!-- container for feedback pop up container -->
             <!-- Modal content -->
             <div class="fb-content">
@@ -199,20 +199,28 @@
 {% endblock %}
 
 {% block scripts %}
-<script src="{{ url_for('static', filename='js/feedbackcard.js') }}"></script>
-
-
 <script>
-    function on() {
+    function Overlay_on() {
       document.getElementById("overlay").style.display = "block";
     }
     
-    function off() {
+    function Overlay_off() {
       document.getElementById("overlay").style.display = "none";
     }
 
-    function closeReview() {
-        document.getElementById("fnotif_popup_container").style.display = "none";
+    function closeReview() {        
+        var popups = Array.from(document.getElementsByClassName("fnotif_popup_container"));
+        Overlay_off();
+        popups.forEach(function(popup) { 
+            popup.style.display = "none";
+        });
+    }
+
+    function Open_Review(element) {
+        var review = element;
+        var review_id = element.id.substring(1);
+        document.querySelector(".fnotif_popup_container#p" + review_id).style.display = "flex";
+        Overlay_on();
     }
 
 </script>
