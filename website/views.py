@@ -166,7 +166,7 @@ def review_store():
 
     return "Success", 200
 
-
+#POST REQUEST FOR DELETING PRODUCT FROM DB
 @views.route('/delete_product', methods=["POST"])
 def delete_product():
     food_id = int(request.form.get("id"))
@@ -176,7 +176,7 @@ def delete_product():
 
     return "Success", 200
 
-
+#POST REQUEST FOR CALLING WAITER
 @views.route('/call_waiter', methods=["POST"])
 def call_waiter():
     notif = Notification(statusNotification = 1, typeNotification = 2, FK_UserID = current_user.UserID)
@@ -185,7 +185,7 @@ def call_waiter():
 
     return "Success", 200
 
-
+#POST REQUEST FOR DELETING NOTIFICATION FROM DB
 @views.route('/delete_notif', methods=["POST"])
 def delete_notif():
     NotifID = int(request.form.get("id"))
@@ -196,6 +196,7 @@ def delete_notif():
 
     return "Success", 200
 
+# Helper function to get the html for the products in cart
 def cart_products():
     cart = Cart.query.filter_by(Fk_UserID=current_user.UserID)
     cart_items = {}
@@ -214,12 +215,13 @@ def cart_products():
 
     return render_template("cart_products.html", cart_items=cart_items, vat=vat_string, total_pounds=total_pounds, total_pence=total_pence)
 
-
+#Post request to get the html for the products in cart to refresh dynamically
 @views.route('/cart_products', methods=["POST"])
 def cart_products_post():
     return cart_products(), 200
 
 
+# For the food items on menu to add to cart
 @views.route('/add_cart', methods=["POST"])
 def add_cart():
     food_id = int(request.form.get("id"))
@@ -234,6 +236,7 @@ def add_cart():
     db.session.commit()
     return "Success", 200
 
+# For the plus button on basket to increase quantity
 @views.route('/add_cart_quantity', methods=["POST"])
 def add_cart_quantity():
     cart_id = int(request.form.get("id"))
@@ -244,7 +247,7 @@ def add_cart_quantity():
 
     return "Success", 200
 
-
+# For the minus button on basket to reduce quantity
 @views.route('/minus_cart_quantity', methods=["POST"])
 def remove_cart_quantity():
     cart_id = int(request.form.get("id"))
