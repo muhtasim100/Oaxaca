@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/notifcenter.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/Foodeditui.css') }}">
 <title>
   Oaxaca - Notification Center
 </title>
@@ -46,7 +45,6 @@
       {{ notif.TimeNotifcation }}
     </div>
     <div class="notif-img"><img src="{{ url_for('static', filename='images/clickarrow.svg') }}" alt="arrow"></div>
-    <!-- <img class="delete-button" src="{{ url_for('static', filename='images/delete.png') }}" alt="delete-button"> -->
     <div class="delete-button"><img src="{{ url_for('static', filename='images/delete.png') }}" alt="delete-button"></div>
   </div>
   {% endfor %}
