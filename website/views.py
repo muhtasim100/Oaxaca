@@ -44,7 +44,7 @@ def testing():
     #Order
     if Orders.query.count() != 1:
         total = 0
-        testOrder = Orders(Quantity=2, Fk_UserID=1, Fk_TableID=1)
+        testOrder = Orders(Fk_UserID=1, Fk_TableID=1)
         db.session.add(testOrder)
         db.session.commit()
 
@@ -272,5 +272,40 @@ def remove_cart_quantity():
         cart.Quantity -= 1
 
     db.session.commit()
+
+    return "Success", 200
+
+
+#Creating order after payment
+@views.route('/create_order', methods=["POST"])
+def create_order():
+    total = 0
+    newOrder = Orders(Fk_UserID=current_user.UserID, Fk_TableID=current_user.Fk_Table_ID)
+    db.session.add(newOrder)
+    db.session.commit()
+
+    cart = Cart.query.filter_by(Fk_UserID=current_user.UserID)
+    for item in cart:
+        food_item = FoodItem.query.filter_by(FoodID=item.Fk_FoodID).first()
+        
+        #Add order items to the order
+        order_item = OrderItem(FoodID=food_item.FoodID, Quantity=food_item.Quantity, OrderID=newOrder.OrderID)
+        db.session.add(order_item)
+        newOrder.items.append(order_item)
+
+        #Update total price
+        total += food_item.UnitPrice * food_item.Quantity
+
+        #Delete from cart
+        db.session.delete(item)
+
+    newOrder.UnitPrice = total
+    db.session.commit()
+
+    # Add notification of the order to the database
+    newNotif = Notification(statusNotification=1, typeNotification=1, FK_OrderID=newOrder.OrderID, FK_UserID=current_user.UserID)
+    db.session.add(newNotif)
+    db.session.commit()
+
 
     return "Success", 200

@@ -76,7 +76,6 @@ class Orders(db.Model):
     __tablename__ = 'Orders'
     OrderID = db.Column(db.Integer, primary_key=True)
     OrderDate = db.Column(db.DateTime (timezone = True), default = func.now())
-    Quantity = db.Column(db.Integer)
     UnitPrice = db.Column(db.Float(precision=8, asdecimal = True))
     Fk_UserID = db.Column(db.Integer, db.ForeignKey('User.UserID'))
     Fk_TableID = db.Column(db.Integer, db.ForeignKey('customer_table.TableID'))
