@@ -220,6 +220,17 @@ def delete_notif():
 
     return "Success", 200
 
+#POST REQUEST FOR DELETING NOTIFICATION FROM DB
+@views.route('/delete_review', methods=["POST"])
+def delete_review():
+    RevID = int(request.form.get("id"))
+    rev = Reviews.query.filter_by(reviewID=RevID).first()
+    if rev:
+        db.session.delete(rev)
+        db.session.commit()
+
+    return "Success", 200
+
 # Helper function to get the html for the products in cart
 def cart_products():
     cart = Cart.query.filter_by(Fk_UserID=current_user.UserID)

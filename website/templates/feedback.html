@@ -120,6 +120,7 @@
                 </div>
             </div>
             <div class="arrow-img"><img src="{{ url_for('static', filename='images/clickarrow.svg') }}" alt="arrow"></div>
+            <div class="delete-button"><img src="{{ url_for('static', filename='images/delete.png') }}" alt="delete-button"></div>
         </div>
         <div id="p{{ review[3] }}" class="fnotif_popup_container">
             <!-- container for feedback pop up container -->
@@ -224,5 +225,36 @@
     }
 
 </script>
+
+<script>
+    let review_div = Array.from(document.querySelectorAll(".reviews-action"));
+    review_div.forEach(function (action) {
+      let delete_button = action.querySelector(".delete-button");
+      if (delete_button) {
+        action.onmouseover = function() {
+          delete_button.style.visibility = "visible";
+        }
+        action.onmouseout = function() {
+          delete_button.style.visibility = "hidden";
+        }
+  
+        delete_button.onclick = function() {
+          $.ajax({
+            url: '/delete_review',
+            type: 'POST',
+            data: {id: action.id},
+            success: function(data) {
+              $(".content").prepend('<div class="notification"><div class="notification-message"></div></div>');
+              $(".notification-message").html("Review notification deleted!");
+            },
+            error: function(error) {
+              console.log(error);
+            }
+          });
+          action.remove();
+        }
+      }
+    });
+  </script>
 {% endblock %}
 
