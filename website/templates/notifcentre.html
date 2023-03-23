@@ -8,8 +8,9 @@
 
 {% block content %}
 <div class="notifs-content" >
+  <div id="overlay" onclick="closeReview()"></div>
   {% for notif in res %}
-  <div class="action" id="{{ notif.NotificationID }}" onclick="Open_Review(this)">
+  <div class="action" id="n{{ notif.NotificationID }}" onclick="Open_Review(this)">
     <div class="user-img"><img src="{{ url_for('static', filename='images/User-Icon.svg') }}" alt="user"></div>
 
     {% if notif.typeNotification == 1 %}
@@ -48,8 +49,8 @@
     <div class="delete-button"><img src="{{ url_for('static', filename='images/delete.png') }}" alt="delete-button"></div>
   </div>
 
-  {% for OrderID, productList in products.items() %}
-  <div id="p{{ notif.FK_UserID }}" class="fnotif_popup_container" >
+  {% for NotifID, productList in products.items() %}
+  <div id="p{{ NotifID }}" class="fnotif_popup_container" >
     <!-- container for feedback pop up container -->
     <!-- Modal content -->
     <div class="fb-content">
@@ -60,7 +61,7 @@
         <div class="review-textarea">
             <div class="review-text">
               {% for product in productList %}
-                <span class="reviews-text-font">{{ products }}</span>
+                <div class="reviews-text-font">{{ product }}</div>
               {% endfor %}
             </div>
         </div>
@@ -96,31 +97,6 @@
   TimeAgo();
 </script> -->
 
-<script>
-  // function Overlay_on() {
-  //   document.getElementById("overlay").style.display = "block";
-  // }
-  
-  // function Overlay_off() {
-  //   document.getElementById("overlay").style.display = "none";
-  // }
-
-  function closeReview() {        
-      var popups = Array.from(document.getElementsByClassName("fnotif_popup_container"));
-      // Overlay_off();
-      popups.forEach(function(popup) { 
-          popup.style.display = "none";
-      });
-  }
-
-  function Open_Review(element) {
-      var review = element;
-      var review_id = element.id.substring(1);
-      document.querySelector(".fnotif_popup_container#p" + review_id).style.display = "flex";
-      // Overlay_on();
-  }
-</script>
-
 
 <script>
   let notif_div = Array.from(document.querySelectorAll(".action"));
@@ -151,18 +127,29 @@
       }
     }
   });
+
+  function Overlay_on() {
+    document.getElementById("overlay").style.display = "block";
+  }
+  
+  function Overlay_off() {
+    document.getElementById("overlay").style.display = "none";
+  }
+
+  function closeReview() {        
+      var popups = Array.from(document.getElementsByClassName("fnotif_popup_container"));
+      Overlay_off();
+      popups.forEach(function(popup) { 
+          popup.style.display = "none";
+      });
+  }
+
+  function Open_Review(element) {
+      var review = element;
+      var review_id = element.id.substring(1);
+      document.querySelector(".fnotif_popup_container#p" + review_id).style.display = "flex";
+      Overlay_on();
+  }
 </script>
 
 {% endblock %}
-
-
-<!-- for OrderID, productList in products.items():
-      #This is where you'd open the div for the popup with the order info
-      #You'd put the OrderID as like a heading or something and the total price
-      for product in productList:
-        pass
-        #instead of pass, here is where you'd do put each line of text that's like 1x Taco (£5.99) (presumably within a cointainer div)
-
-     #After the inner for loop you'd close the div with all the products
-
-   #This is where you'd close the div code for the popup -->
