@@ -172,3 +172,13 @@ def delete_product():
     db.session.commit()
 
     return "Success", 200
+
+@views.route('/delete_notif', methods=["POST"])
+def delete_notif():
+    NotifID = int(request.form.get("id"))
+    notification = Notification.query.filter_by(NotificationID=NotifID).first()
+    if notification:
+        db.session.delete(notification)
+        db.session.commit()
+
+    return "Success", 200

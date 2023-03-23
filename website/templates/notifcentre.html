@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/notifcenter.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/Foodeditui.css') }}">
 <title>
   Oaxaca - Notification Center
 </title>
@@ -9,7 +10,7 @@
 {% block content %}
 <div class="notifs-content">
   {% for notif in res %}
-  <div class="action">
+  <div class="action" id="{{ notif.NotificationID }}">
     <div class="user-img"><img src="{{ url_for('static', filename='images/User-Icon.svg') }}" alt="user"></div>
 
     {% if notif.typeNotification == 1 %}
@@ -45,6 +46,8 @@
       {{ notif.TimeNotifcation }}
     </div>
     <div class="notif-img"><img src="{{ url_for('static', filename='images/clickarrow.svg') }}" alt="arrow"></div>
+    <!-- <img class="delete-button" src="{{ url_for('static', filename='images/delete.png') }}" alt="delete-button"> -->
+    <div class="delete-button"><img src="{{ url_for('static', filename='images/delete.png') }}" alt="delete-button"></div>
   </div>
   {% endfor %}
 
@@ -66,5 +69,37 @@
   }
   TimeAgo();
 </script> -->
+
+
+<script>
+  let notif_div = Array.from(document.querySelectorAll(".action"));
+  notif_div.forEach(function (action) {
+    let delete_button = action.querySelector(".delete-button");
+    if (delete_button) {
+      action.onmouseover = function() {
+        delete_button.style.visibility = "visible";
+      }
+      action.onmouseout = function() {
+        delete_button.style.visibility = "hidden";
+      }
+
+      delete_button.onclick = function() {
+        $.ajax({
+          url: '/delete_notif',
+          type: 'POST',
+          data: {id: action.id},
+          success: function(data) {
+            $(".content").prepend('<div class="notification"><div class="notification-message"></div></div>');
+            $(".notification-message").html("Notification deleted!");
+          },
+          error: function(error) {
+            console.log(error);
+          }
+        });
+        action.remove();
+      }
+    }
+  });
+</script>
 
 {% endblock %}
