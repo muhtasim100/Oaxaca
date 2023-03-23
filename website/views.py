@@ -172,3 +172,19 @@ def delete_product():
     db.session.commit()
 
     return "Success", 200
+
+
+@views.route('/add_cart', methods=["POST"])
+def add_cart():
+    food_id = int(request.form.get("id"))
+    cart = Cart.query.filter_by(Fk_FoodID=food_id, Fk_UserID=current_user.UserID).first()
+    if not cart:
+        new_cart = Cart(Fk_UserID=current_user.UserID, Fk_FoodID=food_id, Quantity=1)
+        db.session.add(new_cart)
+        
+    else:
+        cart.Quantity += 1
+
+    db.session.commit()
+
+    return "Success", 200
