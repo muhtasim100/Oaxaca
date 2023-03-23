@@ -120,33 +120,29 @@
             </div>
             <div class="arrow-img"><img src="{{ url_for('static', filename='images/clickarrow.svg') }}" alt="arrow"></div>
         </div>
-        {% endfor %}
-
+        <div id="{{ review[3] }}" class="fnotif_popup_container">
             <!-- container for feedback pop up container -->
- 
-    
-
-
-            {% for review in reviews %}
-            <div id="{{ Reviews.reviewID }}" class="fnotif_popup_container">
-                <!-- Modal content -->
-                <div class="fb-content">
-                    <div class="fb-header">
-                        <span class="reviews-bold">{{ reviews }}</span> has left a review.
-                    </div>
-
-                    <div class="review-textarea">
-                        <div class="review-text">
-                        </div>
-                    </div>
-
-                    <div class="review-submit">
-                        <button id="review-btn" type="button">Submit</button>
-                    </div>
-
+            <!-- Modal content -->
+            <div class="fb-content">
+                <div class="fb-header">
+                    <span class="reviews-bold">{{ review[0] }}</span> has left a review.
                 </div>
+
+                <div class="review-textarea">
+                    <div class="review-text">
+                    </div>
+                </div>
+
+                <div class="review-submit">
+                    <button id="review-btn" type="button">Submit</button>
+                </div>
+
             </div>
-            {% endfor %}
+        </div>
+        {% endfor %}
+ 
+
+
 
 
     <!-- <div id="reviewModal" class="modal">
