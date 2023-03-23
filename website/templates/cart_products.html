@@ -1,0 +1,22 @@
+<div class="basket-products">
+    {% for cart_id, item in cart_items.items() %}
+        <div id="{{ cart_id }}" class="basket-item">
+            <div>{{ item }}</div>
+            <div class="quantity-container">
+                <div class="white-button minus" item_id="{{ cart_id }}">-</div>
+                <div class="white-button plus"  item_id="{{ cart_id }}">+</div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+<div class="basket-vat">
+    <div>VAT (20%)</div>
+    <div>{{ vat }}</div>
+</div>
+<div class="basket-bottom">
+    <div class="basket-total">
+        <div>Order Total</div>
+        <div><span class="bold">£{{ total_pounds }}</span>.{{ total_pence }} GBP</div>
+    </div>
+    <div id="paynow-btn" class="white-button">Pay Now</div>
+</div>

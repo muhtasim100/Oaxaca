@@ -86,7 +86,7 @@ def testing():
 
 @views.route('/base')
 def base():
-    return render_template("base.html")
+    return render_template("base.html", cart_products=cart_products())
 
 
 @views.route('/')
@@ -153,6 +153,8 @@ def feedback():
     return render_template("feedback.html", avg_stars=avg_stars, dishes_graph=dishes_graph(), reviews=reviews)
 
 
+## POST REQUESTS
+
 #POST REQUEST FOR STORING REVIEW
 @views.route('/review_store', methods=["POST"])
 def review_store():
@@ -191,5 +193,68 @@ def delete_notif():
     if notification:
         db.session.delete(notification)
         db.session.commit()
+
+    return "Success", 200
+
+def cart_products():
+    cart = Cart.query.filter_by(Fk_UserID=current_user.UserID)
+    cart_items = {}
+    cart_total = 0
+    for item in cart:
+        food_item = FoodItem.query.filter_by(FoodID=item.Fk_FoodID).first()
+        cart_items[item.cartID] = f"{item.Quantity}x {food_item.FoodName} (£{item.Quantity * food_item.UnitPrice:.2f})"
+        cart_total += item.Quantity * food_item.UnitPrice
+
+    cart_total = float(cart_total)
+    vat = 0.2 * cart_total
+    vat_string = f"£{vat:.2f}"
+    cart_total += vat
+    total_string = f"{cart_total:.2f}"
+    total_pounds, total_pence = total_string.split(".")
+
+    return render_template("cart_products.html", cart_items=cart_items, vat=vat_string, total_pounds=total_pounds, total_pence=total_pence)
+
+
+@views.route('/cart_products', methods=["POST"])
+def cart_products_post():
+    return cart_products(), 200
+
+
+@views.route('/add_cart', methods=["POST"])
+def add_cart():
+    food_id = int(request.form.get("id"))
+    cart = Cart.query.filter_by(Fk_FoodID=food_id, Fk_UserID=current_user.UserID).first()
+    if not cart:
+        new_cart = Cart(Fk_UserID=current_user.UserID, Fk_FoodID=food_id, Quantity=1)
+        db.session.add(new_cart)
+        
+    else:
+        cart.Quantity += 1
+
+    db.session.commit()
+    return "Success", 200
+
+@views.route('/add_cart_quantity', methods=["POST"])
+def add_cart_quantity():
+    cart_id = int(request.form.get("id"))
+    cart = Cart.query.filter_by(cartID=cart_id).first()
+    cart.Quantity += 1
+
+    db.session.commit()
+
+    return "Success", 200
+
+
+@views.route('/minus_cart_quantity', methods=["POST"])
+def remove_cart_quantity():
+    cart_id = int(request.form.get("id"))
+    cart = Cart.query.filter_by(cartID=cart_id).first()
+    if cart.Quantity == 1:
+        db.session.delete(cart)
+        
+    else:
+        cart.Quantity -= 1
+
+    db.session.commit()
 
     return "Success", 200
