@@ -48,20 +48,22 @@
     <div class="delete-button"><img src="{{ url_for('static', filename='images/delete.png') }}" alt="delete-button"></div>
   </div>
 
-  <div id="p{{ notif.NotificationID }}" class="fnotif_popup_container">
+  {% for OrderID, productList in products.items() %}
+  <div id="p{{ notif.FK_UserID }}" class="fnotif_popup_container">
     <!-- container for feedback pop up container -->
     <!-- Modal content -->
     <div class="fb-content">
         <div class="fb-header">
-            <span class="reviews-bold"></span>
+            <span class="reviews-bold">Table number: {{ notif.FK_UserID }} price: {{ totalString }}</span>
         </div>
-
         <div class="review-textarea">
             <div class="review-text">
-                <span class="reviews-text-font"></span>
+              {% for product in productList %}
+                <span class="reviews-text-font">{{ products }}</span>
+              {% endfor %}
             </div>
         </div>
-
+        
         <div class="review-submit">
             <button id="review-btn" type="button">Close</button>
 
@@ -69,6 +71,7 @@
 
     </div>
 </div>
+{% endfor %}
 
   {% endfor %}
 
