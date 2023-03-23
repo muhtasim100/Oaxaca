@@ -203,11 +203,27 @@ def add_cart():
 
     return "Success", 200
 
+
 @views.route('/add_cart_quantity', methods=["POST"])
 def add_cart_quantity():
     cart_id = int(request.form.get("id"))
     cart = Cart.query.filter_by(cartID=cart_id).first()
     cart.Quantity += 1
+
+    db.session.commit()
+
+    return "Success", 200
+
+
+@views.route('/minus_cart_quantity', methods=["POST"])
+def remove_cart_quantity():
+    cart_id = int(request.form.get("id"))
+    cart = Cart.query.filter_by(cartID=cart_id).first()
+    if cart.Quantity == 1:
+        db.session.delete(cart)
+        
+    else:
+        cart.Quantity -= 1
 
     db.session.commit()
 
