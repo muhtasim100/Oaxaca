@@ -187,6 +187,7 @@ def add_table():
   NewTable = customer_table(Seats = seats, Available = 1) 
   db.session.add(NewTable)
   db.session.commit()
+  return "Success", 200
 
 
 #POST REQUEST FOR DELETING PRODUCT FROM DB
