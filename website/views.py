@@ -146,7 +146,7 @@ def feedback():
 
 
     # List of Reviews
-    reviews = db.session.execute("SELECT User.UserName, Reviews.starReview, Reviews.timeReview " + 
+    reviews = db.session.execute("SELECT User.UserName, Reviews.starReview, Reviews.timeReview, Reviews.reviewID " + 
         "FROM Reviews LEFT JOIN User ON Reviews.Fk_UserID = User.UserID " +
         "ORDER BY Reviews.timeReview DESC;")
 
@@ -180,5 +180,14 @@ def call_waiter():
     notif = Notification(statusNotification = 1, typeNotification = 2, FK_UserID = current_user.UserID)
     db.session.add(notif)
     db.session.commit()
+
+    
+@views.route('/delete_notif', methods=["POST"])
+def delete_notif():
+    NotifID = int(request.form.get("id"))
+    notification = Notification.query.filter_by(NotificationID=NotifID).first()
+    if notification:
+        db.session.delete(notification)
+        db.session.commit()
 
     return "Success", 200
