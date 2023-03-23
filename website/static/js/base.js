@@ -71,6 +71,9 @@ $(".popup-btn").click(function() {
     }
 });
 
+
+// Basket Code
+
 function reloadBasket() {
     $.ajax({
         url: '/cart_products',
@@ -110,4 +113,8 @@ $(document).on("click", ".basket-item .plus", function() {
           console.log(error);
         }
       });
+});
+
+$(document).on("click", "#basket-pay-now", function() {
+    window.location.href = "/payment";
 });
