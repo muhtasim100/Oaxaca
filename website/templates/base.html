@@ -207,19 +207,19 @@
             <div class="helper-content">
                 <div class="basket-products">
                     <ul>
-                        <li>1x Quesadillas</li>
-                        <li>2x Tacos</li>
-                        <li>2x Still Water</li>
+                        {% for item in cart_items %}
+                            <li>{{ item }}</li>
+                        {% endfor %}
                     </ul>
                 </div>
                 <div class="basket-vat">
                     <div>VAT (20%)</div>
-                    <div>$12.00</div>
+                    <div>{{ vat }}</div>
                 </div>
                 <div class="basket-bottom">
                     <div class="basket-total">
                         <div>Order Total</div>
-                        <div><span class="bold">549</span>.99 USD</div>
+                        <div><span class="bold">£{{ total_pounds }}</span>.{{ total_pence }} GBP</div>
                     </div>
                     <div id="paynow-btn" class="white-button">Pay Now</div>
                 </div>
