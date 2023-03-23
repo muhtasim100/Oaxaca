@@ -78,6 +78,7 @@
   margin: auto;
 }
 
+/* Delete button css */
 .delete-button img {
   overflow-clip-margin: content-box;
   overflow: clip;
@@ -97,31 +98,10 @@
   margin-top: 2%;
 }
 
-@media only screen and (max-width: 800px) {
-  .notifs-content{
-    position: relative;
-    top: 15%;
-    left: 5%
-  }
-
-  .action {
-    width: 75vw;
-    height: min-content;
-    margin: 10px 15px 5px;  
-    font-size: medium;
-
-  }
-
-  .user-img img {
-    width: 59px;
-    height: 59px;
-  }
-}
-
+/* Pop up for order css */
 .fnotif_popup_container {
   position: absolute;
   background-color: var(--bg-primary);
-  margin: 15% auto;
   padding: 20px;
   border-radius: 20px;
   width: min-content;
@@ -133,6 +113,8 @@
   justify-content: center;
   text-align: center;
   align-self: center;
+  margin-left: 10%;
+
 }
 
 .fb-header {
@@ -187,3 +169,25 @@
   text-decoration: none;
   cursor: pointer;
 }
+
+@media only screen and (max-width: 800px) {
+  .notifs-content{
+    position: relative;
+    top: 15%;
+    left: 5%
+  }
+
+  .action {
+    width: 75vw;
+    height: min-content;
+    margin: 10px 15px 5px;  
+    font-size: medium;
+
+  }
+
+  .user-img img {
+    width: 59px;
+    height: 59px;
+  }
+}
+
