@@ -254,7 +254,7 @@
 
 
 .fnotif_popup_container {
-    position: relative;
+    position: absolute;
     background-color: var(--bg-primary);
     margin: 15% auto;
     padding: 20px;
@@ -264,8 +264,10 @@
     display: flex;
     flex-direction: column;
     bottom: 175px;
-    /* justify-content: center; */
-    /* text-align: center; */
+    z-index:  2;
+    justify-content: center;
+    text-align: center;
+    align-self: center;
 }
 
 .review-textarea {
@@ -278,4 +280,18 @@
     width: 432px;
     height: 352px;
     text-align: left;
+}
+
+#overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1;
+  cursor: pointer;
 }

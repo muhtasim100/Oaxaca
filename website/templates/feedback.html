@@ -92,10 +92,11 @@
 </div>
 
 <div class="reviews">
+    <div id="overlay" onclick="off()"></div>
     <div class="reviews-heading">AVG. RATING: {{ avg_stars }} <img src="{{ url_for('static', filename='images/payment/star-full.png') }}" alt="star-full"></div>
     <div class="reviews-content">
         {% for review in reviews %}
-        <div class="reviews-action">
+        <div class="reviews-action" >
             <div class= "user-img"><img src="{{ url_for('static', filename='images/User-Icon.svg') }}" alt="user"></div>
             <div class="reviews-text">
                 <div class="reviews-main">
@@ -118,9 +119,9 @@
                     {{ review[2] }}
                 </div>
             </div>
-            <div class="arrow-img"><img src="{{ url_for('static', filename='images/clickarrow.svg') }}" alt="arrow"></div>
+            <div class="arrow-img" onclick="on()"><img src="{{ url_for('static', filename='images/clickarrow.svg') }}" alt="arrow"></div>
         </div>
-        <div id="{{ review[0] }}" class="fnotif_popup_container">
+        <div id="{{ review[review] }}" class="fnotif_popup_container">
             <!-- container for feedback pop up container -->
             <!-- Modal content -->
             <div class="fb-content">
@@ -135,7 +136,8 @@
                 </div>
 
                 <div class="review-submit">
-                    <button id="review-btn" type="button">Close</button>
+                    <button id="review-btn" type="button" onclick="closeReview()">Close</button>
+
                 </div>
 
             </div>
@@ -177,13 +179,6 @@
 
 
 
-
-
-
-
-
-
-
     </div>
 </div>
 
@@ -205,4 +200,21 @@
 
 {% block scripts %}
 <script src="{{ url_for('static', filename='js/feedbackcard.js') }}"></script>
+
+
+<script>
+    function on() {
+      document.getElementById("overlay").style.display = "block";
+    }
+    
+    function off() {
+      document.getElementById("overlay").style.display = "none";
+    }
+
+    function closeReview() {
+        document.getElementById("fnotif_popup_container").style.display = "none";
+    }
+
+</script>
 {% endblock %}
+
