@@ -93,6 +93,8 @@
   opacity: 80%;
   visibility: hidden;
   cursor: pointer;
+  left: 81%;
+  margin-top: 2%;
 }
 
 @media only screen and (max-width: 800px) {
