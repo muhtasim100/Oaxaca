@@ -202,3 +202,13 @@ def add_cart():
     db.session.commit()
 
     return "Success", 200
+
+@views.route('/add_cart_quantity', methods=["POST"])
+def add_cart_quantity():
+    cart_id = int(request.form.get("id"))
+    cart = Cart.query.filter_by(cartID=cart_id).first()
+    cart.Quantity += 1
+
+    db.session.commit()
+
+    return "Success", 200

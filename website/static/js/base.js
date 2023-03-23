@@ -69,3 +69,21 @@ $(".popup-btn").click(function() {
     }
 });
 
+function reloadBasket() {
+
+}
+
+$(".basket-item .minus").click();
+$(".basket-item .plus").click(function() {
+
+    $.ajax({
+        url: '/add_cart_quantity',
+        type: 'POST',
+        data: {id: $(this).attr("item_id")},
+        success: function(data) {
+        },
+        error: function(error) {
+          console.log(error);
+        }
+      });
+});

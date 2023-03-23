@@ -207,11 +207,11 @@
             <div class="helper-content">
                 <div class="basket-products">
                     {% for cart_id, item in cart_items.items() %}
-                        <div class="basket-item" id="{{ cart_id }}">
+                        <div id="{{ cart_id }}" class="basket-item">
                             <div>{{ item }}</div>
                             <div class="quantity-container">
-                                <div class="white-button">-</div>
-                                <div class="white-button">+</div>
+                                <div class="white-button minus" item_id="{{ cart_id }}">-</div>
+                                <div class="white-button plus"  item_id="{{ cart_id }}">+</div>
                             </div>
                         </div>
                     {% endfor %}
