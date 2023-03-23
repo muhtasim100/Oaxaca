@@ -55,12 +55,14 @@ $(".toplogo-container-parent").click(function() {
 // Helper Buttons
 $(".popup-btn").click(function() {
     $(".helper-popup").css("opacity", "0%");
+    $(".helper-popup").css("z-index", "-1000");
     let popup = $(this).attr("popup");
     if ($("#" + popup).length) {
         if ($("#" + popup).css("opacity") == "1") {
             return;
         } else {
             $("#" + popup).css("opacity", "100%");
+            $(".helper-popup").css("z-index", "1");
             let left = $(this).offset().left;
             let width = $("#" + popup).width();
             let position = left - width;
