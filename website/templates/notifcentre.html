@@ -47,9 +47,33 @@
     <div class="notif-img"><img src="{{ url_for('static', filename='images/clickarrow.svg') }}" alt="arrow"></div>
     <div class="delete-button"><img src="{{ url_for('static', filename='images/delete.png') }}" alt="delete-button"></div>
   </div>
+
+  <div id="p{{ notif.NotificationID }}" class="fnotif_popup_container">
+    <!-- container for feedback pop up container -->
+    <!-- Modal content -->
+    <div class="fb-content">
+        <div class="fb-header">
+            <span class="reviews-bold"></span>
+        </div>
+
+        <div class="review-textarea">
+            <div class="review-text">
+                <span class="reviews-text-font"></span>
+            </div>
+        </div>
+
+        <div class="review-submit">
+            <button id="review-btn" type="button">Close</button>
+
+        </div>
+
+    </div>
+</div>
+
   {% endfor %}
 
 </div>
+
 
 <!-- <script type="text/javascript">
   function TimeAgo(){
@@ -101,3 +125,15 @@
 </script>
 
 {% endblock %}
+
+
+<!-- for OrderID, productList in products.items():
+      #This is where you'd open the div for the popup with the order info
+      #You'd put the OrderID as like a heading or something and the total price
+      for product in productList:
+        pass
+        #instead of pass, here is where you'd do put each line of text that's like 1x Taco (£5.99) (presumably within a cointainer div)
+
+     #After the inner for loop you'd close the div with all the products
+
+   #This is where you'd close the div code for the popup -->

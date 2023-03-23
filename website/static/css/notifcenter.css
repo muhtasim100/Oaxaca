@@ -117,3 +117,73 @@
     height: 59px;
   }
 }
+
+.fnotif_popup_container {
+  position: absolute;
+  background-color: var(--bg-primary);
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 20px;
+  width: min-content;
+  box-shadow: 0px 5px 10px black;
+  display: flex;
+  flex-direction: column;
+  bottom: 175px;
+  z-index:  2;
+  justify-content: center;
+  text-align: center;
+  align-self: center;
+}
+
+.fb-header {
+  font-size: x-large;
+}
+
+.reviews-bold {
+  font-family: 'Poppins-Bold';
+}
+
+.reviews-text-font {
+  font-family: 'Poppins-Regular';
+  text-align: left;
+}
+
+.reviews-text {
+  flex: auto;
+  justify-content: left;
+  margin-left: 30px;
+  justify-content: left;
+  text-align: left;
+}
+
+.review-textarea {
+  margin-top: 10px;
+  background-color: #D9D9D9;
+  border: 2px solid black;
+  border-radius: 20px;
+  padding-left: 10px;
+  padding-top: 10px;
+  width: 432px;
+  height: 352px;
+  text-align: left;
+}
+
+.review-submit {
+  font-family: "Poppins-Bold", sans-serif;
+  font-size: 28px;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.review-submit button {
+  background-color: white;
+  border-radius: 10px;
+  border: 2px solid black;
+  padding: 0 15px;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
