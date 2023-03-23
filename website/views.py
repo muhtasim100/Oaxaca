@@ -86,21 +86,7 @@ def testing():
 
 @views.route('/base')
 def base():
-    cart = Cart.query.filter_by(Fk_UserID=current_user.UserID)
-    cart_items = {}
-    cart_total = 0
-    for item in cart:
-        food_item = FoodItem.query.filter_by(FoodID=item.Fk_FoodID).first()
-        cart_items[item.cartID] = f"{item.Quantity}x {food_item.FoodName} (£{item.Quantity * food_item.UnitPrice:.2f})"
-        cart_total += item.Quantity * food_item.UnitPrice
-
-    cart_total = float(cart_total)
-    total_string = f"{cart_total:.2f}"
-    total_pounds, total_pence = total_string.split(".")
-    vat = 0.2 * cart_total
-    vat_string = f"£{vat:.2f}"
-
-    return render_template("base.html", cart_items=cart_items, vat=vat_string, total_pounds=total_pounds, total_pence=total_pence)
+    return render_template("base.html", cart_products=cart_products())
 
 
 @views.route('/')
@@ -186,6 +172,29 @@ def delete_product():
     db.session.commit()
 
     return "Success", 200
+
+def cart_products():
+    cart = Cart.query.filter_by(Fk_UserID=current_user.UserID)
+    cart_items = {}
+    cart_total = 0
+    for item in cart:
+        food_item = FoodItem.query.filter_by(FoodID=item.Fk_FoodID).first()
+        cart_items[item.cartID] = f"{item.Quantity}x {food_item.FoodName} (£{item.Quantity * food_item.UnitPrice:.2f})"
+        cart_total += item.Quantity * food_item.UnitPrice
+
+    cart_total = float(cart_total)
+    vat = 0.2 * cart_total
+    vat_string = f"£{vat:.2f}"
+    cart_total += vat
+    total_string = f"{cart_total:.2f}"
+    total_pounds, total_pence = total_string.split(".")
+
+    return render_template("cart_products.html", cart_items=cart_items, vat=vat_string, total_pounds=total_pounds, total_pence=total_pence)
+
+
+@views.route('/cart_products', methods=["POST"])
+def cart_products_post():
+    return cart_products(), 200
 
 
 @views.route('/add_cart', methods=["POST"])
