@@ -179,6 +179,17 @@ def review_store():
 
     return "Success", 200
 
+
+#POST REQUEST FOR ADDING A TABLE
+@views.route("/add_table", methods=["POST"])
+def add_table():
+  seats = int(request.form.get("seats"))
+  NewTable = customer_table(Seats = seats, Available = 1) 
+  db.session.add(NewTable)
+  db.session.commit()
+  return "Success", 200
+
+
 #POST REQUEST FOR DELETING PRODUCT FROM DB
 @views.route('/delete_product', methods=["POST"])
 def delete_product():

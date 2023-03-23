@@ -52,6 +52,24 @@ $(".toplogo-container-parent").click(function() {
     window.location.href = '/';
 });
 
+
+// Call Waiter Buttons
+$(".waiterbutton").click(function() {
+    $.ajax({
+        url: '/call_waiter',
+        type: 'POST',
+        data: {},
+        success: function(data) {
+          $(".content").prepend('<div class="notification"><div class="notification-message"></div></div>');
+          $(".notification-message").html("Waiter has been called!");
+        },
+        error: function(error) {
+          console.log(error);
+        }
+      });
+});
+
+
 // Helper Buttons
 $(".popup-btn").click(function() {
     $(".helper-popup").css("opacity", "0%");
@@ -62,7 +80,7 @@ $(".popup-btn").click(function() {
             return;
         } else {
             $("#" + popup).css("opacity", "100%");
-            $(".helper-popup").css("z-index", "1");
+            $(".helper-popup").css("z-index", "10");
             let left = $(this).offset().left;
             let width = $("#" + popup).width();
             let position = left - width;
@@ -71,6 +89,22 @@ $(".popup-btn").click(function() {
     }
 });
 
+
+// Add Table Code
+$(document).on("click", "#add-table-btn", function() {
+    $.ajax({
+        url: '/add_table',
+        type: 'POST',
+        data: {seats: $("#table_seats").val()},
+        success: function(data) {
+            $(".content").prepend('<div class="notification"><div class="notification-message"></div></div>');
+            $(".notification-message").html("The table has been added!");
+        },
+        error: function(error) {
+          console.log(error);
+        }
+      });
+});
 
 // Basket Code
 
