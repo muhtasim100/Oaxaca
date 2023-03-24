@@ -1,45 +1,14 @@
-{% extends "base.html" %} 
-
-{% block head %}
-    <title>Oaxaca - Menu</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}" />
-{% endblock %}
-
-{% block content %}
-    <div class="card_grid">
-        {% for food in res %}
-            <div id="{{ food.FoodID }}" class="food_container">
-                {% if food.Vegan==True %}
-                <div class="icon">
-                    <img src="{{ url_for('static', filename='images/menu/Group.svg') }}" alt="Vegan_Icon">
-                </div>
-
-                <div class="food_info">
-                    <div class="food_name">{{ food.FoodName }}</div>
-                    <div class="food_price">{{'%0.2f' % food.UnitPrice|float}}£</div>
-                </div>
-                {% endif %}
+{% for food in res %}
+    {% if food.Vegan==True %}
+        <div id="{{ food.FoodID }}" class="food_container">
+            <div class="icon">
+                <img src="{{ url_for('static', filename='images/menu/Group.svg') }}" alt="Vegan_Icon">
             </div>
-        {% endfor %}
-    </div>
-{% endblock %}
 
-
-{% block scripts %}
-    <script>
-        $(".food_container").click(function () {
-            $.ajax({
-                url: '/add_cart',
-                type: 'POST',
-                data: { id: $(this).attr("id") },
-                success: function (data) {
-                    $(".content").prepend('<div class="notification"><div class="notification-message"></div></div>');
-                    $(".notification-message").html("Added to cart!");
-                },
-                error: function (error) {
-                    console.log(error);
-                }
-            });
-        });
-    </script>
-{% endblock %}
+            <div class="food_info">
+                <div class="food_name">{{ food.FoodName }}</div>
+                <div class="food_price">{{'%0.2f' % food.UnitPrice|float}}£</div>
+            </div>
+        </div>
+    {% endif %}
+{% endfor %}
