@@ -282,3 +282,34 @@
     text-align: left;
 }
 
+#overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1;
+  cursor: pointer;
+}
+
+.delete-button img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+    width:15px;
+    height:15px;
+}
+  
+.delete-button {
+    margin-right: 0;
+    transform: translateX(5px);
+    position: absolute;
+    z-index: 1;
+    opacity: 80%;
+    visibility: hidden;
+    cursor: pointer;
+    margin-left: 7.2%;
+}
