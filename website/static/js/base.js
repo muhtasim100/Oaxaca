@@ -52,6 +52,10 @@ $(".toplogo-container-parent").click(function() {
     window.location.href = '/';
 });
 
+$(".notif-bell").click(function() {
+    window.location.href = '/notif';
+});
+
 
 // Menu Buttons
 $(".menubutton").click(function() {

@@ -499,14 +499,18 @@
   flex: auto;
   display: flex;
   justify-content: right;
-  position: relative;
-  top: 50%;
-  transform: translateX(-15px) translateY(-50%);
+  cursor: pointer;
 }
+
 
 .navbar.expand .notif-bell img {
   width: 30px;
   height: 30px;
+}
+
+
+.navbar.expand .notif-bell img:hover {
+  opacity: 50%;
 }
 
 div.content {
