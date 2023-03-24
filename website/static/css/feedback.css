@@ -295,3 +295,21 @@
   z-index: 1;
   cursor: pointer;
 }
+
+.delete-button img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+    width:15px;
+    height:15px;
+}
+  
+.delete-button {
+    margin-right: 0;
+    transform: translateX(5px);
+    position: absolute;
+    z-index: 1;
+    opacity: 80%;
+    visibility: hidden;
+    cursor: pointer;
+    margin-left: 7.2%;
+}

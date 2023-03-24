@@ -133,8 +133,28 @@ def payment():
 
 @views.route('/notif')
 def notification():
+    # OrderID, Total Price
+    # Individual products: name, quantity, price
     ListAll = Notification.query.all()
-    return render_template("notifcentre.html", res=ListAll)
+    totalString = "N/A"
+    totalPrice = 0
+    products = {}
+
+    for notif in ListAll:
+        if notif.FK_OrderID != None:
+            NotificationID = notif.NotificationID
+            products[NotificationID] = []
+            order = Orders.query.filter_by(OrderID=notif.FK_OrderID).first()
+            totalPrice = order.UnitPrice
+            order_items = OrderItem.query.filter_by(OrderID=notif.FK_OrderID)
+            for item in order_items:
+                food = FoodItem.query.filter_by(FoodID=item.FoodID).first()
+                totalPrice += food.UnitPrice * item.Quantity
+                products[notif.NotificationID].append(f"{item.Quantity}x {food.FoodName} (£{food.UnitPrice * item.Quantity:.2f})")
+    
+    totalString = f"£{totalPrice:.2f}"
+
+    return render_template("notifcentre.html", res=ListAll, totalString=totalString, products=products)
 
 
 @views.route('/staff')
@@ -142,9 +162,29 @@ def staff():
     return render_template("staff_management.html")
 
 
-@views.route('/order_tracker')
-def order():
-    return render_template("order_tracker.html")
+@views.route('/order_tracker/<int:order_id>')
+def order(order_id):
+    notif = Notification.query.filter_by(FK_OrderID=order_id).first()
+    return render_template("order_tracker.html", order_id=order_id, status=notif.statusNotification)
+
+
+@views.route('/order_tracker_staff/<int:order_id>')
+def order_staff(order_id):
+    notif = Notification.query.filter_by(FK_OrderID=order_id).first()
+    totalString = "N/A"
+    totalPrice = 0
+
+    productList = []
+    order = Orders.query.filter_by(OrderID=notif.FK_OrderID).first()
+    totalPrice = order.UnitPrice
+    order_items = OrderItem.query.filter_by(OrderID=notif.FK_OrderID)
+    for item in order_items:
+        food = FoodItem.query.filter_by(FoodID=item.FoodID).first()
+        totalPrice += food.UnitPrice * item.Quantity
+        productList.append(f"{item.Quantity}x {food.FoodName} (£{food.UnitPrice * item.Quantity:.2f})")
+
+    totalString = f"£{totalPrice:.2f}"
+    return render_template("order_tracker_staff.html", order_id=order_id, status=notif.statusNotification, totalString=totalString, productList=productList)
 
 
 @views.route('/feedback')
@@ -216,6 +256,17 @@ def delete_notif():
     notification = Notification.query.filter_by(NotificationID=NotifID).first()
     if notification:
         db.session.delete(notification)
+        db.session.commit()
+
+    return "Success", 200
+
+#POST REQUEST FOR DELETING NOTIFICATION FROM DB
+@views.route('/delete_review', methods=["POST"])
+def delete_review():
+    RevID = int(request.form.get("id"))
+    rev = Reviews.query.filter_by(reviewID=RevID).first()
+    if rev:
+        db.session.delete(rev)
         db.session.commit()
 
     return "Success", 200
@@ -319,4 +370,30 @@ def create_order():
     db.session.commit()
 
 
+    return str(newOrder.OrderID), 200
+
+
+# Update the order status in notification
+@views.route('/update_status', methods=["POST"])
+def update_status():
+    order_id = int(request.form.get("id"))
+    order = Notification.query.filter_by(FK_OrderID=order_id).first()
+
+    order.statusNotification += 1
+    if (order.statusNotification > 3):
+        order.statusNotification -= 3
+
+    db.session.commit()
+
     return "Success", 200
+
+
+#MISC
+@views.route("/mockup")
+def mockup():
+    return redirect("https://www.figma.com/file/KiOG0Dcv57A8ykypouWFSA/Oaxaca?node-id=41-2&t=fdxUBKWSlkBZC2Wi-0")
+
+
+@views.route("/trello")
+def trello():
+    return redirect("https://trello.com/b/OG2F31ch/sprint-5-13-03-2023")

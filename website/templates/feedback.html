@@ -120,6 +120,7 @@
                 </div>
             </div>
             <div class="arrow-img"><img src="{{ url_for('static', filename='images/clickarrow.svg') }}" alt="arrow"></div>
+            <div class="delete-button"><img src="{{ url_for('static', filename='images/delete.png') }}" alt="delete-button"></div>
         </div>
         <div id="p{{ review[3] }}" class="fnotif_popup_container">
             <!-- container for feedback pop up container -->
@@ -224,5 +225,47 @@
     }
 
 </script>
+
+<script>
+    let review_div = Array.from(document.querySelectorAll(".reviews-action"));
+    review_div.forEach(function (action) {
+      let delete_button = action.querySelector(".delete-button");
+      if (delete_button) {
+        action.onmouseover = function() {
+          delete_button.style.visibility = "visible";
+        }
+        action.onmouseout = function() {
+          delete_button.style.visibility = "hidden";
+        }
+  
+        delete_button.onclick = function() {
+          $.ajax({
+            url: '/delete_review',
+            type: 'POST',
+            data: {id: action.id.substring(1)},
+            success: function(data) {
+              $(".content").prepend('<div class="notification"><div class="notification-message"></div></div>');
+              $(".notification-message").html("Review notification deleted!");
+            },
+            error: function(error) {
+              console.log(error);
+            }
+          });
+          action.remove();
+        }
+      }
+    });
+  </script>
 {% endblock %}
 
+
+<!-- for OrderID, productList in products.items():
+      #This is where you'd open the div for the popup with the order info
+      #You'd put the OrderID as like a heading or something and the total price
+      for product in productList:
+        pass
+        #instead of pass, here is where you'd do put each line of text that's like 1x Taco (£5.99) (presumably within a cointainer div)
+
+     #After the inner for loop you'd close the div with all the products
+
+   #This is where you'd close the div code for the popup -->
