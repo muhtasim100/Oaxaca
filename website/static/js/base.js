@@ -73,9 +73,8 @@ $(".waiterbutton").click(function() {
 $(document).on("click", ".dropdown-button", function() {
     var menu = $(this).closest(".dropdown-menu");
     menu.toggleClass("show");
-    item_span = menu.find('.dropdown-item span:contains("' + $(this).html() + '")');
-    item = item_span.parent();
-    item.css("display", "none");
+    menu.find(".dropdown-item").css("display", "flex");
+    menu.find(".dropdown-item#" + $(this).attr("chosen")).css("display", "none");
 });
 
 

@@ -6,24 +6,24 @@
 {% endblock %}
 
 {% block content %}
-    <div class="table-filter dropdown-menu">
-        <div class="dropdown-button">Show All</div>
+    <div id="table-filter" class="dropdown-menu">
+        <div class="dropdown-button" chosen="i1">Show All</div>
         <div class="dropdown-content">
-            <div class="dropdown-item">
+            <div id="i1" class="dropdown-item show-all" dropdown="table-filter">
                 <span>Show All</span>
             </div>
 
-            <div class="dropdown-item gluten-free">
+            <div id="i2" class="dropdown-item gluten-free" dropdown="table-filter">
                 <img src="{{ url_for('static', filename='images/menu/mdi_gluten-free.svg') }}" alt="Gluten_Icon" />
                 <span>Gluten Free</span>
             </div>
             
-            <div class="dropdown-item contains-meat">
+            <div id="i3" class="dropdown-item contains-meat" dropdown="table-filter">
                 <img src="{{ url_for('static', filename='images/menu/mdi_meat.svg') }}" alt="Meat_icon">
                 <span>Contains Meat</span>
             </div>
 
-            <div class="dropdown-item vegan">
+            <div id="i4" class="dropdown-item vegan" dropdown="table-filter">
                 <img src="{{ url_for('static', filename='images/menu/Group.svg') }}" alt="Vegan_Icon">
                 <span>Vegan</span>
             </div>
@@ -74,11 +74,26 @@
             });
         });
 
-        $(".gluten-free").click(function () {
+        $(document).on("click", ".dropdown-item", function() {
+            var classList = Array.from($(this).attr("class").split(" "));
+            var filter = "";
+            classList.forEach(function(className) {
+                if (className != "dropdown-item") {
+                    filter = className;
+                    return;
+                }
+            });
+
+            var menu = $("#" + $(this).attr("dropdown"));
+            menu.toggleClass("show");
+
+            menu.children(".dropdown-button").html($(this).html());
+            menu.children(".dropdown-button").attr("chosen", $(this).attr("id"));
+
             $.ajax({
                 url: '/product_list',
                 type: 'POST',
-                data: { filter: "gluten-free" },
+                data: { filter: filter },
                 success: function (data) {
                     $(".card_grid").html(data);
                 },
