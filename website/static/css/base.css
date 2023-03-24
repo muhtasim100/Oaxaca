@@ -486,6 +486,29 @@
   margin-left: 1rem;
 }
 
+.navbar-top {
+  display: flex;
+  height: min-content;
+}
+
+.notif-bell {
+  display: none;
+}
+
+.navbar.expand .notif-bell {
+  flex: auto;
+  display: flex;
+  justify-content: right;
+  position: relative;
+  top: 50%;
+  transform: translateX(-15px) translateY(-50%);
+}
+
+.navbar.expand .notif-bell img {
+  width: 30px;
+  height: 30px;
+}
+
 div.content {
   height: 100vh;
   width: 100vw;

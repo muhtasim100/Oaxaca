@@ -22,20 +22,24 @@
                 </a>
             </li>
 
-            <li class="nav-item user-profile">
-                <a href="#" class="nav-link">
-                    <img src="{{ url_for('static', filename='images/sidebar/user-icon.svg') }}" alt="user">
-                    <div class="summary-text">
-                        <div>
-                            {{ current_user.UserName }}
+            <div class="navbar-top">
+                <li class="nav-item user-profile">
+                    <a href="#" class="nav-link">
+                        <img src="{{ url_for('static', filename='images/sidebar/user-icon.svg') }}" alt="user">
+                        <div class="summary-text">
+                            <div>
+                                {{ current_user.UserName }}
+                            </div>
+                            <div class="summary-text-small">
+                                {{ current_user.Permission }}
+                            </div>
                         </div>
-                        <div class="summary-text-small">
-                            {{ current_user.Permission }}
-                        </div>
-                    </div>
-                </a>
-            </li>
-
+                    </a>
+                </li>
+                <div class="notif-bell">
+                    <img src="{{ url_for('static', filename='images/sidebar/bell.svg') }}" alt="bell">
+                </div>
+            </div>
             {% if current_user.Permission == "Customer" %}
                 <li class="nav-item">
                     <a href="{{ url_for('views.menu') }}" class="nav-link">
