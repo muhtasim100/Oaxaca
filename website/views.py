@@ -142,14 +142,16 @@ def staff():
     return render_template("staff_management.html")
 
 
-@views.route('/order_tracker')
-def order():
-    return render_template("order_tracker.html")
+@views.route('/order_tracker/<int:order_id>')
+def order(order_id):
+    order = Notification.query.filter_by(FK_OrderID=order_id).first()
+    return render_template("order_tracker.html", status=order.statusNotification)
 
 
-@views.route('/order_tracker_staff')
-def order_staff():
-    return render_template("order_tracker_staff.html")
+@views.route('/order_tracker_staff/<int:order_id>')
+def order_staff(order_id):
+    order = Notification.query.filter_by(FK_OrderID=order_id).first()
+    return render_template("order_tracker_staff.html", status=order.statusNotification)
 
 
 @views.route('/feedback')
