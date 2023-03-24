@@ -90,9 +90,12 @@
 
     <div class="content">
         <div class="helper-buttons">
-            <div class="circle-btn popup-btn" popup="basket-popup">
-                <img src="{{ url_for('static', filename='images/basket.svg') }}" alt="basket-icon">
-            </div>
+            {% if cart_products %}
+                <div class="circle-btn popup-btn" popup="basket-popup">
+                    <img src="{{ url_for('static', filename='images/basket.svg') }}" alt="basket-icon">
+                </div>
+            {% endif %}
+
             {% if popups %}
                 {% for popup, popup_type in popups.items() %}
                     <div class="circle-btn popup-btn" popup="{{ popup }}">{{ popup_type }}</div>
