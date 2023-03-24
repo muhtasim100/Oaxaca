@@ -62,34 +62,34 @@ def testing():
 
 @views.route('/base')
 def base():
-    return render_template("base.html", cart_products=cart_products())
+    return render_template("base.html", cart_products=cart_products(), notif_count=notif_count())
 
 
 @views.route('/')
 def home():
     x = db.session.query(Notification.typeNotification)
-    return render_template("home.html", x=x, cart_products=cart_products())
+    return render_template("home.html", x=x, cart_products=cart_products(), notif_count=notif_count())
 
 
 @views.route('/table')
 def tables():
     ListAll =  customer_table.query.all()
     popups = {"add-table-popup": "+", "table-popup": "?"}
-    return render_template("tables.html", res=ListAll, popups=popups, cart_products=cart_products())
+    return render_template("tables.html", res=ListAll, popups=popups, cart_products=cart_products(), notif_count=notif_count())
 
 
 @views.route('/prod')
 def product():
     ListAll = FoodItem.query.all()
     popups = {"add-dish-popup": "+", "allergy-popup": "?"}
-    return render_template("Foodeditui.html", res= ListAll, popups=popups, cart_products=cart_products())
+    return render_template("Foodeditui.html", res= ListAll, popups=popups, cart_products=cart_products(), notif_count=notif_count())
 
 
 @views.route('/menu')
 def menu():
     ListAll = FoodItem.query.all()
     popups = {"add-dish-popup": "+", "allergy-popup": "?"}
-    return render_template("menu.html", res= ListAll, popups=popups, cart_products=cart_products())
+    return render_template("menu.html", res= ListAll, popups=popups, cart_products=cart_products(), notif_count=notif_count())
 
 
 @views.route('/payment')
@@ -107,7 +107,7 @@ def payment():
     total_string = f"{cart_total:.2f}"
     total_pounds, total_pence = total_string.split(".")
 
-    return render_template("payment.html", vat=vat_string, total_pounds=total_pounds, total_pence=total_pence, cart_products=cart_products())
+    return render_template("payment.html", vat=vat_string, total_pounds=total_pounds, total_pence=total_pence, cart_products=cart_products(), notif_count=notif_count())
 
 
 @views.route('/notif')
@@ -135,12 +135,12 @@ def notification():
 
     popups = {"order-popup": "?"}
 
-    return render_template("notifcentre.html", res=ListAll, totalString=totalString, products=products, popups=popups)
+    return render_template("notifcentre.html", res=ListAll, totalString=totalString, products=products, popups=popups, notif_count=notif_count())
 
 
 @views.route('/staff')
 def staff():
-    return render_template("staff_management.html")
+    return render_template("staff_management.html", notif_count=notif_count())
 
 
 @views.route('/order_tracker/<int:order_id>')
@@ -165,7 +165,7 @@ def order_staff(order_id):
         productList.append(f"{item.Quantity}x {food.FoodName} (£{food.UnitPrice * item.Quantity:.2f})")
 
     totalString = f"£{totalPrice:.2f}"
-    return render_template("order_tracker_staff.html", order_id=order_id, status=notif.statusNotification, totalString=totalString, productList=productList)
+    return render_template("order_tracker_staff.html", order_id=order_id, status=notif.statusNotification, totalString=totalString, productList=productList, notif_count=notif_count())
 
 
 @views.route('/feedback')
@@ -184,7 +184,7 @@ def feedback():
         "FROM Reviews LEFT JOIN User ON Reviews.Fk_UserID = User.UserID " +
         "ORDER BY Reviews.timeReview DESC;")
 
-    return render_template("feedback.html", avg_stars=avg_stars, dishes_graph=dishes_graph(), reviews=reviews)
+    return render_template("feedback.html", avg_stars=avg_stars, dishes_graph=dishes_graph(), reviews=reviews, notif_count=notif_count())
 
 
 ## POST REQUESTS
@@ -270,6 +270,12 @@ def cart_products():
     total_pounds, total_pence = total_string.split(".")
 
     return render_template("cart_products.html", cart_items=cart_items, vat=vat_string, total_pounds=total_pounds, total_pence=total_pence)
+
+
+#Helper function to get number of notifications
+def notif_count():
+    return Notification.query.count()
+
 
 #Post request to get the html for the products in cart to refresh dynamically
 @views.route('/cart_products', methods=["POST"])
