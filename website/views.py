@@ -332,12 +332,12 @@ def create_order():
         food_item = FoodItem.query.filter_by(FoodID=item.Fk_FoodID).first()
         
         #Add order items to the order
-        order_item = OrderItem(FoodID=food_item.FoodID, Quantity=food_item.Quantity, OrderID=newOrder.OrderID)
+        order_item = OrderItem(FoodID=food_item.FoodID, Quantity=item.Quantity, OrderID=newOrder.OrderID)
         db.session.add(order_item)
         newOrder.items.append(order_item)
 
         #Update total price
-        total += food_item.UnitPrice * food_item.Quantity
+        total += food_item.UnitPrice * item.Quantity
 
         #Delete from cart
         db.session.delete(item)
@@ -398,7 +398,7 @@ def add_dish():
     gluten = cd[request.form.get("gluten")]
     vegan = cd[request.form.get("vegan")]
 
-    food = FoodItem(FoodName=dish_name, Quantity = 1, UnitPrice=dish_price, ItemCategory = "Main Courses", GlutenFree=gluten, ContainsMeat=meat, Vegan=vegan, Cals = 458)
+    food = FoodItem(FoodName=dish_name, UnitPrice=dish_price, ItemCategory = "Main Courses", GlutenFree=gluten, ContainsMeat=meat, Vegan=vegan, Cals = 458)
     db.session.add(food)
     db.session.commit()
 
