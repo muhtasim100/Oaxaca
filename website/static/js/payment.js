@@ -6,7 +6,7 @@ pay_btn.onclick = function () {
         type: 'POST',
         data: {},
         success: function(data) {
-            window.location.href = "/order_tracker";
+            window.location.href = "/order_tracker/" + data;
         },
         error: function(error) {
             $(".content").prepend('<div class="notification"><div class="notification-message"></div></div>');
