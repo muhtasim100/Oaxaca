@@ -359,7 +359,7 @@ def create_order():
     db.session.commit()
 
 
-    return "Success", 200
+    return str(newOrder.OrderID), 200
 
 
 # Update the order status in notification
