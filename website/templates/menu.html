@@ -84,12 +84,6 @@
                 }
             });
 
-            var menu = $("#" + $(this).attr("dropdown"));
-            menu.toggleClass("show");
-
-            menu.children(".dropdown-button").html($(this).html());
-            menu.children(".dropdown-button").attr("chosen", $(this).attr("id"));
-
             $.ajax({
                 url: '/product_list',
                 type: 'POST',
@@ -101,6 +95,12 @@
                     console.log(error);
                 }
             });
+
+            var menu = $("#" + $(this).attr("dropdown"));
+            menu.toggleClass("show");
+
+            menu.children(".dropdown-button").html($(this).html());
+            menu.children(".dropdown-button").attr("chosen", $(this).attr("id"));
         });
     </script>
 {% endblock %}
