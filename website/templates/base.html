@@ -27,58 +27,64 @@
                     <img src="{{ url_for('static', filename='images/sidebar/user-icon.svg') }}" alt="user">
                     <div class="summary-text">
                         <div>
-                            Table 2
+                            {{ current_user.UserName }}
                         </div>
                         <div class="summary-text-small">
-                            Customer
+                            {{ current_user.Permission }}
                         </div>
                     </div>
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a href="{{ url_for('views.menu') }}" class="nav-link">
-                    <img src="{{ url_for('static', filename='images/sidebar/food-menu-icon.svg') }}" alt="menu">
-                    <span class="link-text">Menu</span>
-                </a>
-            </li>
+            {% if current_user.Permission == "Customer" %}
+                <li class="nav-item">
+                    <a href="{{ url_for('views.menu') }}" class="nav-link">
+                        <img src="{{ url_for('static', filename='images/sidebar/food-menu-icon.svg') }}" alt="menu">
+                        <span class="link-text">Menu</span>
+                    </a>
+                </li>
 
-            <li class="nav-item">
-                <a href="{{ url_for('views.product') }}" class="nav-link">
-                    <img src="{{ url_for('static', filename='images/sidebar/allergies-icon.svg') }}"
-                        alt="allergies and calories">
-                    <span class="link-text">Allergies and calories</span>
-                </a>
-            </li>
+                <li class="nav-item">
+                    <a href="{{ url_for('views.product') }}" class="nav-link">
+                        <img src="{{ url_for('static', filename='images/sidebar/allergies-icon.svg') }}"
+                            alt="allergies and calories">
+                        <span class="link-text">Allergies and calories</span>
+                    </a>
+                </li>
 
-            <li class="nav-item waiterbutton">
-                <a href="#" class="nav-link">
-                    <img src="{{ url_for('static', filename='images/sidebar/waiter-icon.svg') }}" alt="call a waiter">
-                    <span class="link-text">Call a waiter</span>
-                </a>
-            </li>
+                <li class="nav-item waiterbutton">
+                    <a href="#" class="nav-link">
+                        <img src="{{ url_for('static', filename='images/sidebar/waiter-icon.svg') }}" alt="call a waiter">
+                        <span class="link-text">Call a waiter</span>
+                    </a>
+                </li>
 
-            <li class="nav-item">
-                <a href="{{ url_for('views.notification' )}}" class="nav-link">
-                    <img src="{{ url_for('static', filename='images/sidebar/checklist-icon.svg') }}" alt="ordered food">
-                    <span class="link-text">Ordered food</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a href="{{ url_for('views.payment') }}" class="nav-link">
-                    <img src="{{ url_for('static', filename='images/sidebar/payment-icon.svg') }}" alt="payment">
-                    <span class="link-text">Payment</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a href="{{ url_for('views.feedback') }}" class="nav-link">
-                    <img src="{{ url_for('static', filename='images/sidebar/material-symbols_rate-review-outline.svg') }}" alt="review">
-                    <span class="link-text">Reviews / Stats</span>
-                </a>
-            </li>
-
+                <li class="nav-item">
+                    <a href="{{ url_for('views.payment') }}" class="nav-link">
+                        <img src="{{ url_for('static', filename='images/sidebar/payment-icon.svg') }}" alt="payment">
+                        <span class="link-text">Payment</span>
+                    </a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a href="{{ url_for('views.product') }}" class="nav-link">
+                        <img src="{{ url_for('static', filename='images/sidebar/food-menu-icon.svg') }}" alt="menu">
+                        <span class="link-text">Edit Menu</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url_for('views.notification' )}}" class="nav-link">
+                        <img src="{{ url_for('static', filename='images/sidebar/checklist-icon.svg') }}" alt="ordered food">
+                        <span class="link-text">Ordered food</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url_for('views.feedback') }}" class="nav-link">
+                        <img src="{{ url_for('static', filename='images/sidebar/material-symbols_rate-review-outline.svg') }}" alt="review">
+                        <span class="link-text">Statistics</span>
+                    </a>
+                </li>
+            {% endif %}
             <li class="nav-item">
                 <a href="{{ url_for('auth.logout') }}" class="nav-link">
                     <img src="{{ url_for('static', filename='images/sidebar/ic_baseline-log-out.svg') }}" alt="logout">

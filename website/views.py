@@ -5,35 +5,33 @@ from .graphs import *
 from flask_login import current_user
 from functools import wraps
 from sqlalchemy import func
+from werkzeug.security import generate_password_hash
 
 views = Blueprint('views', __name__)
 
 @views.route('/testing')
 def testing():
     #Table
-    ListTable =  customer_table.query.all()
-
     if customer_table.query.count() != 4:
-        testTable1 = customer_table(Seats = 4, Available = 1, Fk_UserID = 1)
-        testTable2 = customer_table(Seats = 2, Available = 2, Fk_UserID = 2)
-        testTable3 = customer_table(Seats = 5, Available = 3, Fk_UserID = 4)
-        testTable4 = customer_table(Seats = 6, Available = 1, Fk_UserID = 5) 
+        testTable1 = customer_table(Seats = 4, Available = 1)
+        testTable2 = customer_table(Seats = 2, Available = 2)
+        testTable3 = customer_table(Seats = 5, Available = 3)
+        testTable4 = customer_table(Seats = 6, Available = 1) 
         db.session.add(testTable1)
         db.session.add(testTable2)
         db.session.add(testTable3)
         db.session.add(testTable4)
         db.session.commit()
 
-    #Food Items
-    ListAll = FoodItem.query.all()
 
+    #Food Items
     if FoodItem.query.count() != 6:
-        test1 = FoodItem(FoodName = "Tacos", Quantity = 1, UnitPrice = 8.99, ItemCategory = "Main Courses", GlutenFree = False, ContainsMeat = True, Vegan = False, Cals = 458)
-        test2 = FoodItem(FoodName = "Quesadillas", Quantity = 1, UnitPrice = 6.99, ItemCategory = "Main Courses", GlutenFree = True, ContainsMeat = False, Vegan = False, Cals = 378)
-        test3 = FoodItem(FoodName = "Fajita", Quantity = 1, UnitPrice = 6.99, ItemCategory = "Main Courses", GlutenFree = False, ContainsMeat = True, Vegan = False, Cals = 378)
-        test4 = FoodItem(FoodName = "Burrito", Quantity = 1, UnitPrice = 6.99, ItemCategory = "Main Courses", GlutenFree = False, ContainsMeat = False, Vegan = True, Cals = 350)
-        test5 = FoodItem(FoodName = "Pozole", Quantity = 1, UnitPrice = 6.99, ItemCategory = "Main Courses", GlutenFree = False, ContainsMeat = False, Vegan = False, Cals = 503)
-        test6 = FoodItem(FoodName = "Menudo", Quantity = 1, UnitPrice = 6.99, ItemCategory = "Main Courses", GlutenFree = False, ContainsMeat = False, Vegan = False, Cals = 500)
+        test1 = FoodItem(FoodName = "Tacos",  UnitPrice = 8.99, ItemCategory = "Main Courses", GlutenFree = False, ContainsMeat = True, Vegan = False, Cals = 458)
+        test2 = FoodItem(FoodName = "Quesadillas", UnitPrice = 6.99, ItemCategory = "Main Courses", GlutenFree = True, ContainsMeat = False, Vegan = False, Cals = 378)
+        test3 = FoodItem(FoodName = "Fajita", UnitPrice = 6.99, ItemCategory = "Main Courses", GlutenFree = False, ContainsMeat = True, Vegan = False, Cals = 378)
+        test4 = FoodItem(FoodName = "Burrito", UnitPrice = 6.99, ItemCategory = "Main Courses", GlutenFree = False, ContainsMeat = False, Vegan = True, Cals = 350)
+        test5 = FoodItem(FoodName = "Pozole", UnitPrice = 6.99, ItemCategory = "Main Courses", GlutenFree = False, ContainsMeat = False, Vegan = False, Cals = 503)
+        test6 = FoodItem(FoodName = "Menudo", UnitPrice = 6.99, ItemCategory = "Main Courses", GlutenFree = False, ContainsMeat = False, Vegan = False, Cals = 500)
         db.session.add(test1)
         db.session.add(test2)
         db.session.add(test3)
@@ -42,44 +40,21 @@ def testing():
         db.session.add(test6)
         db.session.commit()
 
-    #Order
-    if Orders.query.count() != 1:
-        total = 0
-        testOrder = Orders(Fk_UserID=1, Fk_TableID=1)
-        db.session.add(testOrder)
-        db.session.commit()
 
-        # Create order items
-        print(testOrder.OrderID)
-        item1 = OrderItem(FoodID=1, Quantity=1, OrderID = testOrder.OrderID)
-        item2 = OrderItem(FoodID=2, Quantity=1, OrderID = testOrder.OrderID)
-        db.session.add(item1)
-        db.session.add(item2)
-        db.session.commit()
+    if User.query.count() != 3:
+        new_user1 = User(UserName="Alan Alan", Email="alanalan@gmail.com",
+                         UserPassword=generate_password_hash("testing123", method='sha256'), Permission="Waiter")
+        
+        new_user2 = User(UserName="Bob Bob", Email="bobbob@gmail.com",
+                         UserPassword=generate_password_hash("testing123", method='sha256'), Permission="Chef")
+        
+        new_user3 = User(UserName="Charlie Charlie", Email="charliecharlie@gmail.com",
+                         UserPassword=generate_password_hash("testing123", method='sha256'), Permission="Owner")
+        
 
-        # Generate price 
-        allFoodOrdered = OrderItem.query.filter_by(OrderID = 1)
-        print(allFoodOrdered)
-        for i in allFoodOrdered:
-            food = FoodItem.query.filter_by(FoodID = i.FoodID).first()
-            total += food.UnitPrice * i.Quantity
-        testOrder.UnitPrice = total
-        db.session.commit()
-
-        # Add order items to the order
-        testOrder.items.append(item1)
-        testOrder.items.append(item2)
-        db.session.commit()
-
-        # Add the order to the database
-        db.session.add(testOrder)
-        db.session.commit()
-
-
-
-    if Notification.query.count() != 1:
-        test1 = Notification(statusNotification = 1, typeNotification = 2, FK_OrderID = 1, FK_UserID = current_user.UserID)
-        db.session.add(test1)
+        db.session.add(new_user1)
+        db.session.add(new_user2)
+        db.session.add(new_user3)
         db.session.commit()
 
     return("Done!")

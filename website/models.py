@@ -97,7 +97,6 @@ class FoodItem(db.Model):
     __tablename__ = 'FoodItem'
     FoodID = db.Column(db.Integer, primary_key=True)
     FoodName = db.Column(db.String(100))
-    Quantity = db.Column(db.Integer)
     UnitPrice = db.Column(db.Float(precision=8, asdecimal = True))
     ItemCategory = db.Column(db.String(100))
     GlutenFree = db.Column(db.Boolean)
