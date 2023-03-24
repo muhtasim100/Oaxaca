@@ -65,6 +65,7 @@
                 type: 'POST',
                 data: { id: $(this).attr("id") },
                 success: function (data) {
+                    reloadBasket();
                     $(".content").prepend('<div class="notification"><div class="notification-message"></div></div>');
                     $(".notification-message").html("Added to cart!");
                 },
