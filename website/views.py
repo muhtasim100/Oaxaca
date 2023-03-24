@@ -3,6 +3,7 @@ from . import db
 from .models import *
 from .graphs import *
 from flask_login import current_user
+from functools import wraps
 from sqlalchemy import func
 
 views = Blueprint('views', __name__)
@@ -92,25 +93,27 @@ def base():
 @views.route('/')
 def home():
     x = db.session.query(Notification.typeNotification)
-    return render_template("home.html", x=x)
+    return render_template("home.html", x=x, cart_products=cart_products())
 
 
 @views.route('/table')
 def tables():
     ListAll =  customer_table.query.all()
-    return render_template("tables.html", res=ListAll)
+    return render_template("tables.html", res=ListAll, cart_products=cart_products())
 
 
 @views.route('/prod')
 def product():
     ListAll = FoodItem.query.all()
-    return render_template("Foodeditui.html", res= ListAll)
+    popups = {"add-dish-popup": "+", "allergy-popup": "?"}
+    return render_template("Foodeditui.html", res= ListAll, popups=popups, cart_products=cart_products())
 
 
 @views.route('/menu')
 def menu():
     ListAll = FoodItem.query.all()
-    return render_template("menu.html", res= ListAll)
+    popups = {"add-dish-popup": "+", "allergy-popup": "?"}
+    return render_template("menu.html", res= ListAll, popups=popups, cart_products=cart_products())
 
 
 @views.route('/payment')
@@ -128,7 +131,7 @@ def payment():
     total_string = f"{cart_total:.2f}"
     total_pounds, total_pence = total_string.split(".")
 
-    return render_template("payment.html", vat=vat_string, total_pounds=total_pounds, total_pence=total_pence)
+    return render_template("payment.html", vat=vat_string, total_pounds=total_pounds, total_pence=total_pence, cart_products=cart_products())
 
 
 @views.route('/notif')
