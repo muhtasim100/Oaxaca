@@ -6,6 +6,26 @@
 {% endblock %}
 
 {% block content %}
+    <div class="table-filter dropdown-menu">
+        <div class="dropdown-button">Show All</div>
+        <div class="dropdown-content">
+            <div class="dropdown-item">
+                <img src="{{ url_for('static', filename='images/menu/mdi_gluten-free.svg') }}" alt="Gluten_Icon" />
+                <span>Gluten Free</span>
+            </div>
+            
+            <div class="dropdown-item">
+                <img src="{{ url_for('static', filename='images/menu/mdi_meat.svg') }}" alt="Meat_icon">
+                <span>Contains Meat</span>
+            </div>
+
+            <div class="dropdown-item">
+                <img src="{{ url_for('static', filename='images/menu/Group.svg') }}" alt="Vegan_Icon">
+                <span>Vegan</span>
+            </div>
+        </div>
+    </div>
+    
     <div class="card_grid">
         {% for food in res %}
             <div id="{{ food.FoodID }}" class="food_container">
