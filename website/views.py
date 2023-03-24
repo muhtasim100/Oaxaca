@@ -145,13 +145,13 @@ def staff():
 @views.route('/order_tracker/<int:order_id>')
 def order(order_id):
     order = Notification.query.filter_by(FK_OrderID=order_id).first()
-    return render_template("order_tracker.html", status=order.statusNotification)
+    return render_template("order_tracker.html", order_id=order_id, status=order.statusNotification)
 
 
 @views.route('/order_tracker_staff/<int:order_id>')
 def order_staff(order_id):
     order = Notification.query.filter_by(FK_OrderID=order_id).first()
-    return render_template("order_tracker_staff.html", status=order.statusNotification)
+    return render_template("order_tracker_staff.html", order_id=order_id, status=order.statusNotification)
 
 
 @views.route('/feedback')
@@ -325,5 +325,20 @@ def create_order():
     db.session.add(newNotif)
     db.session.commit()
 
+
+    return "Success", 200
+
+
+# Update the order status in notification
+@views.route('/update_status', methods=["POST"])
+def update_status():
+    order_id = int(request.form.get("id"))
+    order = Notification.query.filter_by(FK_OrderID=order_id).first()
+
+    order.statusNotification += 1
+    if (order.statusNotification > 3):
+        order.statusNotification -= 3
+
+    db.session.commit()
 
     return "Success", 200

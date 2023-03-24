@@ -27,6 +27,7 @@
 {% block scripts %}
     <script src="{{ url_for('static', filename='js/order_tracker_staff.js') }}"></script>
     <script>
+        var order_id = {{ order_id|safe }};
         while (currentImageIndex != {{ status|safe }} - 1) {
             $(".slider-arrow-right").click();
         }
