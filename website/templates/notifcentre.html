@@ -13,15 +13,15 @@
   <div class="action" id="n{{ notif.NotificationID }}" onclick="Open_Review(this)">
     <div class="user-img"><img src="{{ url_for('static', filename='images/User-Icon.svg') }}" alt="user"></div>
 
-    {% if notif.typeNotification == 1 %}
+    {% if notif.statusNotification == 1 %}
     <div class="light-img"><img src="{{ url_for('static', filename='images/red-light.svg') }}" alt="redlight"></div>
     {% endif %}
 
-    {% if notif.typeNotification == 2 %}
+    {% if notif.statusNotification == 2 %}
     <div class="light-img"><img src="{{ url_for('static', filename='images/yellow-light.svg') }}" alt="redlight"></div>
     {% endif %}
 
-    {% if notif.typeNotification == 3 %}
+    {% if notif.statusNotification == 3 %}
     <div class="light-img"><img src="{{ url_for('static', filename='images/green-light.svg') }}" alt="redlight"></div>
     {% endif %}
 

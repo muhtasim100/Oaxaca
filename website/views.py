@@ -157,7 +157,6 @@ def notification():
     return render_template("notifcentre.html", res=ListAll, totalString=totalString, products=products)
 
 
-
 @views.route('/staff')
 def staff():
     return render_template("staff_management.html")
@@ -165,14 +164,27 @@ def staff():
 
 @views.route('/order_tracker/<int:order_id>')
 def order(order_id):
-    order = Notification.query.filter_by(FK_OrderID=order_id).first()
-    return render_template("order_tracker.html", order_id=order_id, status=order.statusNotification)
+    notif = Notification.query.filter_by(FK_OrderID=order_id).first()
+    return render_template("order_tracker.html", order_id=order_id, status=notif.statusNotification)
 
 
 @views.route('/order_tracker_staff/<int:order_id>')
 def order_staff(order_id):
-    order = Notification.query.filter_by(FK_OrderID=order_id).first()
-    return render_template("order_tracker_staff.html", order_id=order_id, status=order.statusNotification)
+    notif = Notification.query.filter_by(FK_OrderID=order_id).first()
+    totalString = "N/A"
+    totalPrice = 0
+
+    productList = []
+    order = Orders.query.filter_by(OrderID=notif.FK_OrderID).first()
+    totalPrice = order.UnitPrice
+    order_items = OrderItem.query.filter_by(OrderID=notif.FK_OrderID)
+    for item in order_items:
+        food = FoodItem.query.filter_by(FoodID=item.FoodID).first()
+        totalPrice += food.UnitPrice * item.Quantity
+        productList.append(f"{item.Quantity}x {food.FoodName} (£{food.UnitPrice * item.Quantity:.2f})")
+
+    totalString = f"£{totalPrice:.2f}"
+    return render_template("order_tracker_staff.html", order_id=order_id, status=notif.statusNotification, totalString=totalString, productList=productList)
 
 
 @views.route('/feedback')

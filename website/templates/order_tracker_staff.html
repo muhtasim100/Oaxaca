@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 {% block head %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/order_tracker.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/order_tracker_staff.css') }}">
 <title>Oaxaca - Order Tracker</title>
 {% endblock %}
 
 {% block content %}
+    <div id="overlay" onclick="closeReview()"></div>
     <!--------------- order Section --------->
     <div class="slider-container">
         <button class="slider-arrow slider-arrow-right">&#8250;</button>
@@ -16,8 +17,29 @@
     </div>
     
     <div>
-        <button class="reviewbutton" type="submit" onclick="window.location.href='/display_order'">Display Order</button>
-
+        <button class="reviewbutton" type="submit" onclick="Open_Review()">Display Order</button>
+        <div class="fnotif_popup_container" >
+            <!-- container for feedback pop up container -->
+            <!-- Modal content -->
+            <div class="fb-content">
+                <div class="fb-header">
+                    <span class="reviews-bold">Order ID: #{{ order_id }} 
+                      <br>Price: {{ totalString }}</span>
+                </div>
+                <div class="review-textarea">
+                    <div class="review-text">
+                      {% for product in productList %}
+                        <div class="reviews-text-font">{{ product }}</div>
+                      {% endfor %}
+                    </div>
+                </div>
+                
+                <div class="review-submit">
+                    <button id="review-btn" type="button" onclick="closeReview()">Close</button>
+                </div>
+        
+            </div>
+        </div>
     </div>
 
     
@@ -30,6 +52,27 @@
         var order_id = {{ order_id|safe }};
         while (currentImageIndex != {{ status|safe }} - 1) {
             $(".slider-arrow-right").click();
+        }
+
+        function Overlay_on() {
+            document.getElementById("overlay").style.display = "block";
+        }
+        
+        function Overlay_off() {
+        document.getElementById("overlay").style.display = "none";
+        }
+    
+        function closeReview() {        
+            var popups = Array.from(document.getElementsByClassName("fnotif_popup_container"));
+            Overlay_off();
+            popups.forEach(function(popup) { 
+                popup.style.display = "none";
+            });
+        }
+    
+        function Open_Review() {
+            document.querySelector(".fnotif_popup_container").style.display = "flex";
+            Overlay_on();
         }
     </script>
 {% endblock %}
