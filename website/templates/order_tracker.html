@@ -52,4 +52,9 @@
 
 {% block scripts %}
     <script src="{{ url_for('static', filename='js/order_tracker.js') }}"></script>
+    <script>
+        while (currentIndex != ({{ status|safe }} - 1)) {
+            nextImage();
+        }
+    </script>
 {% endblock %}
