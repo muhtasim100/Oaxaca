@@ -53,6 +53,11 @@ $(".toplogo-container-parent").click(function() {
 });
 
 
+// Menu Buttons
+$(".menubutton").click(function() {
+    window.location.href = "/menu";
+});
+
 // Call Waiter Buttons
 $(".waiterbutton").click(function() {
     $.ajax({
