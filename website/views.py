@@ -386,3 +386,14 @@ def update_status():
     db.session.commit()
 
     return "Success", 200
+
+
+#MISC
+@views.route("/mockup")
+def mockup():
+    return redirect("https://www.figma.com/file/KiOG0Dcv57A8ykypouWFSA/Oaxaca?node-id=41-2&t=fdxUBKWSlkBZC2Wi-0")
+
+
+@views.route("/trello")
+def trello():
+    return redirect("https://trello.com/b/OG2F31ch/sprint-5-13-03-2023")
