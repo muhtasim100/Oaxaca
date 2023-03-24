@@ -508,9 +508,28 @@
   height: 30px;
 }
 
-
 .navbar.expand .notif-bell img:hover {
   opacity: 50%;
+}
+
+.bell-text {
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  min-width: 18px;
+  width: auto;
+  padding: 2px;
+  height: 18px;
+  font-family: "Poppins-Light", sans-serif;
+  font-size: 12px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  left: -12px;
+  top: -10px;
 }
 
 div.content {
