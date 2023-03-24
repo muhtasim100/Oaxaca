@@ -388,6 +388,13 @@ def update_status():
     return "Success", 200
 
 
+#Post request to get products in menu
+@views.route("product_list")
+def product_list():
+    filter_by = request.form.get("filter")
+    return "Success", 200
+
+
 #MISC
 @views.route("/mockup")
 def mockup():

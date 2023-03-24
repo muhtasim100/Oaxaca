@@ -71,7 +71,11 @@ $(".waiterbutton").click(function() {
 
 // Dropdown Buttons
 $(document).on("click", ".dropdown-button", function() {
-    $(this).closest(".dropdown-menu").toggleClass("show");
+    var menu = $(this).closest(".dropdown-menu");
+    menu.toggleClass("show");
+    item_span = menu.find('.dropdown-item span:contains("' + $(this).html() + '")');
+    item = item_span.parent();
+    item.css("display", "none");
 });
 
 

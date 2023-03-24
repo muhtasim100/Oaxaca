@@ -10,22 +10,26 @@
         <div class="dropdown-button">Show All</div>
         <div class="dropdown-content">
             <div class="dropdown-item">
+                <span>Show All</span>
+            </div>
+
+            <div class="dropdown-item gluten-free">
                 <img src="{{ url_for('static', filename='images/menu/mdi_gluten-free.svg') }}" alt="Gluten_Icon" />
                 <span>Gluten Free</span>
             </div>
             
-            <div class="dropdown-item">
+            <div class="dropdown-item contains-meat">
                 <img src="{{ url_for('static', filename='images/menu/mdi_meat.svg') }}" alt="Meat_icon">
                 <span>Contains Meat</span>
             </div>
 
-            <div class="dropdown-item">
+            <div class="dropdown-item vegan">
                 <img src="{{ url_for('static', filename='images/menu/Group.svg') }}" alt="Vegan_Icon">
                 <span>Vegan</span>
             </div>
         </div>
     </div>
-    
+
     <div class="card_grid">
         {% for food in res %}
             <div id="{{ food.FoodID }}" class="food_container">
@@ -63,6 +67,20 @@
                 success: function (data) {
                     $(".content").prepend('<div class="notification"><div class="notification-message"></div></div>');
                     $(".notification-message").html("Added to cart!");
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        });
+
+        $(".gluten-free").click(function () {
+            $.ajax({
+                url: '/product_list',
+                type: 'POST',
+                data: { filter: "gluten-free" },
+                success: function (data) {
+                    $(".card_grid").html(data);
                 },
                 error: function (error) {
                     console.log(error);
