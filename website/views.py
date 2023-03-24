@@ -99,7 +99,8 @@ def home():
 @views.route('/table')
 def tables():
     ListAll =  customer_table.query.all()
-    return render_template("tables.html", res=ListAll, cart_products=cart_products())
+    popups = {"add-table-popup": "+", "table-popup": "?"}
+    return render_template("tables.html", res=ListAll, popups=popups, cart_products=cart_products())
 
 
 @views.route('/prod')
