@@ -88,7 +88,7 @@ $(".popup-btn").click(function() {
             return;
         } else {
             $("#" + popup).css("opacity", "100%");
-            $(".helper-popup").css("z-index", "10");
+            $("#" + popup).css("z-index", "10");
             let left = $(this).offset().left;
             let width = $("#" + popup).width();
             let position = left - width;
@@ -159,4 +159,20 @@ $(document).on("click", ".basket-item .plus", function() {
 
 $(document).on("click", "#basket-pay-now", function() {
     window.location.href = "/payment";
+});
+
+// Add Dish Code
+$(document).on("click", "#add-dish-btn", function() {
+    $.ajax({
+        url: '/add_dish',
+        type: 'POST',
+        data: $("#add-dish-form").serialize(),
+        success: function(data) {
+            $(".content").prepend('<div class="notification"><div class="notification-message"></div></div>');
+            $(".notification-message").html("Dish has been added!");
+        },
+        error: function(error) {
+          console.log(error);
+        }
+      });
 });
