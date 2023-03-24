@@ -51,7 +51,7 @@
     <script>
         var order_id = {{ order_id|safe }};
         while (currentImageIndex != {{ status|safe }} - 1) {
-            $(".slider-arrow-right").click();
+            nextImage();
         }
 
         function Overlay_on() {
