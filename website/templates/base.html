@@ -89,18 +89,23 @@
     </nav>
 
     <div class="content">
-        {% block content %}
-            <div class="helper-buttons">
+        <div class="helper-buttons">
+            {% if cart_products %}
                 <div class="circle-btn popup-btn" popup="basket-popup">
                     <img src="{{ url_for('static', filename='images/basket.svg') }}" alt="basket-icon">
                 </div>
-                <div class="circle-btn popup-btn" popup="add-worker-popup">+</div>
-                <div class="circle-btn popup-btn" popup="add-dish-popup">+</div>
-                <div class="circle-btn popup-btn" popup="add-table-popup">+</div>
-                <div class="circle-btn popup-btn" popup="table-popup">?</div>
-                <div class="circle-btn popup-btn" popup="order-popup">?</div>
-                <div class="circle-btn popup-btn" popup="allergy-popup">?</div>
-            </div>
+            {% endif %}
+
+            {% if popups %}
+                {% for popup, popup_type in popups.items() %}
+                    <div class="circle-btn popup-btn" popup="{{ popup }}">{{ popup_type }}</div>
+                {% endfor %}
+            {% endif %}
+
+        </div>
+
+        {% block content %}
+        
         {% endblock %}
 
         <div id="table-popup" class="helper-popup">
