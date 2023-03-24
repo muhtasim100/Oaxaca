@@ -158,7 +158,9 @@ def notification():
     
     totalString = f"£{totalPrice:.2f}"
 
-    return render_template("notifcentre.html", res=ListAll, totalString=totalString, products=products)
+    popups = {"order-popup": "?"}
+
+    return render_template("notifcentre.html", res=ListAll, totalString=totalString, products=products, popups=popups)
 
 
 @views.route('/staff')
