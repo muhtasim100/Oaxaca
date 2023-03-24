@@ -242,7 +242,7 @@
           $.ajax({
             url: '/delete_review',
             type: 'POST',
-            data: {id: action.id},
+            data: {id: action.id.substring(1)},
             success: function(data) {
               $(".content").prepend('<div class="notification"><div class="notification-message"></div></div>');
               $(".notification-message").html("Review notification deleted!");
