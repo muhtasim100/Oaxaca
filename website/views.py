@@ -389,7 +389,7 @@ def update_status():
 
 
 #Post request to get products in menu
-@views.route("product_list", methods=["POST"])
+@views.route("/product_list", methods=["POST"])
 def product_list():
     ListAll = FoodItem.query.all()
     filter_by = request.form.get("filter")
@@ -406,6 +406,22 @@ def product_list():
     elif filter_by == "vegan_menu":
         return render_template("vegan_menu.html", res=ListAll), 200
 
+
+#Post request to add dish to menu
+@views.route("/add_dish", methods=["POST"])
+def add_dish():
+    cd = {"on": True, None: False}
+    dish_name = request.form.get("dish_name")
+    dish_price = float(request.form.get("dish_price"))
+    meat = cd[request.form.get("meat")]
+    gluten = cd[request.form.get("gluten")]
+    vegan = cd[request.form.get("vegan")]
+
+    food = FoodItem(FoodName=dish_name, Quantity = 1, UnitPrice=dish_price, ItemCategory = "Main Courses", GlutenFree=gluten, ContainsMeat=meat, Vegan=vegan, Cals = 458)
+    db.session.add(food)
+    db.session.commit()
+
+    return "Success", 200
 
 #MISC
 @views.route("/mockup")

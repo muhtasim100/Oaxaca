@@ -160,3 +160,19 @@ $(document).on("click", ".basket-item .plus", function() {
 $(document).on("click", "#basket-pay-now", function() {
     window.location.href = "/payment";
 });
+
+// Add Dish Code
+$(document).on("click", "#add-dish-btn", function() {
+    $.ajax({
+        url: '/add_dish',
+        type: 'POST',
+        data: $("#add-dish-form").serialize(),
+        success: function(data) {
+            $(".content").prepend('<div class="notification"><div class="notification-message"></div></div>');
+            $(".notification-message").html("Dish has been added!");
+        },
+        error: function(error) {
+          console.log(error);
+        }
+      });
+});

@@ -145,29 +145,31 @@
         <div id="add-dish-popup" class="helper-popup">
             <div class="helper-title">Add a Dish</div>
             <div class="helper-content">
-                <div class="dish-main">
-                    <div class="dish-textfields">
-                        <input id="dish_name" type="text" placeholder="Name"/>
-                        <input id="dish_price" type="text" placeholder="£ Price" />
+                <form id="add-dish-form">
+                    <div class="dish-main">
+                        <div class="dish-textfields">
+                            <input id="dish_name" name="dish_name" type="text" placeholder="Name"/>
+                            <input id="dish_price" name="dish_price" type="text" placeholder="£Price (0-9 and .)" />
+                        </div>
+                        <div class="dish-checkboxes">
+                            <label class="popup-checkbox">
+                                <img src="{{ url_for('static', filename='images/menu/mdi_meat.svg') }}" alt="Meat Icon">
+                                <span>Contains meat</span>
+                                <input name="meat" id="meat" type="checkbox">
+                            </label>
+                            <label class="popup-checkbox">
+                                <img src="{{ url_for('static', filename='images/menu/mdi_gluten-free.svg') }}" alt="Gluten Free Icon">
+                                <span>Gluten free</span>
+                                <input name="gluten" id="gluten" type="checkbox">
+                            </label>
+                            <label class="popup-checkbox">
+                                <img src="{{ url_for('static', filename='images/menu/Group.svg') }}" alt="Vegan Icon">
+                                <span>Vegan</span>
+                                <input name="vegan" id="vegan" type="checkbox">
+                            </label>
+                        </div>
                     </div>
-                    <div class="dish-checkboxes">
-                        <label class="popup-checkbox">
-                            <img src="{{ url_for('static', filename='images/menu/mdi_meat.svg') }}" alt="Meat Icon">
-                            <span>Contains meat</span>
-                            <input type="checkbox">
-                        </label>
-                        <label class="popup-checkbox">
-                            <img src="{{ url_for('static', filename='images/menu/mdi_gluten-free.svg') }}" alt="Gluten Free Icon">
-                            <span>Gluten free</span>
-                            <input type="checkbox">
-                        </label>
-                        <label class="popup-checkbox">
-                            <img src="{{ url_for('static', filename='images/menu/Group.svg') }}" alt="Vegan Icon">
-                            <span>Vegan</span>
-                            <input type="checkbox">
-                        </label>
-                    </div>
-                </div>
+                </form>
                 <div class="dish-btns">
                     <div id="add-dish-btn" class="white-button">Add dish</div>
                 </div>
