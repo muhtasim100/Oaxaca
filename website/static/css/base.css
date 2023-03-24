@@ -29,6 +29,56 @@
   src: url('../fonts/Ravager-Sans-Regular.ttf') format('truetype');
 }
 
+/* Flask Flash Messages */
+
+#flashedMessages {
+  position: absolute;
+  z-index: 9;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.flashMessage {
+  background-color: var(--bg-primary);
+  color: white;
+  font-family: "Poppins-Regular", sans-serif;
+  font-size: x-large;
+  width: auto;
+  height: auto;
+  padding: 10px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  animation-name: animatenotif;
+  animation-duration: 3s;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  opacity: 0;
+  top: -300px;
+}
+
+@-webkit-keyframes animatenotif {
+  0% {top:-300px; opacity:0} 
+  50% {top: 200px; opacity:1}
+  100% {top:-300px; opacity:0} 
+}
+
+@keyframes animatenotif {
+  0% {top:-300px; opacity:0} 
+  50% {top: 200px; opacity:1}
+  100% {top:-300px; opacity:0} 
+}
+
+
+
 /* Top of website */
 
 .toplogo-container-parent {
