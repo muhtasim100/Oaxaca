@@ -147,6 +147,11 @@ def order():
     return render_template("order_tracker.html")
 
 
+@views.route('/order_tracker_staff')
+def order_staff():
+    return render_template("order_tracker_staff.html")
+
+
 @views.route('/feedback')
 def feedback():
 

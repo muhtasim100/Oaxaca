@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/order_tracker.css') }}">
+<title>Oaxaca - Order Tracker</title>
+{% endblock %}
+
+{% block content %}
+    <!--------------- order Section --------->
+    <div class="slider-container">
+        <button class="slider-arrow slider-arrow-right">&#8250;</button>
+        <div class="slider">
+            <img src="{{ url_for('static', filename='images/tables/Vector.png') }}" alt="Vector">
+            <img src="{{ url_for('static', filename='images/tables/proorder.png') }}" alt="proorder">
+            <img src="{{ url_for('static', filename='images/tables/attable.png') }}" alt="attable">
+        </div>
+    </div>
+    
+    <div>
+        <button class="reviewbutton" type="submit" onclick="window.location.href='/display_order'">Display Order</button>
+
+    </div>
+
+    
+
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/order_tracker_staff.js') }}"></script>
+{% endblock %}

@@ -1,4 +1,53 @@
-  
+.slider-arrow {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 111px;
+}
+
+
+.slider-arrow:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.slider-arrow svg {
+  width: 20px;
+  height: 60px;
+  fill: #333;
+  margin-top: 2px;
+}
+
+
+/* CSS for slider arrow */
+.slider-arrow-right {
+  position: absolute;
+  right: 31%;
+  top: 43%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+@media only screen and (max-width: 768px) {
+  /* CSS for slider container */
+  .slider-container {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  /* CSS for slider arrow on smaller screens */
+  .slider-arrow-right {
+    right: 10px;
+  }
+}
+
+
+.slider img:not(:first-child) {
+  display: none;
+}
+
+
+
+
   /* ---order Button Section------------ */
   .image-container {
     position: relative;
