@@ -397,8 +397,3 @@ def mockup():
 @views.route("/trello")
 def trello():
     return redirect("https://trello.com/b/OG2F31ch/sprint-5-13-03-2023")
-
-
-@views.route("/404")
-def page_404():
-    return render_template("404.html")
