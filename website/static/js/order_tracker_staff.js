@@ -13,6 +13,11 @@ images[currentImageIndex].style.display = "block";
 
 // Add a click event listener to the right arrow button
 rightArrow.addEventListener("click", function () {
+  nextImage(true);
+});
+
+
+function nextImage(db=false) {
   // Hide the current image
   images[currentImageIndex].style.display = "none";
 
@@ -27,16 +32,18 @@ rightArrow.addEventListener("click", function () {
   // Show the new current image
   images[currentImageIndex].style.display = "block";
 
-  $.ajax({
-    url: '/update_status',
-    type: 'POST',
-    data: {id: order_id},
-    success: function(data) {
-      $(".content").prepend('<div class="notification"><div class="notification-message"></div></div>');
-      $(".notification-message").html("Order status changed!");
-    },
-    error: function(error) {
-      console.log(error);
-    }
-  });
-});
+  if (db) {
+    $.ajax({
+      url: '/update_status',
+      type: 'POST',
+      data: {id: order_id},
+      success: function(data) {
+        $(".content").prepend('<div class="notification"><div class="notification-message"></div></div>');
+        $(".notification-message").html("Order status changed!");
+      },
+      error: function(error) {
+        console.log(error);
+      }
+    });
+  }
+}
