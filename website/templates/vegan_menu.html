@@ -1,0 +1,14 @@
+{% for food in res %}
+    {% if food.Vegan==True %}
+        <div id="{{ food.FoodID }}" class="food_container">
+            <div class="icon">
+                <img src="{{ url_for('static', filename='images/menu/Group.svg') }}" alt="Vegan_Icon">
+            </div>
+
+            <div class="food_info">
+                <div class="food_name">{{ food.FoodName }}</div>
+                <div class="food_price">{{'%0.2f' % food.UnitPrice|float}}£</div>
+            </div>
+        </div>
+    {% endif %}
+{% endfor %}

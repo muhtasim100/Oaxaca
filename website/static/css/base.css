@@ -48,6 +48,73 @@
 }
 
 
+/* Dropdown Menu (Charles) */
+.dropdown-menu {
+  font-size: 16px;
+  white-space: nowrap;
+  width: min-content;
+  height: min-content;
+}
+
+.dropdown-button {
+  background-color: #D9D9D9;
+  border: 1px solid black;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 200px;
+  height: 75px;
+  width: auto;
+  margin-bottom: 15px;
+}
+
+.dropdown-button img {
+  margin-right: 10px;
+  height: 20px;
+  width: auto;
+}
+
+.dropdown-content {
+  background-color: #D9D9D9;
+  display: none;
+  flex-direction: column;
+  border-radius: 10px;
+  width: min-content;
+  height: min-content;
+  z-index: 1;
+}
+
+.dropdown-menu.show .dropdown-content {
+  display: flex;
+}
+
+.dropdown-item {
+  background-color: #D9D9D9;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.dropdown-button:hover, .dropdown-item:hover {
+  background-color: #a3a3a3;
+}
+
+.dropdown-item img {
+  height: 20px;
+  width: auto;
+  margin-right: 10px;
+}
+
+
+/* Table Dropdown */
+#table-filter {
+  margin-bottom: 50px;
+}
+
 /* Helper Buttons + Popup */
 
 .helper-buttons {

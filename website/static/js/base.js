@@ -69,6 +69,14 @@ $(".waiterbutton").click(function() {
       });
 });
 
+// Dropdown Buttons
+$(document).on("click", ".dropdown-button", function() {
+    var menu = $(this).closest(".dropdown-menu");
+    menu.toggleClass("show");
+    menu.find(".dropdown-item").css("display", "flex");
+    menu.find(".dropdown-item#" + $(this).attr("chosen")).css("display", "none");
+});
+
 
 // Helper Buttons
 $(".popup-btn").click(function() {

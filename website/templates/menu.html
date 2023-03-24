@@ -6,6 +6,30 @@
 {% endblock %}
 
 {% block content %}
+    <div id="table-filter" class="dropdown-menu">
+        <div class="dropdown-button" chosen="i1">Show All</div>
+        <div class="dropdown-content">
+            <div id="i1" class="dropdown-item show_all" dropdown="table-filter">
+                <span>Show All</span>
+            </div>
+
+            <div id="i2" class="dropdown-item gluten_menu" dropdown="table-filter">
+                <img src="{{ url_for('static', filename='images/menu/mdi_gluten-free.svg') }}" alt="Gluten_Icon" />
+                <span>Gluten Free</span>
+            </div>
+            
+            <div id="i3" class="dropdown-item meat_menu" dropdown="table-filter">
+                <img src="{{ url_for('static', filename='images/menu/mdi_meat.svg') }}" alt="Meat_icon">
+                <span>Contains Meat</span>
+            </div>
+
+            <div id="i4" class="dropdown-item vegan_menu" dropdown="table-filter">
+                <img src="{{ url_for('static', filename='images/menu/Group.svg') }}" alt="Vegan_Icon">
+                <span>Vegan</span>
+            </div>
+        </div>
+    </div>
+
     <div class="card_grid">
         {% for food in res %}
             <div id="{{ food.FoodID }}" class="food_container">
@@ -48,6 +72,35 @@
                     console.log(error);
                 }
             });
+        });
+
+        $(document).on("click", ".dropdown-item", function() {
+            var classList = Array.from($(this).attr("class").split(" "));
+            var filter = "";
+            classList.forEach(function(className) {
+                if (className != "dropdown-item") {
+                    filter = className;
+                    return;
+                }
+            });
+
+            $.ajax({
+                url: '/product_list',
+                type: 'POST',
+                data: { filter: filter },
+                success: function (data) {
+                    $(".card_grid").html(data);
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+
+            var menu = $("#" + $(this).attr("dropdown"));
+            menu.toggleClass("show");
+
+            menu.children(".dropdown-button").html($(this).html());
+            menu.children(".dropdown-button").attr("chosen", $(this).attr("id"));
         });
     </script>
 {% endblock %}

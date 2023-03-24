@@ -388,6 +388,25 @@ def update_status():
     return "Success", 200
 
 
+#Post request to get products in menu
+@views.route("product_list", methods=["POST"])
+def product_list():
+    ListAll = FoodItem.query.all()
+    filter_by = request.form.get("filter")
+
+    if filter_by == "show_all":
+        return render_template("all_menu.html", res=ListAll), 200
+    
+    elif filter_by == "gluten_menu":
+        return render_template("gluten_menu.html", res=ListAll), 200
+    
+    elif filter_by == "meat_menu":
+        return render_template("meat_menu.html", res=ListAll), 200
+
+    elif filter_by == "vegan_menu":
+        return render_template("vegan_menu.html", res=ListAll), 200
+
+
 #MISC
 @views.route("/mockup")
 def mockup():
