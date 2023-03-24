@@ -1,4 +1,5 @@
 from flask import Blueprint, redirect, render_template, request, session, url_for, flash
+from flask_login import login_required
 from . import db
 from .models import *
 from .graphs import *
@@ -66,12 +67,14 @@ def base():
 
 
 @views.route('/')
+@login_required
 def home():
     x = db.session.query(Notification.typeNotification)
     return render_template("home.html", x=x, cart_products=cart_products())
 
 
 @views.route('/table')
+@login_required
 def tables():
     ListAll =  customer_table.query.all()
     popups = {"add-table-popup": "+", "table-popup": "?"}
@@ -79,6 +82,7 @@ def tables():
 
 
 @views.route('/prod')
+@login_required
 def product():
     ListAll = FoodItem.query.all()
     popups = {"add-dish-popup": "+", "allergy-popup": "?"}
@@ -86,6 +90,7 @@ def product():
 
 
 @views.route('/menu')
+@login_required
 def menu():
     ListAll = FoodItem.query.all()
     popups = {"add-dish-popup": "+", "allergy-popup": "?"}
@@ -93,6 +98,7 @@ def menu():
 
 
 @views.route('/payment')
+@login_required
 def payment():
     cart = Cart.query.filter_by(Fk_UserID=current_user.UserID)
     cart_total = 0
@@ -111,6 +117,7 @@ def payment():
 
 
 @views.route('/notif')
+@login_required
 def notification():
     # OrderID, Total Price
     # Individual products: name, quantity, price
@@ -139,17 +146,20 @@ def notification():
 
 
 @views.route('/staff')
+@login_required
 def staff():
     return render_template("staff_management.html")
 
 
 @views.route('/order_tracker/<int:order_id>')
+@login_required
 def order(order_id):
     notif = Notification.query.filter_by(FK_OrderID=order_id).first()
     return render_template("order_tracker.html", order_id=order_id, status=notif.statusNotification)
 
 
 @views.route('/order_tracker_staff/<int:order_id>')
+@login_required
 def order_staff(order_id):
     notif = Notification.query.filter_by(FK_OrderID=order_id).first()
     totalString = "N/A"
@@ -169,6 +179,7 @@ def order_staff(order_id):
 
 
 @views.route('/feedback')
+@login_required
 def feedback():
 
     # Average Star Review
@@ -191,6 +202,7 @@ def feedback():
 
 #POST REQUEST FOR STORING REVIEW
 @views.route('/review_store', methods=["POST"])
+@login_required
 def review_store():
     stars = request.form.get("stars")
     review = request.form.get("review")
@@ -203,6 +215,7 @@ def review_store():
 
 #POST REQUEST FOR ADDING A TABLE
 @views.route("/add_table", methods=["POST"])
+@login_required
 def add_table():
   seats = int(request.form.get("seats"))
   NewTable = customer_table(Seats = seats, Available = 1) 
@@ -213,6 +226,7 @@ def add_table():
 
 #POST REQUEST FOR DELETING PRODUCT FROM DB
 @views.route('/delete_product', methods=["POST"])
+@login_required
 def delete_product():
     food_id = int(request.form.get("id"))
     food = FoodItem.query.filter_by(FoodID=food_id).first()
@@ -223,6 +237,7 @@ def delete_product():
 
 #POST REQUEST FOR CALLING WAITER
 @views.route('/call_waiter', methods=["POST"])
+@login_required
 def call_waiter():
     notif = Notification(statusNotification = 1, typeNotification = 2, FK_UserID = current_user.UserID)
     db.session.add(notif)
@@ -232,6 +247,7 @@ def call_waiter():
 
 #POST REQUEST FOR DELETING NOTIFICATION FROM DB
 @views.route('/delete_notif', methods=["POST"])
+@login_required
 def delete_notif():
     NotifID = int(request.form.get("id"))
     notification = Notification.query.filter_by(NotificationID=NotifID).first()
@@ -243,6 +259,7 @@ def delete_notif():
 
 #POST REQUEST FOR DELETING NOTIFICATION FROM DB
 @views.route('/delete_review', methods=["POST"])
+@login_required
 def delete_review():
     RevID = int(request.form.get("id"))
     rev = Reviews.query.filter_by(reviewID=RevID).first()
@@ -273,12 +290,14 @@ def cart_products():
 
 #Post request to get the html for the products in cart to refresh dynamically
 @views.route('/cart_products', methods=["POST"])
+@login_required
 def cart_products_post():
     return cart_products(), 200
 
 
 # For the food items on menu to add to cart
 @views.route('/add_cart', methods=["POST"])
+@login_required
 def add_cart():
     food_id = int(request.form.get("id"))
     cart = Cart.query.filter_by(Fk_FoodID=food_id, Fk_UserID=current_user.UserID).first()
@@ -294,6 +313,7 @@ def add_cart():
 
 # For the plus button on basket to increase quantity
 @views.route('/add_cart_quantity', methods=["POST"])
+@login_required
 def add_cart_quantity():
     cart_id = int(request.form.get("id"))
     cart = Cart.query.filter_by(cartID=cart_id).first()
@@ -305,6 +325,7 @@ def add_cart_quantity():
 
 # For the minus button on basket to reduce quantity
 @views.route('/minus_cart_quantity', methods=["POST"])
+@login_required
 def remove_cart_quantity():
     cart_id = int(request.form.get("id"))
     cart = Cart.query.filter_by(cartID=cart_id).first()
@@ -321,6 +342,7 @@ def remove_cart_quantity():
 
 #Creating order after payment
 @views.route('/create_order', methods=["POST"])
+@login_required
 def create_order():
     total = 0
     newOrder = Orders(Fk_UserID=current_user.UserID, Fk_TableID=current_user.Fk_Table_ID)
@@ -356,6 +378,7 @@ def create_order():
 
 # Update the order status in notification
 @views.route('/update_status', methods=["POST"])
+@login_required
 def update_status():
     order_id = int(request.form.get("id"))
     order = Notification.query.filter_by(FK_OrderID=order_id).first()
@@ -371,6 +394,7 @@ def update_status():
 
 #Post request to get products in menu
 @views.route("/product_list", methods=["POST"])
+@login_required
 def product_list():
     ListAll = FoodItem.query.all()
     filter_by = request.form.get("filter")
@@ -390,6 +414,7 @@ def product_list():
 
 #Post request to add dish to menu
 @views.route("/add_dish", methods=["POST"])
+@login_required
 def add_dish():
     cd = {"on": True, None: False}
     dish_name = request.form.get("dish_name")
