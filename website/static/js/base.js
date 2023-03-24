@@ -88,7 +88,7 @@ $(".popup-btn").click(function() {
             return;
         } else {
             $("#" + popup).css("opacity", "100%");
-            $(".helper-popup").css("z-index", "10");
+            $("#" + popup).css("z-index", "10");
             let left = $(this).offset().left;
             let width = $("#" + popup).width();
             let position = left - width;
